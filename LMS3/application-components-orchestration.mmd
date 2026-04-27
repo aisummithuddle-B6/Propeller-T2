@@ -1,0 +1,60 @@
+sequenceDiagram
+    autonumber
+    actor User as Business User
+    participant Frontend as React SPA Frontend
+    participant Api as ASP.NET Core API
+    participant LearnerController as Learners Controller
+    participant IngestionController as Data Ingestion Controller
+    participant AppServices as Application Services
+    participant Domain as Domain Model and Rules
+    participant Infrastructure as Infrastructure Services
+    participant Db as SQL Server / PostgreSQL
+    participant Worker as Background Worker
+    participant External as External LMS / HR / Assessment Systems
+    participant Audit as Audit and Health Checks
+
+    rect rgb(231, 242, 253)
+        User->>Frontend: Open dashboard or module link
+        Frontend->>Api: HTTP request to API endpoint
+        Api->>LearnerController: Route learner, dashboard, or intervention request
+        LearnerController->>AppServices: Call learner profile service
+        AppServices->>Infrastructure: Query persisted learner data
+        Infrastructure->>Db: Read employees, attendance, assessments, risks
+        Db-->>Infrastructure: Return records
+        Infrastructure-->>AppServices: Return aggregated data
+        AppServices->>Domain: Apply profile, risk, and intervention rules
+        Domain-->>AppServices: Return business result
+        AppServices-->>LearnerController: Return DTO response
+        LearnerController-->>Api: HTTP 200 response
+        Api-->>Frontend: JSON payload
+        Frontend-->>User: Render learner progress, risk, and actions
+    end
+
+    rect rgb(232, 245, 233)
+        External->>Api: Submit attendance, assessment, employee, or notes data
+        Api->>IngestionController: Route ingestion request
+        IngestionController->>AppServices: Start import and validation workflow
+        AppServices->>Domain: Validate source, duplicates, required fields, and status
+        Domain-->>AppServices: Return accepted records, errors, and reconciliation issues
+        AppServices->>Infrastructure: Persist import batch, records, errors, and issues
+        Infrastructure->>Db: Save ingestion results in one unit of work
+        Db-->>Infrastructure: Commit completed
+        Infrastructure-->>AppServices: Return ingestion status
+        AppServices->>Audit: Record import outcome and operational event
+        AppServices-->>IngestionController: Return ingestion result DTO
+        IngestionController-->>Api: HTTP response
+        Api-->>External: Import accepted, failed, or partially accepted
+    end
+
+    rect rgb(255, 248, 225)
+        Worker->>AppServices: Run scheduled risk/reporting job
+        AppServices->>Infrastructure: Load latest learner and compliance data
+        Infrastructure->>Db: Read operational data
+        Db-->>Infrastructure: Return data set
+        Infrastructure-->>AppServices: Return data set
+        AppServices->>Domain: Recalculate risk, compliance, and intervention status
+        Domain-->>AppServices: Return updated decisions
+        AppServices->>Infrastructure: Persist snapshots, audit entries, and notifications
+        Infrastructure->>Db: Save updates
+        AppServices->>Audit: Publish health, audit, and job outcome signals
+    end

@@ -1,0 +1,56 @@
+graph TB
+    subgraph "N-Tier Layered Architecture"
+        Client["Client Layer<br/>(Web/Mobile UI)"]
+        API["API Gateway"]
+        
+        subgraph BLL["Business Logic Layer"]
+            Auth["Authentication Service"]
+            Learning["Learning Profile Service"]
+            Risk["Risk Assessment Service"]
+            Intervention["Intervention Service"]
+            Reporting["Reporting Service"]
+        end
+        
+        subgraph DAL["Data Access Layer"]
+            StudentRepo["Student Repository"]
+            AssessmentRepo["Assessment Repository"]
+            CourseRepo["Course Repository"]
+            RulesRepo["Rules Repository"]
+        end
+        
+        subgraph DB["Data Layer"]
+            StudentDB["Student DB<br/>(PostgreSQL)"]
+            AssessmentDB["Assessment DB<br/>(PostgreSQL)"]
+            RulesDB["Rules DB<br/>(PostgreSQL)"]
+            Cache["Redis Cache"]
+        end
+        
+        Client --> API
+        API --> Auth
+        API --> Learning
+        API --> Risk
+        API --> Intervention
+        API --> Reporting
+        
+        Auth --> StudentRepo
+        Learning --> StudentRepo
+        Learning --> AssessmentRepo
+        Risk --> AssessmentRepo
+        Risk --> RulesRepo
+        Intervention --> StudentRepo
+        Reporting --> StudentDB
+        
+        StudentRepo --> StudentDB
+        StudentRepo --> Cache
+        AssessmentRepo --> AssessmentDB
+        AssessmentRepo --> Cache
+        RulesRepo --> RulesDB
+        RulesRepo --> Cache
+    end
+    
+    style Client fill:#e1f5ff
+    style API fill:#fff3e0
+    style BLL fill:#f3e5f5
+    style DAL fill:#e8f5e9
+    style DB fill:#fce4ec
+    style Cache fill:#fff9c4

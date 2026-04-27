@@ -1,0 +1,68 @@
+
+graph TD
+    subgraph Public_Internet [Public Internet]
+        Users((Users: Learners/Admins))
+    end
+
+    subgraph Cloud_Provider [Cloud Platform - e.g., AWS/Azure/GCP]
+        
+        subgraph Edge_Layer [Edge & Security Layer]
+            WAF[Web Application Firewall]
+            CDN[CDN - Static Assets]
+            LB[Elastic Load Balancer]
+        end
+
+        subgraph K8S_Cluster [Kubernetes Cluster - EKS/AKS/GKE]
+            direction TB
+            subgraph Web_Tier [Web Tier]
+                FE_Pods[Frontend Pods - React]
+            end
+            
+            subgraph Service_Tier [Microservices Tier]
+                API_GW[API Gateway Pods]
+                Auth_Pods[Auth/RBAC Pods]
+                Core_Pods[Core Logic Pods]
+                AI_Pods[AI Research Pods]
+                Gami_Pods[Gamification Pods]
+                ETL_Pods[Migration/ETL Pods]
+            end
+        end
+
+        subgraph Data_Persistence [Data Persistence Layer - Multi-AZ]
+            RDS[(Managed SQL - PostgreSQL)]
+            DocDB[(Managed NoSQL - MongoDB)]
+            ElastiCache[(Managed Redis)]
+            S3[(Object Storage - Resumes/Labs)]
+        end
+        
+        subgraph External_Connectivity [Connectivity]
+            VPN[Site-to-Site VPN / Direct Connect]
+        end
+    end
+
+    subgraph Corporate_Network [Corporate Infrastructure]
+        HRMS_Server[Legacy HRMS / ERP]
+    end
+
+    %% Flow
+    Users --> WAF
+    WAF --> CDN
+    WAF --> LB
+    LB --> FE_Pods
+    FE_Pods --> API_GW
+    API_GW --> Auth_Pods
+    API_GW --> Core_Pods
+    API_GW --> AI_Pods
+    API_GW --> Gami_Pods
+    API_GW --> ETL_Pods
+
+    %% Service to Data
+    Core_Pods --> RDS
+    AI_Pods --> DocDB
+    Gami_Pods --> ElastiCache
+    ETL_Pods --> RDS
+    Core_Pods --> S3
+
+    %% Corporate Sync
+    ETL_Pods --- VPN
+    VPN --- HRMS_Server

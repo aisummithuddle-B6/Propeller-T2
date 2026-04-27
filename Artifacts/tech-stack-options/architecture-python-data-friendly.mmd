@@ -1,0 +1,87 @@
+flowchart LR
+    learner[Employee Learner]
+    trainer[Trainer]
+    manager[Manager]
+    admin[L&D Administrator]
+    compliance[Compliance Officer]
+
+    subgraph frontend [React Frontend]
+        dashboardUi[Dashboard UI]
+        profileUi[Learner Profile UI]
+        rulesUi[Risk Rules UI]
+        interventionUi[Intervention UI]
+        reportsUi[Reports UI]
+    end
+
+    subgraph api [FastAPI Backend]
+        auth[Auth and RBAC]
+        pydantic[Pydantic Validation]
+        learnerApi[Learner APIs]
+        ingestionApi[Ingestion APIs]
+        rulesApi[Risk Rules APIs]
+        interventionApi[Intervention APIs]
+        reportingApi[Reporting APIs]
+    end
+
+    subgraph dataProcessing [Python Data and Worker Layer]
+        celery[Celery or RQ Workers]
+        importWorker[Import Worker]
+        riskWorker[Risk Scoring Worker]
+        reportWorker[Report Worker]
+        analyticsWorker[Analytics Worker]
+    end
+
+    lms[External LMS]
+    assessments[Assessment System]
+    hr[HR System]
+    notes[Trainer Notes]
+
+    postgres[(PostgreSQL)]
+    redis[(Redis Queue and Cache)]
+    objectStorage[(Object Storage)]
+    warehouse[(Optional Analytics Warehouse)]
+    identity[Entra ID Auth0 or Keycloak]
+    observability[OpenTelemetry Logs Metrics]
+
+    learner --> frontend
+    trainer --> frontend
+    manager --> frontend
+    admin --> frontend
+    compliance --> frontend
+
+    frontend --> learnerApi
+    frontend --> rulesApi
+    frontend --> interventionApi
+    frontend --> reportingApi
+
+    auth --> identity
+    learnerApi --> auth
+    rulesApi --> auth
+    interventionApi --> auth
+    reportingApi --> auth
+
+    lms --> ingestionApi
+    assessments --> ingestionApi
+    hr --> ingestionApi
+    notes --> ingestionApi
+
+    ingestionApi --> pydantic
+    pydantic --> postgres
+    ingestionApi --> redis
+    rulesApi --> redis
+    reportingApi --> redis
+
+    redis --> celery
+    celery --> importWorker
+    celery --> riskWorker
+    celery --> reportWorker
+    celery --> analyticsWorker
+
+    importWorker --> postgres
+    riskWorker --> postgres
+    reportWorker --> postgres
+    reportWorker --> objectStorage
+    analyticsWorker --> warehouse
+
+    api --> observability
+    dataProcessing --> observability

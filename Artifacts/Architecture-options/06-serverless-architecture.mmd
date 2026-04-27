@@ -1,0 +1,53 @@
+graph TB
+    subgraph "Serverless Architecture"
+        Client["📱 Client Applications<br/>(Web/Mobile)"]
+        APIGateway["🚪 API Gateway<br/>(AWS/Azure Managed)"]
+        
+        subgraph Functions["⚡ Serverless Functions<br/>(Auto-scaling, Pay-per-use)"]
+            AuthFunc["🔐 Auth Function<br/>(JWT Validation)"]
+            ProfileFunc["👤 Profile Aggregation<br/>Function"]
+            RiskFunc["⚠️ Risk Detection<br/>Function"]
+            ReportFunc["📄 Report Generation<br/>Function"]
+            NotificationFunc["📲 Notification<br/>Function"]
+        end
+        
+        subgraph Events["📨 Event Sources & Triggers"]
+            LMSWebhook["📚 LMS Webhook<br/>(Attendance Data)"]
+            AssessmentWebhook["📊 Assessment Webhook<br/>(Score Data)"]
+            Scheduler["⏰ Scheduled Events<br/>(CloudWatch/Timer)"]
+        end
+        
+        subgraph Managed["☁️ Managed Services<br/>(No Server Management)"]
+            DynamoDB["💾 NoSQL DB<br/>(DynamoDB/CosmosDB)"]
+            S3["🗂️ File Storage<br/>(S3/Blob Storage)"]
+            SNS["📬 Messaging<br/>(SNS/Service Bus)"]
+            Cognito["🔒 Auth Service<br/>(Cognito/AD)"]
+        end
+        
+        Client --> APIGateway
+        APIGateway --> AuthFunc
+        APIGateway --> ProfileFunc
+        APIGateway --> RiskFunc
+        APIGateway --> ReportFunc
+        
+        LMSWebhook --> RiskFunc
+        AssessmentWebhook --> RiskFunc
+        Scheduler --> RiskFunc
+        Scheduler --> ProfileFunc
+        Scheduler --> ReportFunc
+        
+        AuthFunc --> Cognito
+        AuthFunc --> DynamoDB
+        ProfileFunc --> DynamoDB
+        RiskFunc --> DynamoDB
+        ReportFunc --> S3
+        
+        RiskFunc --> SNS
+        NotificationFunc --> SNS
+        SNS --> Client
+    end
+    
+    style APIGateway fill:#fff3e0
+    style Functions fill:#f3e5f5
+    style Events fill:#e0f2f1
+    style Managed fill:#fce4ec

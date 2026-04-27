@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 986.363 1347.5" width="946.363" height="1307.5" style="--bg:#FFFFFF;--fg:#27272A;background:var(--bg)"><rect x="-20" y="-20" width="986.363" height="1347.5" rx="10" ry="10" fill="#ffffff" stroke="#cccccc" stroke-width="1"/><g transform="translate(0,0)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="CQRS__Event_Sourcing_Architecture" data-label="CQRS + Event Sourcing Architecture">
+  <rect x="40" y="40" width="866.363" height="1227.5" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="40" y="40" width="866.363" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="52" y="54" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">CQRS + Event Sourcing Architecture</text>
+<g class="subgraph" data-id="CommandSide" data-label="Command Side (Write)">
+  <rect x="373.29295833333333" y="84" width="228.078" height="385.4" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="373.29295833333333" y="84" width="228.078" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="385.29295833333333" y="98" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Command Side (Write)</text>
+</g>
+<g class="subgraph" data-id="EventStore" data-label="Event Store (Single Source of Truth)">
+  <rect x="272.6231250000001" y="529.4" width="319.4853333333333" height="215.60000000000002" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="272.6231250000001" y="529.4" width="319.4853333333333" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="284.6231250000001" y="543.4" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Event Store (Single Source of Truth)</text>
+</g>
+<g class="subgraph" data-id="QuerySide" data-label="Query Side (Read)">
+  <rect x="56" y="961.9" width="834.363" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="56" y="961.9" width="834.363" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="68" y="975.9" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Query Side (Read)</text>
+</g>
+<g class="subgraph" data-id="Projections" data-label="Read Model Projections">
+  <rect x="84.52850000000012" y="805" width="802.5" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="84.52850000000012" y="805" width="802.5" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="96.52850000000012" y="819" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Read Model Projections</text>
+</g>
+</g>
+<polyline class="edge" data-from="EventBus" data-to="ImmutableLog" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="447.3319583333333,413.4 447.3319583333333,533.4" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ImmutableLog" data-to="StudentProjector" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="487.3319583333334,627.1999999999999 487.3319583333334,651.2 395.22850000000005,651.2 395.22850000000005,849" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ImmutableLog" data-to="RiskProjector" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="487.3319583333334,627.1999999999999 487.3319583333334,651.2 580.0335000000001,651.2 580.0335000000001,849" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ImmutableLog" data-to="InterventionProjector" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="487.3319583333334,627.1999999999999 487.3319583333334,651.2 777.4355000000002,651.2 777.4355000000002,849" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ImmutableLog" data-to="ComplianceProjector" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="487.3319583333334,627.1999999999999 487.3319583333334,651.2 193.3805000000001,651.2 193.3805000000001,849" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="StudentProjector" data-to="ReadDB1" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="355.2285000000001,845.9 355.2285000000001,879.9 331.51649999999995,879.9 331.5165,965.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RiskProjector" data-to="ReadDB2" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="540.0335,845.9 540.0335000000001,879.9 527.066,879.9 527.066,965.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="InterventionProjector" data-to="ReadDB3" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="737.4355,845.9 737.4355,965.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ComplianceProjector" data-to="ReadDB4" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="153.3805000000001,845.9 153.3805000000001,879.9 126.70449999999997,879.9 126.70449999999998,965.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ReadDB1" data-to="Query" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="371.5165,1042.8 371.5165,1077.8 528.86825,1077.8 528.86825,1112.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ReadDB2" data-to="Query" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="567.066,1042.8 567.066,1077.8 528.86825,1077.8 528.86825,1112.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ReadDB3" data-to="Query" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="777.4355,1042.8 777.4355,1077.8 528.86825,1077.8 528.86825,1112.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ReadDB4" data-to="Query" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="166.7045,1042.8 166.7045,1077.8 528.86825,1077.8 528.86825,1112.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Query" data-to="Clients" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="528.86825,1166.6 528.86825,1214.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Client" data-to="CommandHandler" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="487.3319583333333,181.8 487.3319583333333,229.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CommandHandler" data-to="AggregateRepo" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="487.3319583333333,283.6 487.3319583333333,331.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="AggregateRepo" data-to="EventBus" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="487.3319583333333,368.5 487.3319583333333,416.5" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="ImmutableLog" data-to="Snapshots" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="487.3319583333334,627.1999999999999 487.3319583333334,651.2 387.77362500000004,651.2 387.77362500000004,675.2" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="node" data-id="Query" data-label="📖 Query API
+(Fast Read)" data-shape="rectangle">
+  <rect x="469.36125000000004" y="1112.8" width="119.014" height="53.800000000000004" rx="0" ry="0" fill="#c8e6c9" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="528.86825" y="1139.7" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="528.86825" dy="-3.9000000000000012">📖 Query API</tspan><tspan x="528.86825" dy="16.900000000000002">(Fast Read)</tspan></text>
+</g>
+<g class="node" data-id="Clients" data-label="📱 Client Applications" data-shape="rectangle">
+  <rect x="445.64925000000005" y="1214.6" width="166.438" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="528.86825" y="1233.05" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">📱 Client Applications</text>
+</g>
+<g class="node" data-id="Client" data-label="💻 Client Commands
+(API)" data-shape="rectangle">
+  <rect x="408.55895833333335" y="128" width="157.546" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="487.3319583333333" y="154.9" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="487.3319583333333" dy="-3.9000000000000012">💻 Client Commands</tspan><tspan x="487.3319583333333" dy="16.900000000000002">(API)</tspan></text>
+</g>
+<g class="node" data-id="CommandHandler" data-label="✍️ Command Handler
+(Validates &amp; Executes)" data-shape="rectangle">
+  <rect x="401.1489583333333" y="229.8" width="172.36599999999999" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="487.3319583333333" y="256.7" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="487.3319583333333" dy="-3.9000000000000012">✍️ Command Handler</tspan><tspan x="487.3319583333333" dy="16.900000000000002">(Validates &amp; Executes)</tspan></text>
+</g>
+<g class="node" data-id="AggregateRepo" data-label="🗂️ Aggregate Repository" data-shape="rectangle">
+  <rect x="389.29295833333333" y="331.6" width="196.078" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="487.3319583333333" y="350.05" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">🗂️ Aggregate Repository</text>
+</g>
+<g class="node" data-id="EventBus" data-label="🔔 Event Bus" data-shape="rectangle">
+  <rect x="427.8249583333333" y="416.5" width="119.01400000000001" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="487.3319583333333" y="434.95" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">🔔 Event Bus</text>
+</g>
+<g class="node" data-id="ImmutableLog" data-label="📜 Immutable Event Log
+(Complete History)" data-shape="rectangle">
+  <rect x="398.5554583333334" y="573.4" width="177.55299999999997" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="487.3319583333334" y="600.3" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="487.3319583333334" dy="-3.9000000000000012">📜 Immutable Event Log</tspan><tspan x="487.3319583333334" dy="16.900000000000002">(Complete History)</tspan></text>
+</g>
+<g class="node" data-id="Snapshots" data-label="📸 Snapshots
+(Performance Optimization)" data-shape="rectangle">
+  <rect x="288.6231250000001" y="675.2" width="198.30099999999996" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="387.77362500000004" y="702.1" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="387.77362500000004" dy="-3.9000000000000012">📸 Snapshots</tspan><tspan x="387.77362500000004" dy="16.900000000000002">(Performance Optimization)</tspan></text>
+</g>
+<g class="node" data-id="ReadDB1" data-label="👤 Student Profile DB" data-shape="rectangle">
+  <rect x="289.409" y="1005.9" width="164.21500000000003" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="371.5165" y="1024.35" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">👤 Student Profile DB</text>
+</g>
+<g class="node" data-id="ReadDB2" data-label="⚠️ At-Risk Report DB" data-shape="rectangle">
+  <rect x="481.624" y="1005.9" width="170.884" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="567.066" y="1024.35" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">⚠️ At-Risk Report DB</text>
+</g>
+<g class="node" data-id="ReadDB3" data-label="🎯 Intervention History DB" data-shape="rectangle">
+  <rect x="680.508" y="1005.9" width="193.855" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="777.4355" y="1024.35" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">🎯 Intervention History DB</text>
+</g>
+<g class="node" data-id="ReadDB4" data-label="✅ Compliance Report DB" data-shape="rectangle">
+  <rect x="72" y="1005.9" width="189.40899999999996" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="166.7045" y="1024.35" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">✅ Compliance Report DB</text>
+</g>
+<g class="node" data-id="StudentProjector" data-label="👤 Student Projector" data-shape="rectangle">
+  <rect x="314.2325000000001" y="849" width="161.99200000000002" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="395.22850000000005" y="867.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">👤 Student Projector</text>
+</g>
+<g class="node" data-id="RiskProjector" data-label="⚠️ Risk Projector" data-shape="rectangle">
+  <rect x="504.2245000000001" y="849" width="151.618" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="580.0335000000001" y="867.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">⚠️ Risk Projector</text>
+</g>
+<g class="node" data-id="InterventionProjector" data-label="🎯 Intervention Projector" data-shape="rectangle">
+  <rect x="683.8425000000002" y="849" width="187.18599999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="777.4355000000002" y="867.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">🎯 Intervention Projector</text>
+</g>
+<g class="node" data-id="ComplianceProjector" data-label="✅ Compliance Projector" data-shape="rectangle">
+  <rect x="100.52850000000012" y="849" width="185.70399999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="193.3805000000001" y="867.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">✅ Compliance Projector</text>
+</g>
+</g></svg>

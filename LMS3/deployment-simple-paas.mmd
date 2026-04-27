@@ -1,0 +1,39 @@
+flowchart LR
+    users[Users]
+    identity[Managed Identity Provider]
+    cdn[CDN or Static Web Hosting]
+    webApp[Frontend Web App]
+    apiApp[Managed API App Service]
+    workerApp[Background Worker or Scheduled Job]
+
+    postgres[(Managed PostgreSQL)]
+    redis[(Managed Redis Optional)]
+    objectStorage[(Object Storage)]
+    secrets[Managed Secrets Store]
+    monitoring[Managed Logs and Metrics]
+    externalSystems[External LMS Assessment HR Systems]
+    emailProvider[Email Notifications]
+    cicd[CI/CD Pipeline]
+
+    users --> cdn
+    cdn --> webApp
+    webApp --> identity
+    webApp --> apiApp
+
+    externalSystems --> workerApp
+    apiApp --> postgres
+    apiApp --> redis
+    apiApp --> objectStorage
+    apiApp --> secrets
+    apiApp --> workerApp
+
+    workerApp --> postgres
+    workerApp --> objectStorage
+    workerApp --> emailProvider
+
+    cicd --> webApp
+    cicd --> apiApp
+    cicd --> workerApp
+
+    apiApp --> monitoring
+    workerApp --> monitoring

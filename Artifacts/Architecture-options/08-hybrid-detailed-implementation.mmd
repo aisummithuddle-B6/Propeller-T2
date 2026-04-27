@@ -1,0 +1,101 @@
+graph TB
+    subgraph "Hybrid Architecture - Detailed Implementation View"
+        
+        subgraph Clients["🖥️ CLIENT LAYER"]
+            Web["🌐 Web Dashboard"]
+            Mobile["📱 Mobile App"]
+            Admin["🔧 Admin Portal"]
+        end
+        
+        subgraph Gateway["🚪 API GATEWAY LAYER"]
+            GW["API Gateway<br/>(Kong/Ambassador)<br/>- Authentication<br/>- Rate Limiting<br/>- Request Routing"]
+        end
+        
+        subgraph CoreMonolith["🏢 CORE MONOLITH (Single Database)]
+            
+            subgraph CoreServices["Core Services (Deployed as Single Unit)"]
+                SM["👤 Student Management"]
+                CM["📚 Course Management"]
+                AM["📊 Assessment Management"]
+            end
+            
+            subgraph CoreDAL["Data Access Layer"]
+                StudentDAO["Student DAO"]
+                CourseDAO["Course DAO"]
+                AssessmentDAO["Assessment DAO"]
+            end
+            
+            CoreDB["💾 CORE DATABASE<br/>(PostgreSQL)"]
+            
+            CoreServices --> CoreDAL
+            CoreDAL --> CoreDB
+        end
+        
+        subgraph Microservices["⚡ INDEPENDENT MICROSERVICES<br/>(Horizontal Scaling)"]
+            RS["⚠️ RISK SERVICE<br/>- Risk Rules Engine<br/>- At-Risk Detection<br/>- Alert Management"]
+            IS["🎯 INTERVENTION SERVICE<br/>- Program Tracking<br/>- Coaching Mgmt<br/>- Progress Tracking"]
+            AS["📈 ANALYTICS SERVICE<br/>- Real-time Reports<br/>- Dashboards<br/>- Data Aggregation"]
+        end
+        
+        subgraph EventInfra["🔔 EVENT-DRIVEN INFRASTRUCTURE<br/>(Audit Trail + Real-time)"]
+            EB["EVENT BUS<br/>(Apache Kafka)"]
+            ES["EVENT STORE<br/>(MongoDB)<br/>Immutable Audit Log"]
+            NS["📲 NOTIFICATION SERVICE<br/>- Email Alerts<br/>- Push Notifications<br/>- Slack/Teams"]
+        end
+        
+        subgraph CachingLayer["💨 CACHING LAYER"]
+            RC["REDIS CLUSTER<br/>- Student Profiles<br/>- Risk Rules<br/>- Course Catalog<br/>- Session Store"]
+        end
+        
+        subgraph Infrastructure["🛠️ INFRASTRUCTURE & OBSERVABILITY"]
+            Logging["📋 LOGGING<br/>(ELK Stack)<br/>- Centralized Logs<br/>- Searchable Index"]
+            Monitoring["📊 MONITORING<br/>(Prometheus + Grafana)<br/>- Metrics<br/>- Alerts"]
+            Tracing["🔍 TRACING<br/>(Jaeger)<br/>- Distributed Traces<br/>- Performance Analysis"]
+        end
+        
+        subgraph Databases["💾 MICROSERVICE DATABASES<br/>(Separate DBs for Scale)"]
+            RiskDB["⚠️ Risk DB"]
+            InterventionDB["🎯 Intervention DB"]
+            AnalyticsDB["📈 Analytics DB"]
+        end
+        
+        Clients --> GW
+        
+        GW --> SM
+        GW --> CM
+        GW --> AM
+        GW --> RS
+        GW --> IS
+        GW --> AS
+        
+        SM --> RC
+        CM --> RC
+        AM --> RC
+        RS --> RC
+        
+        SM --> EB
+        AM --> EB
+        RS --> EB
+        IS --> EB
+        
+        EB --> ES
+        EB --> NS
+        
+        RS --> RiskDB
+        IS --> InterventionDB
+        AS --> AnalyticsDB
+        
+        CoreServices --> Logging
+        Microservices --> Logging
+        EventInfra --> Monitoring
+        Clients --> Tracing
+        
+        style Clients fill:#e3f2fd
+        style Gateway fill:#fff3e0
+        style CoreMonolith fill:#e1f5ff
+        style Microservices fill:#f3e5f5
+        style EventInfra fill:#fff9c4
+        style CachingLayer fill:#c8e6c9
+        style Infrastructure fill:#ede7f6
+        style Databases fill:#fce4ec
+    end

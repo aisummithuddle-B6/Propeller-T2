@@ -1,0 +1,17 @@
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\bin\Debug\net8.0\Learning.Infrastructure.deps.json
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\bin\Debug\net8.0\Learning.Infrastructure.dll
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\bin\Debug\net8.0\Learning.Infrastructure.pdb
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\bin\Debug\net8.0\Learning.Application.dll
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\bin\Debug\net8.0\Learning.Domain.dll
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\bin\Debug\net8.0\Learning.Application.pdb
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\bin\Debug\net8.0\Learning.Domain.pdb
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\obj\Debug\net8.0\Learning.Infrastructure.csproj.AssemblyReference.cache
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\obj\Debug\net8.0\Learning.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\obj\Debug\net8.0\Learning.Infrastructure.AssemblyInfoInputs.cache
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\obj\Debug\net8.0\Learning.Infrastructure.AssemblyInfo.cs
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\obj\Debug\net8.0\Learning.Infrastructure.csproj.CoreCompileInputs.cache
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\obj\Debug\net8.0\Learning.41413ADB.Up2Date
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\obj\Debug\net8.0\Learning.Infrastructure.dll
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\obj\Debug\net8.0\refint\Learning.Infrastructure.dll
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\obj\Debug\net8.0\Learning.Infrastructure.pdb
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Infrastructure\obj\Debug\net8.0\ref\Learning.Infrastructure.dll

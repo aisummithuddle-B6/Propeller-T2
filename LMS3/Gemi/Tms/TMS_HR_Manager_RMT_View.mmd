@@ -1,0 +1,60 @@
+
+graph TD
+    %% Base Node
+    HRManager((HR Manager / RMT))
+    
+    %% Main Navigation Views
+    HRManager --> AggregateView[1. Aggregate Resource View]
+    HRManager --> GranularView[2. Granular Talent Search]
+    HRManager --> PipelineView[3. Resource Pipeline & Analytics]
+
+    %% Stream 1: Aggregate Views
+    subgraph AggregateView ["Aggregate Resource View"]
+        AG_BU[Browse by Business Unit]
+        AG_OU[Browse by Organizational Unit]
+        AG_Project[Browse by Active Project]
+        AG_Role[Browse by Target Role]
+        AG_Designation[Browse by Designation]
+        AG_Grade[Browse by Employee Grade]
+    end
+    AggregateView --> AG_BU
+    AggregateView --> AG_OU
+    AggregateView --> AG_Project
+    AggregateView --> AG_Role
+    AggregateView --> AG_Designation
+    AggregateView --> AG_Grade
+
+    %% Stream 2: Granular Talent Search Actions
+    subgraph GranularView ["Granular Talent Search"]
+        GV_SearchSkill[Search by Skill L1-L4]
+        GV_FilterVerified[Filter Verified Skills]
+        GV_MatchRole[Match User Persona to Role]
+        GV_ExportCV[Export Verified Resumes]
+    end
+    GranularView --> GV_SearchSkill
+    GranularView --> GV_FilterVerified
+    GranularView --> GV_MatchRole
+    GranularView --> GV_ExportCV
+
+    %% Stream 3: Pipeline & Analytics Actions
+    subgraph PipelineView ["Resource Pipeline & Analytics"]
+        PV_TrackProgress[Track Track Completion Stats]
+        PV_Leaderboard[View relative rankings]
+        PV_AuditLogs[View Immutable Audit Logs]
+        PV_HotSkills[Analyze 'Hot Skill' Availability]
+    end
+    PipelineView --> PV_TrackProgress
+    PipelineView --> PV_Leaderboard
+    PipelineView --> PV_AuditLogs
+    PipelineView --> PV_HotSkills
+
+    %% Inter-stream Connections
+    AG_BU -.-> GranularView
+    AG_OU -.-> GranularView
+    AG_Project -.-> GranularView
+    AG_Role -.-> GranularView
+    AG_Designation -.-> GranularView
+    AG_Grade -.-> GranularView
+    GV_SearchSkill -.-> GV_ExportCV
+    PV_HotSkills -.-> AG_BU
+    PV_Leaderboard -.-> GranularView

@@ -1,0 +1,58 @@
+graph TB
+    subgraph "Event-Driven Architecture"
+        subgraph Sources["Event Sources"]
+            LMS["📚 LMS<br/>(Attendance Events)"]
+            Assessment["📊 Assessment System<br/>(Score Events)"]
+            HR["👥 HR System<br/>(Enrollment Events)"]
+        end
+        
+        EventBus["🔔 Event Bus/Broker<br/>(Kafka/RabbitMQ)"]
+        
+        subgraph Processors["Event Processors"]
+            ProfileAgg["📋 Profile Aggregator<br/>(Consolidates Events)"]
+            RiskDetector["⚠️ Risk Detector<br/>(Identifies At-Risk)"]
+            InterventionOrch["🎯 Intervention Orchestrator<br/>(Triggers Actions)"]
+            Auditor["🔐 Audit Logger<br/>(Compliance)"]
+        end
+        
+        subgraph Stores["Event Stores & Snapshots"]
+            EventStore["📚 Event Store<br/>(Immutable Log)"]
+            StudentSnapshot["💾 Student Snapshot DB<br/>(Current State)"]
+            RulesSnapshot["💾 Rules Snapshot DB"]
+        end
+        
+        UI["📊 Analytics UI<br/>(Real-time Dashboards)"]
+        Notifications["📲 Notification Service<br/>(Alerts & Updates)"]
+        
+        LMS --> EventBus
+        Assessment --> EventBus
+        HR --> EventBus
+        
+        EventBus --> ProfileAgg
+        EventBus --> RiskDetector
+        EventBus --> InterventionOrch
+        EventBus --> Auditor
+        EventBus --> Notifications
+        
+        ProfileAgg --> EventStore
+        RiskDetector --> EventStore
+        InterventionOrch --> EventStore
+        Auditor --> EventStore
+        
+        ProfileAgg --> StudentSnapshot
+        RiskDetector --> RulesSnapshot
+        
+        StudentSnapshot --> UI
+        RulesSnapshot --> UI
+        EventStore --> UI
+        
+        RiskDetector --> Notifications
+        InterventionOrch --> Notifications
+    end
+    
+    style Sources fill:#e3f2fd
+    style EventBus fill:#ffeb3b
+    style Processors fill:#f3e5f5
+    style Stores fill:#fce4ec
+    style UI fill:#c8e6c9
+    style Notifications fill:#ffe0b2

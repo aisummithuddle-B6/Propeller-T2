@@ -1,0 +1,53 @@
+flowchart LR
+    users[Users]
+    cognito[Amazon Cognito or Enterprise IdP]
+    cloudFront[CloudFront]
+    s3Web[S3 Static Web Hosting]
+    alb[Application Load Balancer]
+
+    subgraph ecs [ECS Fargate Cluster]
+        apiTask[Backend API Task]
+        ingestionTask[Ingestion Worker Task]
+        riskTask[Risk Evaluation Task]
+        reportTask[Report Worker Task]
+        notificationTask[Notification Worker Task]
+    end
+
+    rds[(RDS PostgreSQL)]
+    elasticache[(ElastiCache Redis)]
+    s3Data[(S3 Reports and Imports)]
+    secrets[Secrets Manager]
+    eventBridge[EventBridge Scheduler]
+    cloudWatch[CloudWatch Logs and Metrics]
+    externalSystems[External LMS Assessment HR Systems]
+    ses[SES or SNS Notifications]
+
+    users --> cloudFront
+    cloudFront --> s3Web
+    s3Web --> cognito
+    s3Web --> alb
+    alb --> apiTask
+
+    externalSystems --> ingestionTask
+    eventBridge --> ingestionTask
+    eventBridge --> riskTask
+    eventBridge --> reportTask
+
+    apiTask --> rds
+    apiTask --> elasticache
+    apiTask --> s3Data
+    apiTask --> secrets
+
+    ingestionTask --> rds
+    ingestionTask --> s3Data
+    riskTask --> rds
+    riskTask --> elasticache
+    reportTask --> rds
+    reportTask --> s3Data
+    notificationTask --> ses
+
+    apiTask --> cloudWatch
+    ingestionTask --> cloudWatch
+    riskTask --> cloudWatch
+    reportTask --> cloudWatch
+    notificationTask --> cloudWatch

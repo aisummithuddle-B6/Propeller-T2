@@ -1,0 +1,90 @@
+flowchart LR
+    learner[Employee Learner]
+    trainer[Trainer]
+    manager[Manager]
+    admin[L&D Administrator]
+    compliance[Compliance Officer]
+
+    subgraph frontend [Angular or React Frontend]
+        dashboardUi[Dashboard UI]
+        profileUi[Learner Profile UI]
+        rulesUi[Rules Configuration UI]
+        interventionUi[Intervention UI]
+        reportsUi[Compliance Reports UI]
+    end
+
+    subgraph api [Spring Boot API Layer]
+        security[Spring Security and RBAC]
+        controllers[REST Controllers]
+        validation[Request Validation]
+        openapi[OpenAPI Contracts]
+    end
+
+    subgraph domain [Spring Boot Domain Modules]
+        learnerService[Learner Profile Service]
+        ingestionService[Ingestion Service]
+        rulesService[Risk Rules Service]
+        interventionService[Intervention Service]
+        reportingService[Reporting Service]
+        auditService[Audit Service]
+    end
+
+    subgraph batch [Spring Batch and Workers]
+        importJob[Import Job]
+        riskJob[Risk Evaluation Job]
+        reportJob[Report Job]
+        notificationJob[Notification Job]
+    end
+
+    lms[External LMS]
+    assessments[Assessment System]
+    hr[HR System]
+    notes[Trainer Notes]
+
+    postgres[(PostgreSQL)]
+    redis[(Redis Cache)]
+    queue[(Kafka or RabbitMQ)]
+    objectStorage[(Object Storage)]
+    identity[Entra ID Auth0 or Keycloak]
+    observability[Micrometer OpenTelemetry Logs]
+
+    learner --> frontend
+    trainer --> frontend
+    manager --> frontend
+    admin --> frontend
+    compliance --> frontend
+
+    frontend --> controllers
+    controllers --> security
+    security --> identity
+    controllers --> validation
+    controllers --> learnerService
+    controllers --> rulesService
+    controllers --> interventionService
+    controllers --> reportingService
+
+    lms --> ingestionService
+    assessments --> ingestionService
+    hr --> ingestionService
+    notes --> ingestionService
+
+    ingestionService --> queue
+    queue --> importJob
+    queue --> riskJob
+    queue --> reportJob
+    queue --> notificationJob
+
+    learnerService --> postgres
+    ingestionService --> postgres
+    rulesService --> postgres
+    interventionService --> postgres
+    reportingService --> postgres
+    auditService --> postgres
+
+    learnerService --> redis
+    rulesService --> redis
+    reportJob --> objectStorage
+
+    api --> observability
+    domain --> observability
+    batch --> observability

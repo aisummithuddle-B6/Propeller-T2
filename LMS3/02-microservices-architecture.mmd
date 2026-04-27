@@ -1,0 +1,66 @@
+graph TB
+    subgraph "Microservices Architecture"
+        Client["Client Applications<br/>(Web/Mobile)"]
+        Gateway["API Gateway<br/>(Rate Limiting, Auth)"]
+        
+        subgraph Services["Independent Microservices"]
+            Auth["👤 Auth Service<br/>(JWT, OAuth2)"]
+            Student["📚 Student Service<br/>(Profile, Data)"]
+            Learning["📖 Learning Service<br/>(Courses, Progress)"]
+            Assessment["📊 Assessment Service<br/>(Scores, Grades)"]
+            Risk["⚠️ Risk Service<br/>(Risk Rules, Detection)"]
+            Intervention["🎯 Intervention Service<br/>(Tracking, Programs)"]
+            Analytics["📈 Analytics Service<br/>(Reports, Dashboards)"]
+        end
+        
+        subgraph Messaging["Message Queue"]
+            Queue["RabbitMQ/Kafka<br/>(Event Bus)"]
+        end
+        
+        subgraph Databases["Database per Service"]
+            AuthDB["Auth DB"]
+            StudentDB["Student DB"]
+            LearningDB["Learning DB"]
+            AssessmentDB["Assessment DB"]
+            AnalyticsDB["Analytics DB"]
+        end
+        
+        subgraph Infrastructure["Supporting Services"]
+            Registry["Service Registry<br/>(Consul/Eureka)"]
+            Cache["Cache<br/>(Redis Cluster)"]
+            Logging["Centralized Logging<br/>(ELK Stack)"]
+            Tracing["Distributed Tracing<br/>(Jaeger)"]
+        end
+        
+        Client --> Gateway
+        Gateway --> Auth
+        Gateway --> Student
+        Gateway --> Learning
+        Gateway --> Assessment
+        Gateway --> Risk
+        Gateway --> Intervention
+        Gateway --> Analytics
+        
+        Risk --> Queue
+        Intervention --> Queue
+        Assessment --> Queue
+        Queue --> Analytics
+        Queue --> Learning
+        
+        Auth --> AuthDB
+        Student --> StudentDB
+        Learning --> LearningDB
+        Assessment --> AssessmentDB
+        Analytics --> AnalyticsDB
+        
+        Services --> Registry
+        Services --> Cache
+        Services --> Logging
+        Services --> Tracing
+    end
+    
+    style Gateway fill:#fff3e0
+    style Services fill:#f3e5f5
+    style Messaging fill:#e0f2f1
+    style Databases fill:#fce4ec
+    style Infrastructure fill:#ede7f6

@@ -1,0 +1,93 @@
+flowchart TB
+    users[Users]
+    frontend["React SPA Frontend"]
+    api["ASP.NET Core API"]
+    application["Application Services"]
+    domain["Domain Model"]
+    infrastructure["Infrastructure Adapters"]
+    database[("SQL Server LocalDB / PostgreSQL")]
+    externalSystems["External LMS, Assessment, HR, Trainer Notes"]
+    workers["Background-Ready Workers"]
+    observability["Health Checks and Observability"]
+    deployment["Docker / Azure Container Apps Ready"]
+
+    subgraph productArchitecture [Product Architecture]
+        modularMonolith["Modular Monolith"]
+        cleanArchitecture["Clean Architecture"]
+        layeredArchitecture["Layered Architecture"]
+        apiFirst["API-First Architecture"]
+        domainCentric["Domain-Centric Architecture"]
+    end
+
+    subgraph integrationArchitecture [Integration and Data Architecture]
+        integrationCentric["Integration-Centric Architecture"]
+        validationReconciliation["Validation and Reconciliation Architecture"]
+        databaseBacked["Database-Backed Enterprise Application"]
+        configurableInfra["Configurable Infrastructure Architecture"]
+        readAggregation["Read Model Aggregation"]
+        cqrsLite["CQRS-Lite"]
+    end
+
+    subgraph governanceArchitecture [Governance and Compliance Architecture]
+        auditOriented["Audit-Oriented Architecture"]
+        roleBasedAccess["Role-Based Access Architecture"]
+        dashboardReporting["Dashboard and Reporting Architecture"]
+        complianceReady["Compliance-Ready Architecture"]
+    end
+
+    subgraph operationsArchitecture [Operations and Delivery Architecture]
+        backgroundReady["Background-Ready Architecture"]
+        healthCheck["Health Check Architecture"]
+        localFirst["Local-First Development Architecture"]
+        cloudReady["Cloud-Ready Deployment Architecture"]
+        observabilityReady["Observability-Ready Architecture"]
+        incrementalDelivery["Incremental Delivery Architecture"]
+    end
+
+    users --> frontend
+    frontend -->|"API calls"| api
+    api --> application
+    application --> domain
+    application --> infrastructure
+    infrastructure --> database
+    externalSystems -->|"ingestion APIs"| api
+    application --> workers
+    api --> observability
+    workers --> observability
+    deployment --> api
+    deployment --> frontend
+
+    modularMonolith --> api
+    modularMonolith --> application
+    cleanArchitecture --> domain
+    cleanArchitecture --> application
+    cleanArchitecture --> infrastructure
+    layeredArchitecture --> api
+    layeredArchitecture --> application
+    layeredArchitecture --> domain
+    layeredArchitecture --> infrastructure
+    apiFirst --> api
+    domainCentric --> domain
+
+    integrationCentric --> externalSystems
+    integrationCentric --> api
+    validationReconciliation --> application
+    databaseBacked --> database
+    configurableInfra --> infrastructure
+    readAggregation --> frontend
+    readAggregation --> application
+    cqrsLite --> application
+
+    auditOriented --> database
+    roleBasedAccess --> api
+    dashboardReporting --> frontend
+    dashboardReporting --> database
+    complianceReady --> auditOriented
+    complianceReady --> dashboardReporting
+
+    backgroundReady --> workers
+    healthCheck --> observability
+    localFirst --> database
+    cloudReady --> deployment
+    observabilityReady --> observability
+    incrementalDelivery --> frontend

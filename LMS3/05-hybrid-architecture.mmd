@@ -1,0 +1,74 @@
+graph TB
+    subgraph "Hybrid Architecture (RECOMMENDED)"
+        Client["📱 Client Layer<br/>(Web/Mobile/API)"]
+        Gateway["🚪 API Gateway<br/>(Load Balancing, Auth, Rate Limit)"]
+        
+        subgraph Monolithic["🏢 Core Monolith<br/>(Stable, High-Traffic, Frequently Accessed)"]
+            StudentMgmt["👤 Student Management<br/>(Enrollment, Profiles)"]
+            CourseMgmt["📚 Course Management<br/>(Catalog, Structure)"]
+            AssessmentMgmt["📊 Assessment Management<br/>(Tests, Scoring)"]
+            DataAccess["🗂️ Data Access Layer"]
+            CoreDB["💾 Core DB<br/>(PostgreSQL)"]
+        end
+        
+        subgraph Microservices["⚡ Scalable Microservices"]
+            RiskService["⚠️ Risk Detection Service<br/>(Rule Engine, Detection)"]
+            InterventionService["🎯 Intervention Service<br/>(Program Tracking)"]
+            AnalyticsService["📈 Analytics Service<br/>(Reports, Insights)"]
+            NotificationService["📲 Notification Service<br/>(Alerts, Emails)"]
+        end
+        
+        subgraph EventDriven["🔔 Event-Driven Layer<br/>(Audit Trail, Real-time)"]
+            EventBus["📨 Message Bus<br/>(Kafka/RabbitMQ)"]
+            EventStore["📜 Event Store<br/>(Immutable Audit Log)"]
+        end
+        
+        subgraph Cache["💨 Caching Layer"]
+            Redis["⚡ Redis Cache<br/>(Student Profiles,<br/>Rules, Courses)"]
+        end
+        
+        subgraph Infrastructure["🛠️ Infrastructure & Monitoring"]
+            Logging["📋 Centralized Logging<br/>(ELK Stack)"]
+            Monitoring["📊 Monitoring<br/>(Prometheus+Grafana)"]
+            Tracing["🔍 Distributed Tracing<br/>(Jaeger)"]
+        end
+        
+        Client --> Gateway
+        Gateway --> StudentMgmt
+        Gateway --> CourseMgmt
+        Gateway --> AssessmentMgmt
+        Gateway --> RiskService
+        Gateway --> InterventionService
+        Gateway --> AnalyticsService
+        
+        StudentMgmt --> DataAccess
+        CourseMgmt --> DataAccess
+        AssessmentMgmt --> DataAccess
+        DataAccess --> CoreDB
+        DataAccess --> Redis
+        
+        StudentMgmt --> EventBus
+        CourseMgmt --> EventBus
+        AssessmentMgmt --> EventBus
+        RiskService --> EventBus
+        InterventionService --> EventBus
+        
+        EventBus --> EventStore
+        EventBus --> NotificationService
+        EventBus --> AnalyticsService
+        
+        RiskService --> Redis
+        InterventionService --> Redis
+        AnalyticsService --> Redis
+        
+        Microservices --> Logging
+        Monolithic --> Logging
+        EventDriven --> Monitoring
+        Services --> Tracing
+    end
+    
+    style Monolithic fill:#e1f5ff
+    style Microservices fill:#f3e5f5
+    style EventDriven fill:#fff9c4
+    style Cache fill:#c8e6c9
+    style Infrastructure fill:#ede7f6

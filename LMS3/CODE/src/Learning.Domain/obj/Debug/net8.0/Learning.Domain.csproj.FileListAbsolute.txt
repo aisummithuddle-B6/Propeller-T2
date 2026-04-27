@@ -1,0 +1,11 @@
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Domain\bin\Debug\net8.0\Learning.Domain.deps.json
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Domain\bin\Debug\net8.0\Learning.Domain.dll
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Domain\bin\Debug\net8.0\Learning.Domain.pdb
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Domain\obj\Debug\net8.0\Learning.Domain.GeneratedMSBuildEditorConfig.editorconfig
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Domain\obj\Debug\net8.0\Learning.Domain.AssemblyInfoInputs.cache
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Domain\obj\Debug\net8.0\Learning.Domain.AssemblyInfo.cs
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Domain\obj\Debug\net8.0\Learning.Domain.csproj.CoreCompileInputs.cache
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Domain\obj\Debug\net8.0\Learning.Domain.dll
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Domain\obj\Debug\net8.0\refint\Learning.Domain.dll
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Domain\obj\Debug\net8.0\Learning.Domain.pdb
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Domain\obj\Debug\net8.0\ref\Learning.Domain.dll

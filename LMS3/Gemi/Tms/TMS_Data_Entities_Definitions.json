@@ -1,0 +1,125 @@
+{
+    "Identity_Management": {
+        "User": {
+            "id": "uuid",
+            "email": "string",
+            "username": "string",
+            "is_active": "boolean",
+            "created_at": "datetime"
+        },
+        "Role": {
+            "id": "uuid",
+            "name": "string (Admin|Learner|Manager|RMT)",
+            "permissions": [
+                "string"
+            ]
+        }
+    },
+    "Organization_Structure": {
+        "EmployeeProfile": {
+            "id": "uuid",
+            "user_id": "uuid (FK)",
+            "employee_id": "string (External)",
+            "full_name": "string",
+            "designation": "string",
+            "manager_id": "uuid (Self-FK)",
+            "bu_id": "string",
+            "du_id": "string",
+            "project_id": "string"
+        },
+        "OrganizationUnit": {
+            "unit_id": "string",
+            "type": "string (BU|DU|Cell|Project)",
+            "parent_unit_id": "string"
+        }
+    },
+    "Skill_Taxonomy": {
+        "Skill": {
+            "id": "uuid",
+            "name": "string",
+            "parent_skill_id": "uuid (Recursive FK)",
+            "is_hot_skill": "boolean",
+            "category": "string (Technical|SoftSkill|Domain)"
+        },
+        "ProficiencyLevel": {
+            "level_id": "string (L1|L2|L3|L4)",
+            "name": "string",
+            "description": "string",
+            "weightage": "integer"
+        },
+        "UserProficiency": {
+            "user_id": "uuid (FK)",
+            "skill_id": "uuid (FK)",
+            "level_id": "string (FK)",
+            "confidence_score": "float (0-100)",
+            "is_verified": "boolean",
+            "last_assessed": "datetime"
+        }
+    },
+    "Learning_And_Tracks": {
+        "SkillTrack": {
+            "id": "uuid",
+            "title": "string",
+            "description": "text",
+            "target_role": "uuid (FK)",
+            "mandatory": "boolean"
+        },
+        "Course": {
+            "id": "uuid",
+            "title": "string",
+            "provider": "string (Internal|Udemy|Coursera)",
+            "duration_hours": "float",
+            "external_link": "string"
+        },
+        "Enrollment": {
+            "id": "uuid",
+            "user_id": "uuid (FK)",
+            "track_id": "uuid (FK)",
+            "status": "string (In-Progress|Completed|Overdue)",
+            "started_on": "datetime",
+            "completed_on": "datetime"
+        }
+    },
+    "Evaluation_And_Content": {
+        "Assessment": {
+            "id": "uuid",
+            "course_id": "uuid (FK)",
+            "type": "string (AI-Gen|Proctored|Quiz)",
+            "passing_score": "float"
+        },
+        "AssessmentResult": {
+            "id": "uuid",
+            "user_id": "uuid (FK)",
+            "assessment_id": "uuid (FK)",
+            "score": "float",
+            "transcript_json": "jsonb",
+            "ai_feedback": "text"
+        },
+        "TalentTimeline": {
+            "id": "uuid",
+            "user_id": "uuid (FK)",
+            "event_name": "string",
+            "event_type": "string (Certification|Course|Badge|SkillUp)",
+            "event_date": "date",
+            "points_earned": "integer"
+        }
+    },
+    "Governance_And_Compliance": {
+        "AuditLog": {
+            "id": "uuid",
+            "actor_id": "uuid (FK)",
+            "action": "string",
+            "resource_type": "string",
+            "old_value": "jsonb",
+            "new_value": "jsonb",
+            "timestamp": "datetime"
+        },
+        "MigrationBatch": {
+            "batch_id": "uuid",
+            "source_system": "string",
+            "status": "string",
+            "total_records": "integer",
+            "failed_records": "integer"
+        }
+    }
+}

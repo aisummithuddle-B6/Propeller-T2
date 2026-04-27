@@ -1,0 +1,58 @@
+{
+    "stack_id": "Python_AI_Intelligence",
+    "core_layers": {
+        "frontend": {
+            "framework": "Vue.js 3",
+            "state_management": "Pinia",
+            "styling": "Tailwind CSS",
+            "reason": "Lightweight and reactive, ideal for complex data-driven dashboards and real-time learning interfaces."
+        },
+        "backend_core": {
+            "framework": "Django (Python 3.11+)",
+            "extensions": [
+                "Django REST Framework (DRF)",
+                "Django Channels"
+            ],
+            "purpose": "Manages core business logic, RBAC, Admin Command Centre, and Relational Data integrity.",
+            "reason": "Provides robust 'out-of-the-box' security and powerful ORM for complex skill/role mapping."
+        },
+        "backend_ai": {
+            "framework": "FastAPI",
+            "purpose": "High-speed inference, real-time proctored assessment logic, and content generation streaming.",
+            "reason": "Asynchronous performance ensures that AI content generation doesn't block core application performance."
+        }
+    },
+    "persistence_layer": {
+        "relational": {
+            "engine": "PostgreSQL",
+            "usage": "Identity, Taxonomy, HRMS Sync data, and Audit Logs."
+        },
+        "document": {
+            "engine": "MongoDB",
+            "usage": "AI Question Banks, Sandbox Lab configurations, and unstructured metadata."
+        },
+        "in_memory": {
+            "engine": "Redis",
+            "usage": "Real-time Leaderboards, Task Queue broker, and Session Management."
+        }
+    },
+    "ai_and_data_science": {
+        "orchestration": "LangChain",
+        "embeddings": "ChromaDB / Pinecone",
+        "libraries": [
+            "OpenAI SDK",
+            "HuggingFace Transformers",
+            "Numpy/Pandas"
+        ],
+        "reason": "Python ecosystem allows native integration with nearly all modern AI/ML frameworks."
+    },
+    "infrastructure_and_devops": {
+        "containerization": "Docker + Kubernetes (K8s)",
+        "ci_cd": "GitHub Actions / GitLab CI",
+        "task_queue": "Celery",
+        "web_servers": [
+            "Gunicorn",
+            "Uvicorn (ASGI)"
+        ]
+    }
+}

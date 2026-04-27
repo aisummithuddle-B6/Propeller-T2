@@ -1,0 +1,15 @@
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\bin\Debug\net8.0\Learning.Application.deps.json
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\bin\Debug\net8.0\Learning.Application.dll
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\bin\Debug\net8.0\Learning.Application.pdb
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\bin\Debug\net8.0\Learning.Domain.dll
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\bin\Debug\net8.0\Learning.Domain.pdb
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\obj\Debug\net8.0\Learning.Application.csproj.AssemblyReference.cache
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\obj\Debug\net8.0\Learning.Application.GeneratedMSBuildEditorConfig.editorconfig
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\obj\Debug\net8.0\Learning.Application.AssemblyInfoInputs.cache
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\obj\Debug\net8.0\Learning.Application.AssemblyInfo.cs
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\obj\Debug\net8.0\Learning.Application.csproj.CoreCompileInputs.cache
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\obj\Debug\net8.0\Learning.3936EA4A.Up2Date
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\obj\Debug\net8.0\Learning.Application.dll
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\obj\Debug\net8.0\refint\Learning.Application.dll
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\obj\Debug\net8.0\Learning.Application.pdb
+d:\Inas_workspace\Project1\prompts\LMS3\CODE\src\Learning.Application\obj\Debug\net8.0\ref\Learning.Application.dll

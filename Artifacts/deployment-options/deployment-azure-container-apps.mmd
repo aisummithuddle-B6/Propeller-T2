@@ -1,0 +1,50 @@
+flowchart LR
+    users[Users]
+    entraId[Azure Entra ID]
+    frontDoor[Azure Front Door or CDN]
+    staticWeb[Static Web App]
+    apiGateway[API Gateway]
+
+    subgraph aca [Azure Container Apps Environment]
+        apiContainer[Backend API Container]
+        ingestionWorker[Ingestion Worker]
+        riskWorker[Risk Evaluation Worker]
+        reportWorker[Report Worker]
+        notificationWorker[Notification Worker]
+    end
+
+    postgres[(Azure Database for PostgreSQL)]
+    redis[(Azure Cache for Redis)]
+    blob[(Azure Blob Storage)]
+    keyVault[Azure Key Vault]
+    monitor[Azure Monitor and App Insights]
+    externalSystems[External LMS Assessment HR Systems]
+    emailProvider[Email or Teams Notifications]
+
+    users --> frontDoor
+    frontDoor --> staticWeb
+    staticWeb --> entraId
+    staticWeb --> apiGateway
+    apiGateway --> apiContainer
+
+    externalSystems --> ingestionWorker
+    apiContainer --> postgres
+    apiContainer --> redis
+    apiContainer --> blob
+    apiContainer --> keyVault
+    apiContainer --> riskWorker
+    apiContainer --> reportWorker
+
+    ingestionWorker --> postgres
+    ingestionWorker --> blob
+    ingestionWorker --> monitor
+    riskWorker --> postgres
+    riskWorker --> redis
+    reportWorker --> postgres
+    reportWorker --> blob
+    notificationWorker --> emailProvider
+
+    apiContainer --> monitor
+    riskWorker --> monitor
+    reportWorker --> monitor
+    notificationWorker --> monitor

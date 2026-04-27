@@ -1,0 +1,38 @@
+{
+    "module": "Taxonomy Management",
+    "core_functions": {
+        "define_roles": {
+            "description": "Establish a standardized catalog of organizational positions.",
+            "key_features": [
+                "Hierarchical Structure: Define Seniority levels (Junior, Mid, Senior, Lead).",
+                "Competency Benchmarking: Map specific proficiency requirements to each role.",
+                "Functional Grouping: Categorize roles by department (Engineering, Sales, Operations).",
+                "Inheritance: Allow sub-roles to inherit skill requirements from parent roles."
+            ]
+        },
+        "define_skills": {
+            "description": "Create a granular inventory of technical and soft competencies.",
+            "key_features": [
+                "Multi-level Proficiency: Define L1 (Beginner) through L4 (Expert) criteria for each skill.",
+                "Validation Logic: Link skills to specific assessments or external certifications for verification.",
+                "Skill Clusters: Group related skills into competency clusters (e.g., 'Data Science' contains 'Python', 'Stats', 'R').",
+                "Weightage Influence: Assign base weights to skills based on organizational priority."
+            ]
+        },
+        "define_tags": {
+            "description": "Enable cross-functional metadata for discovery and analytics.",
+            "key_features": [
+                "Hot Skill Indicators: Tag high-demand skills to trigger specialized leaderboards.",
+                "Domain Categorization: Tagging for industries (e.g., #OilAndGas, #Renewables) or technologies (e.g., #Cloud, #AI).",
+                "Searchability: Powering the RMT search engine for faster resource identification.",
+                "Global Consistency: Maintain a curated library to prevent duplicate or synonymous tag creation."
+            ]
+        }
+    },
+    "business_impact": [
+        "Eliminates data silos across different business units.",
+        "Ensures automated resumes reflect verified, standardized terminology.",
+        "Facilitates AI-driven content generation by providing a clear structural target.",
+        "Enables precise gap analysis at a project and unit level."
+    ]
+}

@@ -1,0 +1,117 @@
+{
+  "product": "Corporate Learning Progress, Intervention & Compliance Tracking System",
+  "recommendation_summary": "Use a managed container platform for the first production-ready deployment. Azure Container Apps is the preferred option when cloud choice is open because it supports APIs, workers, imports, report jobs, notifications, autoscaling, identity, secrets, observability, and managed data services with less operational burden than Kubernetes.",
+  "options": [
+    {
+      "id": "DEPLOY-AZURE-CONTAINER-APPS",
+      "name": "Azure Container Apps",
+      "recommendation_level": "Best overall choice when Azure is acceptable",
+      "best_for": [
+        "Enterprise POC to early production",
+        "Containerized APIs and background workers",
+        "Teams that want production readiness without Kubernetes complexity"
+      ],
+      "reasons": [
+        "Runs API, ingestion worker, risk evaluation worker, report worker, and notification worker as containers.",
+        "Supports autoscaling for variable workloads such as imports and report generation.",
+        "Integrates well with Azure Database for PostgreSQL, Azure Cache for Redis, Blob Storage, Key Vault, Entra ID, and Azure Monitor.",
+        "Supports managed identity and secrets without hardcoding credentials.",
+        "Lower operational overhead than AKS while still supporting production-grade deployment."
+      ],
+      "tradeoffs": [
+        "Less control than Kubernetes for advanced networking, service mesh, and cluster-level customization.",
+        "Best fit when the organization is comfortable with Azure managed services."
+      ],
+      "diagram_file": "Project1/prompts/LMS3/deployment-azure-container-apps.mmd"
+    },
+    {
+      "id": "DEPLOY-AWS-ECS-FARGATE",
+      "name": "AWS ECS Fargate",
+      "recommendation_level": "Best AWS-native equivalent",
+      "best_for": [
+        "Organizations standardized on AWS",
+        "Containerized applications without server management",
+        "Production APIs, workers, scheduled jobs, and private networking"
+      ],
+      "reasons": [
+        "Runs containers without managing EC2 servers.",
+        "Works well with RDS PostgreSQL, ElastiCache Redis, S3, Secrets Manager, IAM, EventBridge, and CloudWatch.",
+        "Supports private networking and task-level IAM permissions.",
+        "Good fit for API services, import processors, report jobs, and notification workers.",
+        "Lower operational complexity than EKS."
+      ],
+      "tradeoffs": [
+        "More AWS-specific configuration than Cloud Run or Azure Container Apps.",
+        "Advanced orchestration use cases may eventually require EKS."
+      ],
+      "diagram_file": "Project1/prompts/LMS3/deployment-aws-ecs-fargate.mmd"
+    },
+    {
+      "id": "DEPLOY-GOOGLE-CLOUD-RUN",
+      "name": "Google Cloud Run",
+      "recommendation_level": "Best lightweight serverless container option",
+      "best_for": [
+        "Simple stateless APIs",
+        "Intermittent or variable traffic",
+        "Small teams wanting very low platform operations"
+      ],
+      "reasons": [
+        "Very simple container deployment with automatic scaling.",
+        "Can scale down when idle, helping reduce cost for POC and low-volume workloads.",
+        "Integrates with Cloud SQL PostgreSQL, Memorystore, Cloud Storage, Secret Manager, Cloud Logging, and Cloud Monitoring.",
+        "Good fit for stateless APIs and event-triggered workers.",
+        "Fast path from container image to HTTPS endpoint."
+      ],
+      "tradeoffs": [
+        "Long-running imports or reports need careful design with Cloud Tasks, Pub/Sub, or Cloud Run Jobs.",
+        "Stateful workloads and complex networking are better handled elsewhere."
+      ],
+      "diagram_file": "Project1/prompts/LMS3/deployment-google-cloud-run.mmd"
+    },
+    {
+      "id": "DEPLOY-KUBERNETES",
+      "name": "Kubernetes with AKS, EKS, or GKE",
+      "recommendation_level": "Best for large-scale mature platform teams",
+      "best_for": [
+        "Many microservices",
+        "Advanced scaling and deployment strategies",
+        "Organizations with platform engineering maturity"
+      ],
+      "reasons": [
+        "Supports complex multi-service deployments and workload isolation.",
+        "Provides strong control over networking, ingress, service discovery, autoscaling, and deployment strategies.",
+        "Can support service mesh, policy enforcement, advanced observability, and multi-team platform operations.",
+        "Good fit when the product grows into a larger enterprise platform.",
+        "Portable across major cloud providers with cloud-specific integrations."
+      ],
+      "tradeoffs": [
+        "Higher operational complexity than managed container platforms.",
+        "Requires Kubernetes skills, cluster maintenance, security hardening, and platform governance.",
+        "Likely overkill for the first POC unless the organization already has a Kubernetes platform."
+      ],
+      "diagram_file": "Project1/prompts/LMS3/deployment-kubernetes.mmd"
+    },
+    {
+      "id": "DEPLOY-SIMPLE-PAAS",
+      "name": "Azure App Service or AWS Elastic Beanstalk",
+      "recommendation_level": "Good for simpler API and web deployments",
+      "best_for": [
+        "Small POC deployments",
+        "Simple web app plus API",
+        "Teams wanting minimal deployment setup"
+      ],
+      "reasons": [
+        "Easy to deploy and operate for simple web/API applications.",
+        "Supports managed HTTPS, environment configuration, logs, and basic scaling.",
+        "Can integrate with managed PostgreSQL, object storage, identity, and monitoring services.",
+        "Lower learning curve than Kubernetes or container orchestration.",
+        "Useful when background jobs are limited or can be handled by scheduled tasks/functions."
+      ],
+      "tradeoffs": [
+        "Less flexible for multiple worker types, import processors, and report generation workloads.",
+        "May become limiting as the system evolves into multiple services and async jobs."
+      ],
+      "diagram_file": "Project1/prompts/LMS3/deployment-simple-paas.mmd"
+    }
+  ]
+}

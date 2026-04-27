@@ -1,0 +1,101 @@
+{
+    "module_name": "Learner & Employee Experience",
+    "user_persona": "Employee / Learner",
+    "features": [
+        {
+            "category": "Identity & Recognition",
+            "items": [
+                {
+                    "name": "Talent Timeline",
+                    "description": "Chronological record of skills, certifications, and project milestones.",
+                    "actions": [
+                        "View History",
+                        "Filter by Category",
+                        "Share Milestones"
+                    ]
+                },
+                {
+                    "name": "Skill Confidence Meter",
+                    "description": "Visual representation of verified proficiency levels (0-100%).",
+                    "actions": [
+                        "Trigger Assessment",
+                        "Compare against Role Benchmark"
+                    ]
+                }
+            ]
+        },
+        {
+            "category": "Engagement & Competition",
+            "items": [
+                {
+                    "name": "Multi-Tier Leaderboards",
+                    "description": "Relative rankings at Project, DU, BU, and Global levels.",
+                    "actions": [
+                        "Toggle View",
+                        "Search Peer Rank",
+                        "View 'Hot Skill' Specialists"
+                    ]
+                },
+                {
+                    "name": "Monthly Showdowns",
+                    "description": "Time-bound competitive learning events.",
+                    "actions": [
+                        "Register",
+                        "Submit Solutions",
+                        "Claim Bonus Points"
+                    ]
+                }
+            ]
+        },
+        {
+            "category": "Growth & Planning",
+            "items": [
+                {
+                    "name": "Aspiration Tracker",
+                    "description": "Tool for setting future skill goals and career targets.",
+                    "actions": [
+                        "Add Goal",
+                        "Track Progress",
+                        "Notify Manager"
+                    ]
+                },
+                {
+                    "name": "Skill Tracks",
+                    "description": "Curated pathways for role progression and new skill acquisition.",
+                    "actions": [
+                        "Subscribe",
+                        "Pause/Resume",
+                        "Request Faculty Support"
+                    ]
+                }
+            ]
+        },
+        {
+            "category": "Resource & Deployment",
+            "items": [
+                {
+                    "name": "Verified PDF Resume",
+                    "description": "Automated, branded resume containing proctored scores and timeline.",
+                    "actions": [
+                        "Export PDF",
+                        "Select Primary Skills",
+                        "Preview Document"
+                    ]
+                },
+                {
+                    "name": "Availability & Project Status",
+                    "description": "Dashboard for managing current workload and deployment readiness.",
+                    "actions": [
+                        "Update Availability",
+                        "View Current Project Specs"
+                    ]
+                }
+            ]
+        }
+    ],
+    "logic_rules": {
+        "score_calculation": "Weighted average of AI assessments, proctored quizzes, and faculty feedback.",
+        "rank_logic": "Updated in real-time based on cumulative weighted points and showdown bonuses.",
+        "visibility": "RBAC governed; managers view aspirations, RMT views verified profiles."
+    }
+}

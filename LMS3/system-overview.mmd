@@ -1,0 +1,78 @@
+flowchart LR
+    employeeLearner[Employee Learner]
+    trainer[Trainer]
+    manager[Manager]
+    lndAdmin[L&D Administrator]
+    complianceOfficer[Compliance Officer]
+    systemAdmin[System Administrator]
+
+    lmsSource[External LMS]
+    assessmentSource[Assessment System]
+    trainerNotesSource[Trainer Notes]
+    hrSource[HR Employee System]
+
+    apiGateway[API Gateway]
+    ingestionService[Data Ingestion Service]
+    validationService[Validation and Reconciliation]
+    learnerProfileService[Learner Profile Service]
+    riskRulesService[Risk Rules Service]
+    interventionService[Intervention Service]
+    dashboardService[Dashboard Service]
+    reportingService[Compliance Reporting Service]
+    notificationService[Notification Service]
+    auditService[Audit Service]
+
+    operationalDb[(Operational Database)]
+    rulesStore[(Rules Store)]
+    auditStore[(Audit Log Store)]
+    reportingStore[(Reporting Data Store)]
+
+    dashboards[Dashboards]
+    reports[Compliance Reports]
+    alerts[Email and App Notifications]
+
+    employeeLearner -->|"View own progress and actions"| apiGateway
+    trainer -->|"Review learners and update interventions"| apiGateway
+    manager -->|"Review team risk and follow up"| apiGateway
+    lndAdmin -->|"Configure rules and monitor learning"| apiGateway
+    complianceOfficer -->|"Generate compliance evidence"| apiGateway
+    systemAdmin -->|"Configure integrations and access"| apiGateway
+
+    lmsSource -->|"Attendance records"| ingestionService
+    assessmentSource -->|"Assessment scores"| ingestionService
+    trainerNotesSource -->|"Intervention notes"| ingestionService
+    hrSource -->|"Employee and manager data"| ingestionService
+
+    apiGateway --> learnerProfileService
+    apiGateway --> riskRulesService
+    apiGateway --> interventionService
+    apiGateway --> dashboardService
+    apiGateway --> reportingService
+
+    ingestionService --> validationService
+    validationService --> learnerProfileService
+    validationService --> auditService
+
+    learnerProfileService --> operationalDb
+    learnerProfileService --> riskRulesService
+    riskRulesService --> rulesStore
+    riskRulesService --> interventionService
+    interventionService --> operationalDb
+    interventionService --> notificationService
+    dashboardService --> operationalDb
+    dashboardService --> reportingStore
+    reportingService --> reportingStore
+    reportingService --> auditService
+    auditService --> auditStore
+
+    dashboardService --> dashboards
+    reportingService --> reports
+    notificationService --> alerts
+
+    dashboards --> trainer
+    dashboards --> manager
+    dashboards --> lndAdmin
+    reports --> complianceOfficer
+    alerts --> employeeLearner
+    alerts --> trainer
+    alerts --> manager

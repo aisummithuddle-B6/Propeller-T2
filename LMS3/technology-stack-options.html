@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Technology Stack Options</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin: 32px;
+      color: #1f2937;
+      background: #ffffff;
+    }
+    h1, h2 {
+      color: #111827;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+    }
+    th, td {
+      border: 1px solid #d1d5db;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f3f4f6;
+    }
+    code {
+      background: #f3f4f6;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    .recommendation {
+      border-left: 4px solid #059669;
+      background: #f0fdf4;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Technology Stack Options</h1>
+  <p>For the Corporate Learning Progress, Intervention &amp; Compliance Tracking System, the stack should support APIs, rule evaluation, imports, dashboards, reports, audit history, RBAC, and compliance. The architecture should be modular and production-ready without overengineering.</p>
+
+  <h2>Recommended Stack Options</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Stack</th>
+        <th>Best For</th>
+        <th>Reason</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Option 1: TypeScript Full Stack</td>
+        <td>React + NestJS + PostgreSQL + Redis + Docker</td>
+        <td>Best balanced choice for POC to production</td>
+        <td>Fast development, strong typing, good API structure, and a strong ecosystem for dashboards, queues, validation, auth, and background jobs.</td>
+      </tr>
+      <tr>
+        <td>Option 2: Enterprise Java</td>
+        <td>Angular/React + Spring Boot + PostgreSQL + Redis + Docker</td>
+        <td>Enterprise-grade backend</td>
+        <td>Strong for complex business rules, RBAC, audit, integrations, batch jobs, security, and long-term maintainability.</td>
+      </tr>
+      <tr>
+        <td>Option 3: .NET Enterprise</td>
+        <td>React/Angular + ASP.NET Core + PostgreSQL/SQL Server + Redis + Docker</td>
+        <td>Microsoft/Azure-heavy organizations</td>
+        <td>Excellent Azure integration, strong identity support with Entra ID, good performance, mature APIs, background jobs, and enterprise tooling.</td>
+      </tr>
+      <tr>
+        <td>Option 4: Python Data-Friendly</td>
+        <td>React + FastAPI + PostgreSQL + Redis + Celery/RQ</td>
+        <td>If analytics/risk scoring may evolve toward ML</td>
+        <td>Very productive for APIs, data processing, rules, reporting, and future analytics, but needs discipline for large enterprise codebases.</td>
+      </tr>
+      <tr>
+        <td>Option 5: Low-Code + API Backend</td>
+        <td>Power Apps/Power BI + Azure Functions/API + Dataverse/PostgreSQL</td>
+        <td>Fast internal enterprise prototype</td>
+        <td>Useful if the main goal is quick dashboards and workflows, but less flexible for custom rules, complex integrations, and long-term product control.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Preferred Choice</h2>
+  <div class="recommendation">
+    <p><strong>Use React + NestJS + PostgreSQL + Redis + Docker, deployed on Azure Container Apps.</strong></p>
+  </div>
+
+  <ul>
+    <li><strong>React</strong> is strong for dashboards, admin screens, profile views, and report interactions.</li>
+    <li><strong>NestJS</strong> gives a structured backend with modules, guards, interceptors, validation, and clean service boundaries.</li>
+    <li><strong>PostgreSQL</strong> fits employee profiles, attendance, assessments, competencies, risk results, interventions, audit logs, and reports.</li>
+    <li><strong>Redis</strong> supports caching, queues, rate limiting, and background job coordination.</li>
+    <li><strong>Docker</strong> keeps local, test, staging, and production deployments consistent.</li>
+    <li><strong>Azure Container Apps</strong> gives production-ready managed containers without Kubernetes complexity.</li>
+  </ul>
+
+  <h2>Supporting Technologies</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Concern</th>
+        <th>Recommendation</th>
+        <th>Reason</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Authentication</td>
+        <td>Entra ID / Auth0 / Keycloak</td>
+        <td>Enterprise SSO, RBAC, and secure identity management.</td>
+      </tr>
+      <tr>
+        <td>Authorization</td>
+        <td>RBAC + scoped access checks</td>
+        <td>Needed for learners, trainers, managers, L&amp;D admins, compliance officers, and system admins.</td>
+      </tr>
+      <tr>
+        <td>API contracts</td>
+        <td>OpenAPI</td>
+        <td>Clear integration contracts for attendance, assessment, competency, employee, and intervention APIs.</td>
+      </tr>
+      <tr>
+        <td>Background jobs</td>
+        <td>BullMQ with Redis</td>
+        <td>Good for imports, risk recalculation, report generation, notifications, and retries.</td>
+      </tr>
+      <tr>
+        <td>Reporting</td>
+        <td>PostgreSQL views + server-generated CSV/PDF</td>
+        <td>Practical for compliance-ready reporting.</td>
+      </tr>
+      <tr>
+        <td>Observability</td>
+        <td>OpenTelemetry + Azure Monitor/App Insights</td>
+        <td>Logs, metrics, traces, health checks, and import/job monitoring.</td>
+      </tr>
+      <tr>
+        <td>Secrets</td>
+        <td>Azure Key Vault</td>
+        <td>Keeps credentials and API keys out of code.</td>
+      </tr>
+      <tr>
+        <td>CI/CD</td>
+        <td>GitHub Actions or Azure DevOps</td>
+        <td>Automated build, test, scan, image publish, and deploy.</td>
+      </tr>
+      <tr>
+        <td>IaC</td>
+        <td>Terraform or Bicep</td>
+        <td>Repeatable infrastructure across environments.</td>
+      </tr>
+      <tr>
+        <td>Testing</td>
+        <td>Jest + Playwright + API contract tests</td>
+        <td>Covers unit, integration, end-to-end, and critical user flows.</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

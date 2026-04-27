@@ -1,0 +1,235 @@
+{
+  "product": "Corporate Learning Progress, Intervention & Compliance Tracking System",
+  "scope_note": "Focused learning progress, risk detection, intervention tracking, and compliance reporting product. Not a full LMS.",
+  "nfrs": [
+    {
+      "id": "NFR-PERF-001",
+      "category": "Performance",
+      "requirement": "Learner profile pages should load within 2 seconds for normal users.",
+      "target": "P95 page load <= 2 seconds",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-PERF-002",
+      "category": "Performance",
+      "requirement": "Risk dashboard summary should load within 3 seconds for filtered views.",
+      "target": "P95 dashboard load <= 3 seconds",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-PERF-003",
+      "category": "Performance",
+      "requirement": "Compliance reports for up to 10,000 learners should generate within 60 seconds.",
+      "target": "Report generation <= 60 seconds for 10,000 learners",
+      "priority": "Medium"
+    },
+    {
+      "id": "NFR-PERF-004",
+      "category": "Performance",
+      "requirement": "Standard API read/write operations should respond quickly, excluding large reports and imports.",
+      "target": "P95 API response <= 300 ms",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-SCALE-001",
+      "category": "Scalability",
+      "requirement": "The system should support growth in employees, learning programs, competencies, assessments, and intervention records without redesign.",
+      "target": "Architecture supports modular scale-out and data growth",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-SCALE-002",
+      "category": "Scalability",
+      "requirement": "The system should support concurrent dashboard and profile access.",
+      "target": "At least 500 concurrent users",
+      "priority": "Medium"
+    },
+    {
+      "id": "NFR-SCALE-003",
+      "category": "Scalability",
+      "requirement": "The data model should support historical learning, risk, and intervention data.",
+      "target": "3-5 years of historical records",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-AVAIL-001",
+      "category": "Availability",
+      "requirement": "The system should be available for business-hour usage.",
+      "target": "99.5% availability",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-REL-001",
+      "category": "Reliability",
+      "requirement": "Data ingestion jobs should be retryable and should not create duplicate records.",
+      "target": "Retryable ingestion with idempotency controls",
+      "priority": "Critical"
+    },
+    {
+      "id": "NFR-REL-002",
+      "category": "Reliability",
+      "requirement": "Failed imports should be captured with clear error reasons and reprocessing support.",
+      "target": "100% failed import records have error reason and retry path",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-DQ-001",
+      "category": "Data Quality",
+      "requirement": "Attendance, assessment, employee, and competency data must be validated before acceptance.",
+      "target": "Validation applied to all inbound learning records",
+      "priority": "Critical"
+    },
+    {
+      "id": "NFR-DQ-002",
+      "category": "Data Quality",
+      "requirement": "Duplicate, incomplete, and inconsistent records must be flagged for review.",
+      "target": "Data quality exceptions visible in import monitoring",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-DI-001",
+      "category": "Data Integrity",
+      "requirement": "Risk classification must be traceable to the exact rule version and source data used.",
+      "target": "Risk result stores rule version and source data references",
+      "priority": "Critical"
+    },
+    {
+      "id": "NFR-SEC-001",
+      "category": "Security",
+      "requirement": "Access must be role-based across learners, trainers, managers, L&D administrators, compliance officers, and system administrators.",
+      "target": "RBAC plus scoped access checks for learner data",
+      "priority": "Critical"
+    },
+    {
+      "id": "NFR-SEC-002",
+      "category": "Security",
+      "requirement": "Sensitive employee learning and performance data must be encrypted in transit and at rest.",
+      "target": "TLS for transit and encryption at rest for storage",
+      "priority": "Critical"
+    },
+    {
+      "id": "NFR-SEC-003",
+      "category": "Security",
+      "requirement": "Exports, report generation, rule changes, intervention updates, and admin actions must be audit logged.",
+      "target": "Audit log coverage for all sensitive actions",
+      "priority": "Critical"
+    },
+    {
+      "id": "NFR-PRIV-001",
+      "category": "Privacy",
+      "requirement": "Users should only see learner data they are authorized to access.",
+      "target": "Access scoped by role, department, manager relationship, or assigned program",
+      "priority": "Critical"
+    },
+    {
+      "id": "NFR-COMP-001",
+      "category": "Compliance",
+      "requirement": "Compliance reports must include timestamp, filters used, source references, and generated-by information.",
+      "target": "Report metadata included in every compliance report",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-COMP-002",
+      "category": "Compliance",
+      "requirement": "Historical records must be retained according to organizational and regulatory policies.",
+      "target": "Configurable retention policy",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-AUDIT-001",
+      "category": "Auditability",
+      "requirement": "The system must preserve history for rule changes, risk status changes, interventions, manual corrections, and report exports.",
+      "target": "Historical audit trail for all compliance-relevant changes",
+      "priority": "Critical"
+    },
+    {
+      "id": "NFR-MAINT-001",
+      "category": "Maintainability",
+      "requirement": "Risk rules should be configurable without code deployment.",
+      "target": "Authorized business users can create, test, activate, deactivate, and version rules",
+      "priority": "Critical"
+    },
+    {
+      "id": "NFR-MAINT-002",
+      "category": "Maintainability",
+      "requirement": "Data ingestion, risk rules, intervention tracking, reporting, and dashboards should be separated as clear modules or services.",
+      "target": "Clear module boundaries and ownership",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-EXT-001",
+      "category": "Extensibility",
+      "requirement": "The system should allow future addition of new data sources, rule types, report formats, and intervention types.",
+      "target": "Extension points for source adapters, rule conditions, report templates, and intervention types",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-OBS-001",
+      "category": "Observability",
+      "requirement": "The system should provide logs, metrics, health checks, import status, job status, and alerting for failures.",
+      "target": "Operational telemetry for APIs, jobs, imports, reports, and integrations",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-USE-001",
+      "category": "Usability",
+      "requirement": "Dashboards should show clear risk reasons, not just risk labels.",
+      "target": "Each risk status displays triggered rule and reason",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-USE-002",
+      "category": "Usability",
+      "requirement": "Trainers and L&D administrators should be able to find at-risk learners and create interventions with minimal steps.",
+      "target": "At-risk learner to intervention creation flow <= 3 main steps",
+      "priority": "Medium"
+    },
+    {
+      "id": "NFR-INT-001",
+      "category": "Interoperability",
+      "requirement": "APIs should use documented contracts for attendance, assessment, competency, employee, and intervention data.",
+      "target": "Versioned API contracts for all inbound and outbound integrations",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-DR-001",
+      "category": "Backup and Recovery",
+      "requirement": "The system should support regular backups and tested restore procedures.",
+      "target": "Scheduled backups with periodic restore validation",
+      "priority": "High"
+    },
+    {
+      "id": "NFR-DEPLOY-001",
+      "category": "Deployment",
+      "requirement": "The application should support repeatable deployment across development, test, staging, and production environments.",
+      "target": "Automated deployment process with environment-specific configuration",
+      "priority": "Medium"
+    }
+  ],
+  "highest_priority_nfrs": [
+    {
+      "category": "Data Quality and Traceability",
+      "reason": "Risk classification and compliance reports depend on trusted learning records."
+    },
+    {
+      "category": "Security and Privacy",
+      "reason": "Employee learning performance data is sensitive and must be protected."
+    },
+    {
+      "category": "Auditability",
+      "reason": "Compliance reporting requires evidence of source data, rule versions, actions, and exports."
+    },
+    {
+      "category": "Configurability",
+      "reason": "Risk rules must change without engineering effort or code deployment."
+    },
+    {
+      "category": "Ingestion Reliability",
+      "reason": "The product depends on data from external LMS, assessment, HR, and trainer systems."
+    },
+    {
+      "category": "Dashboard Usability",
+      "reason": "The product creates value only when trainers and L&D administrators can take timely action."
+    }
+  ]
+}
