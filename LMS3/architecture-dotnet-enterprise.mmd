@@ -1,0 +1,91 @@
+flowchart LR
+    learner[Employee Learner]
+    trainer[Trainer]
+    manager[Manager]
+    admin[L&D Administrator]
+    compliance[Compliance Officer]
+
+    subgraph frontend [React or Angular Frontend]
+        dashboardUi[Dashboard UI]
+        profileUi[Learner Profile UI]
+        rulesUi[Rules Admin UI]
+        interventionUi[Intervention UI]
+        reportsUi[Reports UI]
+    end
+
+    subgraph api [ASP.NET Core API]
+        identity[Microsoft Entra ID Integration]
+        authz[RBAC and Scoped Authorization]
+        controllers[API Controllers]
+        validators[Validation Layer]
+        swagger[OpenAPI Swagger]
+    end
+
+    subgraph application [Application and Domain Services]
+        learnerService[Learner Profile Service]
+        ingestionService[Data Ingestion Service]
+        rulesService[Risk Rules Service]
+        interventionService[Intervention Service]
+        reportingService[Reporting Service]
+        auditService[Audit Service]
+    end
+
+    subgraph jobs [.NET Background Processing]
+        hangfire[Hangfire or Worker Service]
+        importJob[Import Job]
+        riskJob[Risk Evaluation Job]
+        reportJob[Report Generation Job]
+        notificationJob[Notification Job]
+    end
+
+    lms[External LMS]
+    assessments[Assessment System]
+    hr[HR System]
+    notes[Trainer Notes]
+
+    database[(PostgreSQL or SQL Server)]
+    redis[(Redis)]
+    blob[(Blob Storage)]
+    serviceBus[(Azure Service Bus)]
+    keyVault[Azure Key Vault]
+    appInsights[Application Insights]
+
+    learner --> frontend
+    trainer --> frontend
+    manager --> frontend
+    admin --> frontend
+    compliance --> frontend
+
+    frontend --> controllers
+    controllers --> identity
+    controllers --> authz
+    controllers --> validators
+    controllers --> learnerService
+    controllers --> rulesService
+    controllers --> interventionService
+    controllers --> reportingService
+
+    lms --> ingestionService
+    assessments --> ingestionService
+    hr --> ingestionService
+    notes --> ingestionService
+
+    ingestionService --> serviceBus
+    serviceBus --> hangfire
+    hangfire --> importJob
+    hangfire --> riskJob
+    hangfire --> reportJob
+    hangfire --> notificationJob
+
+    learnerService --> database
+    ingestionService --> database
+    rulesService --> database
+    interventionService --> database
+    reportingService --> database
+    auditService --> database
+
+    learnerService --> redis
+    reportingService --> blob
+    api --> keyVault
+    api --> appInsights
+    jobs --> appInsights

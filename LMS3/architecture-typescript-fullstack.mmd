@@ -1,0 +1,87 @@
+flowchart LR
+    learner[Employee Learner]
+    trainer[Trainer]
+    manager[Manager]
+    admin[L&D Administrator]
+    compliance[Compliance Officer]
+
+    subgraph frontend [React TypeScript Frontend]
+        dashboards[Dashboards]
+        learnerProfile[Learner Profile UI]
+        ruleAdmin[Risk Rule Admin UI]
+        interventionUi[Intervention UI]
+        reportUi[Report UI]
+    end
+
+    subgraph backend [NestJS TypeScript Backend]
+        authModule[Auth and RBAC Module]
+        learnerModule[Learner Profile Module]
+        ingestionModule[Data Ingestion Module]
+        rulesModule[Risk Rules Module]
+        interventionModule[Intervention Module]
+        reportingModule[Reporting Module]
+        auditModule[Audit Module]
+        notificationModule[Notification Module]
+    end
+
+    subgraph workers [Node.js Background Workers]
+        importWorker[Import Worker]
+        riskWorker[Risk Recalculation Worker]
+        reportWorker[Report Generation Worker]
+        notificationWorker[Notification Worker]
+    end
+
+    lms[External LMS]
+    assessments[Assessment System]
+    hr[HR System]
+    notes[Trainer Notes]
+
+    postgres[(PostgreSQL)]
+    redis[(Redis and BullMQ)]
+    objectStorage[(Object Storage)]
+    identity[Entra ID Auth0 or Keycloak]
+    observability[OpenTelemetry and Monitor]
+
+    learner --> frontend
+    trainer --> frontend
+    manager --> frontend
+    admin --> frontend
+    compliance --> frontend
+
+    frontend --> authModule
+    frontend --> learnerModule
+    frontend --> rulesModule
+    frontend --> interventionModule
+    frontend --> reportingModule
+
+    authModule --> identity
+    learnerModule --> postgres
+    ingestionModule --> postgres
+    rulesModule --> postgres
+    interventionModule --> postgres
+    reportingModule --> postgres
+    auditModule --> postgres
+
+    ingestionModule --> redis
+    rulesModule --> redis
+    reportingModule --> redis
+    notificationModule --> redis
+
+    lms --> ingestionModule
+    assessments --> ingestionModule
+    hr --> ingestionModule
+    notes --> ingestionModule
+
+    redis --> importWorker
+    redis --> riskWorker
+    redis --> reportWorker
+    redis --> notificationWorker
+
+    importWorker --> postgres
+    riskWorker --> postgres
+    reportWorker --> postgres
+    reportWorker --> objectStorage
+    notificationWorker --> notificationModule
+
+    backend --> observability
+    workers --> observability

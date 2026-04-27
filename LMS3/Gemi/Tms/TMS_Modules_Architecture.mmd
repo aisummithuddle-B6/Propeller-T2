@@ -1,0 +1,37 @@
+
+graph TB
+    subgraph Governance ["Governance & Data Foundation"]
+        CC[Command Centre]
+        HRMS[HRMS Sync Module]
+        Audit[Immutable Audit Module]
+    end
+
+    subgraph Content ["Content & Evaluation"]
+        AI[AI Research Engine]
+        CTM[Course & Track Management]
+        Logistics[Logistics & Surveys]
+    end
+
+    subgraph Experience ["User Experience & Engagement"]
+        Learner[Learner Dashboard]
+        LB[Leaderboards & Gamification]
+        Digests[Subscription & Digests]
+    end
+
+    subgraph Deployment ["Resource Deployment"]
+        RMT[Resource Management Portal]
+        Resume[Verified Resume Generator]
+    end
+
+    %% Data Flow & Dependencies
+    HRMS --> CC
+    CC --> CTM
+    CC --> AI
+    AI --> CTM
+    CTM --> Learner
+    Learner --> LB
+    Learner --> Resume
+    Resume --> RMT
+    CC -.-> Audit
+    CTM -.-> Audit
+    Learner -.-> Audit

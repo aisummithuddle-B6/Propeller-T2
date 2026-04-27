@@ -1,0 +1,45 @@
+{
+    "product_vision": "Corporate Training Management System (TMS)",
+    "modules": [
+        {
+            "name": "Role & Designation Governance",
+            "features": [
+                "Designation Mapping: Direct link between job titles and required training paths.",
+                "Auto-Enrollment Rules: Triggers training assignments based on role changes in HRIS.",
+                "Prerequisite Logic: Mandatory completion of foundational levels before advanced modules."
+            ]
+        },
+        {
+            "name": "Specialized NDT & Compliance",
+            "features": [
+                "Certification Lifecycle: Automated tracking of validity and expiry alerts.",
+                "OJT (On-the-Job Training) Logs: Mobile-ready supervisor verification for field tasks.",
+                "Compliance Vault: Storage for medical fitness and external regulatory licenses."
+            ]
+        },
+        {
+            "name": "Credit Point Economy",
+            "features": [
+                "Variable Weighting: Credits assigned based on duration and complexity (e.g., Workshop vs. Webinar).",
+                "Annual Targets: Credit thresholds required for performance appraisals and promotions.",
+                "External Credit Approval: Workflow for recognizing certifications from third-party bodies."
+            ]
+        },
+        {
+            "name": "Advanced Assessment Engine",
+            "features": [
+                "Weighted Quizzing: Ability to assign importance to specific questions.",
+                "Sectional Weighting: Quiz categories (e.g., Safety, Technical, Soft Skills) with unique percentage impacts on final scores.",
+                "Question Bank Management: Categorization by difficulty and randomization."
+            ]
+        },
+        {
+            "name": "Analytics & Performance",
+            "features": [
+                "Competency Heatmaps: Visual gaps in organizational skills based on designation.",
+                "Audit Readiness: Tamper-proof logs for regulatory inspections.",
+                "Category-wise Scorecards: Deep-dive reporting into learner strengths and weaknesses."
+            ]
+        }
+    ]
+}

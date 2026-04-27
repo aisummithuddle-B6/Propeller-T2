@@ -1,0 +1,79 @@
+{
+    "module_name": "Admin Command Center",
+    "primary_objective": "Centralized Governance, Intelligence, and Talent Control",
+    "feature_groups": [
+        {
+            "category": "Taxonomy & Architecture",
+            "features": [
+                {
+                    "name": "Course & Track Management",
+                    "description": "Full lifecycle control over internal/external courses and specialized learning pathways."
+                },
+                {
+                    "name": "Skill DNA Library",
+                    "description": "Centralized repository for skill tags (#Python, #Safety) to ensure uniform reporting."
+                },
+                {
+                    "name": "Role-Skill Mapping",
+                    "description": "Link specific competencies and courses to defined organizational roles."
+                }
+            ]
+        },
+        {
+            "category": "Strategic Weighting Engine",
+            "features": [
+                {
+                    "name": "Global Weighting Control",
+                    "description": "Assign numerical values (0-100) to internal/external certifications and modules."
+                },
+                {
+                    "name": "Hot Skill Designation",
+                    "description": "Flag strategic skills to prioritize them in rankings and dashboard analytics."
+                },
+                {
+                    "name": "AI-Driven Recommendations",
+                    "description": "System-suggested weights based on market difficulty with manual admin override."
+                }
+            ]
+        },
+        {
+            "category": "Governance & Operations",
+            "features": [
+                {
+                    "name": "HRMS & ERP Handshake",
+                    "description": "Manage automated interval, surgical, and bulk manual data synchronization."
+                },
+                {
+                    "name": "Persona Architect (RBAC)",
+                    "description": "Configure data visibility and permissions for Managers, RMT, and Business Unit Heads."
+                },
+                {
+                    "name": "Bulk Import Tool",
+                    "description": "Smart Excel import facility with automated conflict resolution and validation."
+                }
+            ]
+        },
+        {
+            "category": "Intelligence & Compliance",
+            "features": [
+                {
+                    "name": "Immutable Audit Trail",
+                    "description": "Read-only logs of every administrative change and user activity for regulatory compliance."
+                },
+                {
+                    "name": "Unit-Level Analytics",
+                    "description": "Monitor skill health and gaps across Business Units (BU), Delivery Units (DU), and Projects."
+                },
+                {
+                    "name": "Global Leaderboard Governance",
+                    "description": "Manage visibility rules, incentive triggers, and season-based resets for rankings."
+                }
+            ]
+        }
+    ],
+    "output_formats": [
+        "JSON",
+        "XLSX",
+        "PDF"
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "module": "Course & Track Management",
+    "description": "Full lifecycle control (Add/Edit/Modify) over internal/external courses and specialized learning paths.",
+    "features": [
+        {
+            "feature_id": "CTM-01",
+            "feature_name": "Course Authoring & Metadata Management",
+            "capabilities": [
+                "Create modular course structures with L1-L4 proficiency levels.",
+                "Define metadata: Duration, Faculty/Trainer, Weightage, and Difficulty.",
+                "Attach prerequisite requirements to prevent advanced enrollment before basics.",
+                "Versioning control for course content updates without losing historical data."
+            ],
+            "use_cases": [
+                "Admin adds a new 40-hour 'Advanced Data Analytics' course with a prerequisite of 'Basic Statistics'.",
+                "L&D Team updates the syllabus for 'Corporate Compliance 2026' while maintaining records for the 2025 version."
+            ]
+        },
+        {
+            "feature_id": "CTM-02",
+            "feature_name": "Learning Path (Track) Orchestration",
+            "capabilities": [
+                "Bundle multiple courses and certifications into 'Skill Tracks' or 'Role Pathways'.",
+                "Define linear or branch-based progression (User chooses elective A or B).",
+                "Map tracks to organizational designations (e.g., 'Junior to Senior Developer Path').",
+                "Automated track subscription based on user designation synced from HRMS."
+            ],
+            "use_cases": [
+                "Command Centre creates a 'Leadership Track' comprising 5 courses, 2 workshops, and 1 final project.",
+                "A user promoted to 'Lead Engineer' is automatically subscribed to the 'Senior Management Essentials' track."
+            ]
+        },
+        {
+            "feature_id": "CTM-03",
+            "feature_name": "External Content Integration",
+            "capabilities": [
+                "Onboard external certifications (AWS, PMP, NDT) into the internal catalog.",
+                "Map external completion proofs to internal skill weightages.",
+                "Automated link generation for third-party platforms (Udemy, Coursera, LinkedIn Learning)."
+            ],
+            "use_cases": [
+                "Admin maps an 'AWS Solutions Architect' external cert to 100 points in the 'Cloud Architecture' hot-skill leaderboard.",
+                "User clicks 'Start' on the dashboard and is redirected to the external provider's portal via SSO."
+            ]
+        },
+        {
+            "feature_id": "CTM-04",
+            "feature_name": "Dynamic Availability & Logistics Control",
+            "capabilities": [
+                "Switch course mode between 'Online-Self Paced', 'Virtual-Instructor Led', and 'Physical Classroom'.",
+                "Manage batch sizes, venue allocation, and waitlist automation.",
+                "Trigger hardware/software surveys upon enrollment for technical labs."
+            ],
+            "use_cases": [
+                "L&D manager modifies a course from Virtual to Physical for a specific batch due to hardware requirements.",
+                "System automatically moves the top-ranked user on a waitlist into an active slot after a cancellation."
+            ]
+        },
+        {
+            "feature_id": "CTM-05",
+            "feature_name": "Lifecycle Status Management",
+            "capabilities": [
+                "Toggle visibility (Draft, Published, Archived, Retired).",
+                "Set expiration/recertification dates for compliance-heavy courses.",
+                "Define 'Mandatory' vs. 'Optional' flags for targeted business units."
+            ],
+            "use_cases": [
+                "Admin retires an outdated 'Legacy Software v1' course, hiding it from discovery but keeping it in 'Completed' histories.",
+                "Safety Officer sets a 'Fire Safety' course to expire every 365 days, triggering auto-reenrollment."
+            ]
+        }
+    ]
+}

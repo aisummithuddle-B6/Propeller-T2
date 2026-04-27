@@ -1,0 +1,51 @@
+{
+    "system_name": "Training Management System (TMS)",
+    "architecture_type": "Polyrepo / Service-Oriented",
+    "design_patterns": [
+        {
+            "pattern_name": "CQRS (Command Query Responsibility Segregation)",
+            "context": "Separation of write operations (Django) from complex read operations (FastAPI/Analytics).",
+            "reasons_for_opting": [
+                "Independent scaling of read and write workloads.",
+                "Optimized data schemas for high-performance dashboards (10k+ concurrent users).",
+                "Reduced contention on the primary relational database."
+            ]
+        },
+        {
+            "pattern_name": "Event-Driven Architecture (EDA)",
+            "context": "Asynchronous communication between Django and FastAPI via Redis/RabbitMQ.",
+            "reasons_for_opting": [
+                "Decoupling of services; core functions remain active even if the AI service is busy.",
+                "Better responsiveness for long-running AI tasks (assessment generation).",
+                "Scalability through background worker processing."
+            ]
+        },
+        {
+            "pattern_name": "Sidecar Pattern",
+            "context": "Peripheral tasks like logging, security, and telemetry managed by secondary containers.",
+            "reasons_for_opting": [
+                "Separation of concerns between business logic and infrastructure logic.",
+                "Consistent monitoring and security policies across different technology stacks (Django/FastAPI).",
+                "Simplified service-to-service communication via Service Mesh."
+            ]
+        },
+        {
+            "pattern_name": "Strategy Pattern",
+            "context": "In-code interchangeability for evaluation algorithms and LLM providers.",
+            "reasons_for_opting": [
+                "Extensibility for adding new AI models (GPT-4 vs Llama 3) without core changes.",
+                "Context-specific evaluation logic for different skill types (Soft Skills vs Technical).",
+                "Improved testability using mock strategies."
+            ]
+        },
+        {
+            "pattern_name": "Saga Pattern",
+            "context": "Managing distributed transactions across Polyrepo services.",
+            "reasons_for_opting": [
+                "Ensures data consistency without needing distributed locks.",
+                "Reliable cross-service workflows like Resource Deployment.",
+                "Clear compensation logic if a step in a multi-service process fails."
+            ]
+        }
+    ]
+}

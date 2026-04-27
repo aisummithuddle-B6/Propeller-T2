@@ -1,0 +1,269 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 2006.6766999999998 1542" width="1966.6766999999998" height="1502" style="--bg:#FFFFFF;--fg:#27272A;background:var(--bg)"><rect x="-20" y="-20" width="2006.6766999999998" height="1542" rx="10" ry="10" fill="#ffffff" stroke="#cccccc" stroke-width="1"/><g transform="translate(0,0)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="Hybrid_Architecture__Detailed_Implementation_View" data-label="Hybrid Architecture - Detailed Implementation View">
+  <rect x="40" y="40" width="1886.6766999999998" height="1422" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="40" y="40" width="1886.6766999999998" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="52" y="54" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Hybrid Architecture - Detailed Implementation View</text>
+<g class="subgraph" data-id="Clients" data-label="🖥️ CLIENT LAYER">
+  <rect x="828.4701857142854" y="114" width="81.964" height="36.900000000000006" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="828.4701857142854" y="114" width="81.964" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="840.4701857142854" y="128" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">🖥️ CLIENT LAYER</text>
+</g>
+<g class="subgraph" data-id="Microservices" data-label="⚡ INDEPENDENT MICROSERVICES
+(Horizontal Scaling)">
+  <rect x="938.4341857142855" y="114" width="130.12900000000002" height="36.900000000000006" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="938.4341857142855" y="114" width="130.12900000000002" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="950.4341857142855" y="128" font-size="12" font-weight="600" fill="var(--_text-sec)"><tspan x="950.4341857142855" dy="-3.6000000000000014">⚡ INDEPENDENT MICROSERVICES</tspan><tspan x="950.4341857142855" dy="15.600000000000001">(Horizontal Scaling)</tspan></text>
+</g>
+<g class="subgraph" data-id="EventInfra" data-label="🔔 EVENT-DRIVEN INFRASTRUCTURE
+(Audit Trail + Real-time)">
+  <rect x="697.7581857142854" y="114" width="102.712" height="36.900000000000006" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="697.7581857142854" y="114" width="102.712" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="709.7581857142854" y="128" font-size="12" font-weight="600" fill="var(--_text-sec)"><tspan x="709.7581857142854" dy="-3.6000000000000014">🔔 EVENT-DRIVEN INFRASTRUCTURE</tspan><tspan x="709.7581857142854" dy="15.600000000000001">(Audit Trail + Real-time)</tspan></text>
+</g>
+<g class="subgraph" data-id="Clients" data-label="🖥️ CLIENT LAYER">
+  <rect x="1096.5631857142855" y="84" width="498.39399999999995" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="1096.5631857142855" y="84" width="498.39399999999995" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1108.5631857142855" y="98" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">🖥️ CLIENT LAYER</text>
+</g>
+<g class="subgraph" data-id="Gateway" data-label="🚪 API GATEWAY LAYER">
+  <rect x="962.5181499999999" y="234.9" width="191.769" height="164.5" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="962.5181499999999" y="234.9" width="191.769" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="974.5181499999999" y="248.9" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">🚪 API GATEWAY LAYER</text>
+</g>
+<g class="subgraph" data-id="CoreMonolith" data-label="&quot;🏢 CORE MONOLITH (Single Database)">
+  <rect x="56" y="459.4" width="970.3989999999998" height="415.6" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="56" y="459.4" width="970.3989999999998" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="68" y="473.4" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">&quot;🏢 CORE MONOLITH (Single Database)</text>
+<g class="subgraph" data-id="CoreServices" data-label="Core Services (Deployed as Single Unit)">
+  <rect x="72" y="539.4" width="126.424" height="36.900000000000006" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="72" y="539.4" width="126.424" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="84" y="553.4" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Core Services (Deployed as Single Unit)</text>
+</g>
+<g class="subgraph" data-id="CoreDAL" data-label="Data Access Layer">
+  <rect x="226.42399999999998" y="539.4" width="98.266" height="36.900000000000006" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="226.42399999999998" y="539.4" width="98.266" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="238.42399999999998" y="553.4" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Data Access Layer</text>
+</g>
+<g class="subgraph" data-id="CoreServices" data-label="Core Services (Deployed as Single Unit)">
+  <rect x="352.68999999999994" y="509.4" width="657.7089999999998" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="352.68999999999994" y="509.4" width="657.7089999999998" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="364.68999999999994" y="523.4" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Core Services (Deployed as Single Unit)</text>
+</g>
+<g class="subgraph" data-id="CoreDAL" data-label="Data Access Layer">
+  <rect x="436.423" y="660.3" width="462.0849999999999" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="436.423" y="660.3" width="462.0849999999999" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="448.423" y="674.3" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Data Access Layer</text>
+</g>
+</g>
+<g class="subgraph" data-id="Microservices" data-label="⚡ INDEPENDENT MICROSERVICES
+(Horizontal Scaling)">
+  <rect x="1190.1994880952382" y="647" width="646.5939999999998" height="147.60000000000002" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="1190.1994880952382" y="647" width="646.5939999999998" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1202.1994880952382" y="661" font-size="12" font-weight="600" fill="var(--_text-sec)"><tspan x="1202.1994880952382" dy="-3.6000000000000014">⚡ INDEPENDENT MICROSERVICES</tspan><tspan x="1202.1994880952382" dy="15.600000000000001">(Horizontal Scaling)</tspan></text>
+</g>
+<g class="subgraph" data-id="EventInfra" data-label="🔔 EVENT-DRIVEN INFRASTRUCTURE
+(Audit Trail + Real-time)">
+  <rect x="903.8576999999999" y="971" width="422.51599999999996" height="249.40000000000003" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="903.8576999999999" y="971" width="422.51599999999996" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="915.8576999999999" y="985" font-size="12" font-weight="600" fill="var(--_text-sec)"><tspan x="915.8576999999999" dy="-3.6000000000000014">🔔 EVENT-DRIVEN INFRASTRUCTURE</tspan><tspan x="915.8576999999999" dy="15.600000000000001">(Audit Trail + Real-time)</tspan></text>
+</g>
+<g class="subgraph" data-id="CachingLayer" data-label="💨 CACHING LAYER">
+  <rect x="698.9087" y="971" width="176.94899999999996" height="164.5" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="698.9087" y="971" width="176.94899999999996" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="710.9087" y="985" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">💨 CACHING LAYER</text>
+</g>
+<g class="subgraph" data-id="Infrastructure" data-label="🛠️ INFRASTRUCTURE &amp; OBSERVABILITY">
+  <rect x="1012.7298714285714" y="1274.4" width="599.17" height="171.60000000000002" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="1012.7298714285714" y="1274.4" width="599.17" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1024.7298714285714" y="1288.4" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">🛠️ INFRASTRUCTURE &amp; OBSERVABILITY</text>
+</g>
+<g class="subgraph" data-id="Databases" data-label="💾 MICROSERVICE DATABASES
+(Separate DBs for Scale)">
+  <rect x="1387.2036999999996" y="971" width="483.574" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="1387.2036999999996" y="971" width="483.574" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1399.2036999999996" y="985" font-size="12" font-weight="600" fill="var(--_text-sec)"><tspan x="1399.2036999999996" dy="-3.6000000000000014">💾 MICROSERVICE DATABASES</tspan><tspan x="1399.2036999999996" dy="15.600000000000001">(Separate DBs for Scale)</tspan></text>
+</g>
+</g>
+<polyline class="edge" data-from="Clients" data-to="GW" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1222.6945190476188,140.9 1222.6945190476188,152.9 1018.4026499999999,152.9 1018.4026499999999,238.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="GW" data-to="SM" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1058.40265,383.4 1058.40265,468.4 667.4654999999999,468.4 667.4654999999999,553.4" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="GW" data-to="CM" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1058.40265,383.4 1058.40265,468.4 458.9484999999999,468.4 458.9484999999999,553.4" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="GW" data-to="AM" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1058.40265,383.4 1058.40265,468.4 890.0614999999999,468.4 890.0614999999999,553.4" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="GW" data-to="RS" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1058.40265,383.4 1058.40265,468.4 1283.490488095238,468.4 1283.490488095238,697.65" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="GW" data-to="IS" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1058.40265,383.4 1058.40265,468.4 1494.9714880952383,468.4 1494.9714880952383,697.65" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="GW" data-to="AS" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1058.40265,383.4 1058.40265,468.4 1724.977488095238,468.4 1724.977488095238,697.65" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="SM" data-to="RC" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="667.4654999999999,590.3 667.4654999999999,802.65 787.3832,802.65 787.3832,1015" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CM" data-to="RC" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="418.94849999999997,550.3 418.9485,596.3 372.423,596.3 372.423,865 703.8985000000001,865 703.8984999999999,975" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="AM" data-to="RC" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="890.0614999999999,590.3 890.0614999999999,802.65 787.3832,802.65 787.3832,1015" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RS" data-to="RC" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1283.490488095238,785.25 1283.490488095238,900.125 787.3832,900.125 787.3832,1015" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="SM" data-to="EB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="667.4654999999999,590.3 667.4654999999999,802.65 1102.5186999999999,802.65 1102.5186999999999,1015" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="AM" data-to="EB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="890.0614999999999,590.3 890.0614999999999,802.65 1102.5186999999999,802.65 1102.5186999999999,1015" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RS" data-to="EB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1283.490488095238,785.25 1283.490488095238,900.125 1102.5186999999999,900.125 1102.5186999999999,1015" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="IS" data-to="EB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1494.9714880952383,785.25 1494.9714880952383,900.125 1102.5186999999999,900.125 1102.5186999999999,1015" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RS" data-to="RiskDB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1283.490488095238,785.25 1283.490488095238,900.125 1459.7466999999995,900.125 1459.7466999999995,1015" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="IS" data-to="InterventionDB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1494.9714880952383,785.25 1494.9714880952383,900.125 1618.6166999999996,900.125 1618.6166999999996,1015" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="AS" data-to="AnalyticsDB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1684.977488095238,745.25 1684.977488095238,853 1747.8606999999997,853 1747.8606999999997,975" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CoreServices" data-to="Logging" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="408.9484999999999,566.3 408.9484999999999,584.3 359.4229999999999,584.3 359.4229999999999,877 496.31463809523825,877 496.31463809523825,1204.4 1068.6178714285716,1204.4 1068.617871428571,1290.4 1247.2922047619045,1290.4 1247.2922047619045,1302.4" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Microservices" data-to="Logging" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1233.490488095238,754.6 1233.490488095238,913 1296.3736999999999,913 1296.3736999999999,1192.4 1298.078538095238,1192.4 1298.078538095238,1302.4" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="EventInfra" data-to="Monitoring" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1010.2927333333332,1180.4 1010.2927333333332,1192.4 1078.6178714285713,1192.4 1078.6178714285713,1302.4" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Clients" data-to="Tracing" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1388.8258523809523,140.9 1388.8258523809523,152.9 1869.6766999999998,152.9 1869.6766999999998,1192.4 1466.3823714285713,1192.4 1466.3823714285713,1302.4" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CoreServices" data-to="CoreDAL" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="667.4654999999999,606.3 667.4655,660.3" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CoreDAL" data-to="CoreDB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="667.4655,757.2 667.4655,805.2" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="EB" data-to="ES" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1102.5186999999999,1068.8 1102.5186999999999,1092.8 997.8897,1092.8 997.8897,1116.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="EB" data-to="NS" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1102.5186999999999,1068.8 1102.5186999999999,1092.8 1207.1476999999998,1092.8 1207.1476999999998,1116.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="node" data-id="Web" data-label="🌐 Web Dashboard" data-shape="rectangle">
+  <rect x="1272.9151857142856" y="128" width="153.841" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1349.8356857142855" y="146.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">🌐 Web Dashboard</text>
+</g>
+<g class="node" data-id="Mobile" data-label="📱 Mobile App" data-shape="rectangle">
+  <rect x="1454.7561857142855" y="128" width="124.20099999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1516.8566857142855" y="146.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">📱 Mobile App</text>
+</g>
+<g class="node" data-id="Admin" data-label="🔧 Admin Portal" data-shape="rectangle">
+  <rect x="1112.5631857142855" y="128" width="132.352" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1178.7391857142854" y="146.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">🔧 Admin Portal</text>
+</g>
+<g class="node" data-id="GW" data-label="API Gateway
+(Kong/Ambassador)
+- Authentication
+- Rate Limiting
+- Request Routing" data-shape="rectangle">
+  <rect x="978.5181499999999" y="278.9" width="159.769" height="104.50000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1058.40265" y="331.15" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1058.40265" dy="-29.250000000000004">API Gateway</tspan><tspan x="1058.40265" dy="16.900000000000002">(Kong/Ambassador)</tspan><tspan x="1058.40265" dy="16.900000000000002">- Authentication</tspan><tspan x="1058.40265" dy="16.900000000000002">- Rate Limiting</tspan><tspan x="1058.40265" dy="16.900000000000002">- Request Routing</tspan></text>
+</g>
+<g class="node" data-id="CoreDB" data-label="💾 CORE DATABASE
+(PostgreSQL)" data-shape="rectangle">
+  <rect x="583.5055" y="805.2" width="167.91999999999996" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="667.4655" y="832.1" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="667.4655" dy="-3.9000000000000012">💾 CORE DATABASE</tspan><tspan x="667.4655" dy="16.900000000000002">(PostgreSQL)</tspan></text>
+</g>
+<g class="node" data-id="SM" data-label="👤 Student Management" data-shape="rectangle">
+  <rect x="577.2069999999999" y="553.4" width="180.51699999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="667.4654999999999" y="571.85" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">👤 Student Management</text>
+</g>
+<g class="node" data-id="CM" data-label="📚 Course Management" data-shape="rectangle">
+  <rect x="368.68999999999994" y="553.4" width="180.51699999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="458.9484999999999" y="571.85" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">📚 Course Management</text>
+</g>
+<g class="node" data-id="AM" data-label="📊 Assessment Management" data-shape="rectangle">
+  <rect x="785.7239999999999" y="553.4" width="208.67499999999995" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="890.0614999999999" y="571.85" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">📊 Assessment Management</text>
+</g>
+<g class="node" data-id="StudentDAO" data-label="Student DAO" data-shape="rectangle">
+  <rect x="623.89" y="697.65" width="115.30899999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="681.5445" y="716.1" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Student DAO</text>
+</g>
+<g class="node" data-id="CourseDAO" data-label="Course DAO" data-shape="rectangle">
+  <rect x="767.199" y="697.65" width="115.30899999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="824.8534999999999" y="716.1" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Course DAO</text>
+</g>
+<g class="node" data-id="AssessmentDAO" data-label="Assessment DAO" data-shape="rectangle">
+  <rect x="452.423" y="697.65" width="143.46699999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="524.1565" y="716.1" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Assessment DAO</text>
+</g>
+<g class="node" data-id="RS" data-label="⚠️ RISK SERVICE
+- Risk Rules Engine
+- At-Risk Detection
+- Alert Management" data-shape="rectangle">
+  <rect x="1206.1994880952382" y="697.65" width="154.582" height="87.60000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1283.490488095238" y="741.4499999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1283.490488095238" dy="-20.8">⚠️ RISK SERVICE</tspan><tspan x="1283.490488095238" dy="16.900000000000002">- Risk Rules Engine</tspan><tspan x="1283.490488095238" dy="16.900000000000002">- At-Risk Detection</tspan><tspan x="1283.490488095238" dy="16.900000000000002">- Alert Management</tspan></text>
+</g>
+<g class="node" data-id="IS" data-label="🎯 INTERVENTION SERVICE
+- Program Tracking
+- Coaching Mgmt
+- Progress Tracking" data-shape="rectangle">
+  <rect x="1388.7814880952383" y="697.65" width="212.3799999999999" height="87.60000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1494.9714880952383" y="741.4499999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1494.9714880952383" dy="-20.8">🎯 INTERVENTION SERVICE</tspan><tspan x="1494.9714880952383" dy="16.900000000000002">- Program Tracking</tspan><tspan x="1494.9714880952383" dy="16.900000000000002">- Coaching Mgmt</tspan><tspan x="1494.9714880952383" dy="16.900000000000002">- Progress Tracking</tspan></text>
+</g>
+<g class="node" data-id="AS" data-label="📈 ANALYTICS SERVICE
+- Real-time Reports
+- Dashboards
+- Data Aggregation" data-shape="rectangle">
+  <rect x="1629.161488095238" y="697.65" width="191.63199999999995" height="87.60000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1724.977488095238" y="741.4499999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1724.977488095238" dy="-20.8">📈 ANALYTICS SERVICE</tspan><tspan x="1724.977488095238" dy="16.900000000000002">- Real-time Reports</tspan><tspan x="1724.977488095238" dy="16.900000000000002">- Dashboards</tspan><tspan x="1724.977488095238" dy="16.900000000000002">- Data Aggregation</tspan></text>
+</g>
+<g class="node" data-id="EB" data-label="EVENT BUS
+(Apache Kafka)" data-shape="rectangle">
+  <rect x="1036.7132" y="1015" width="131.611" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1102.5186999999999" y="1041.9" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1102.5186999999999" dy="-3.9000000000000012">EVENT BUS</tspan><tspan x="1102.5186999999999" dy="16.900000000000002">(Apache Kafka)</tspan></text>
+</g>
+<g class="node" data-id="ES" data-label="EVENT STORE
+(MongoDB)
+Immutable Audit Log" data-shape="rectangle">
+  <rect x="919.8576999999999" y="1116.8" width="156.06400000000002" height="70.7" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="997.8897" y="1152.1499999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="997.8897" dy="-12.350000000000001">EVENT STORE</tspan><tspan x="997.8897" dy="16.900000000000002">(MongoDB)</tspan><tspan x="997.8897" dy="16.900000000000002">Immutable Audit Log</tspan></text>
+</g>
+<g class="node" data-id="NS" data-label="📲 NOTIFICATION SERVICE
+- Email Alerts
+- Push Notifications
+- Slack/Teams" data-shape="rectangle">
+  <rect x="1103.9216999999999" y="1116.8" width="206.45199999999994" height="87.60000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1207.1476999999998" y="1160.6" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1207.1476999999998" dy="-20.8">📲 NOTIFICATION SERVICE</tspan><tspan x="1207.1476999999998" dy="16.900000000000002">- Email Alerts</tspan><tspan x="1207.1476999999998" dy="16.900000000000002">- Push Notifications</tspan><tspan x="1207.1476999999998" dy="16.900000000000002">- Slack/Teams</tspan></text>
+</g>
+<g class="node" data-id="RC" data-label="REDIS CLUSTER
+- Student Profiles
+- Risk Rules
+- Course Catalog
+- Session Store" data-shape="rectangle">
+  <rect x="714.9087" y="1015" width="144.94899999999996" height="104.50000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="787.3832" y="1067.25" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="787.3832" dy="-29.250000000000004">REDIS CLUSTER</tspan><tspan x="787.3832" dy="16.900000000000002">- Student Profiles</tspan><tspan x="787.3832" dy="16.900000000000002">- Risk Rules</tspan><tspan x="787.3832" dy="16.900000000000002">- Course Catalog</tspan><tspan x="787.3832" dy="16.900000000000002">- Session Store</tspan></text>
+</g>
+<g class="node" data-id="Logging" data-label="📋 LOGGING
+(ELK Stack)
+- Centralized Logs
+- Searchable Index" data-shape="rectangle">
+  <rect x="1236.5058714285715" y="1342.4" width="152.359" height="87.60000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1312.6853714285714" y="1386.2" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1312.6853714285714" dy="-20.8">📋 LOGGING</tspan><tspan x="1312.6853714285714" dy="16.900000000000002">(ELK Stack)</tspan><tspan x="1312.6853714285714" dy="16.900000000000002">- Centralized Logs</tspan><tspan x="1312.6853714285714" dy="16.900000000000002">- Searchable Index</tspan></text>
+</g>
+<g class="node" data-id="Monitoring" data-label="📊 MONITORING
+(Prometheus + Grafana)
+- Metrics
+- Alerts" data-shape="rectangle">
+  <rect x="1028.7298714285714" y="1342.4" width="179.77599999999998" height="87.60000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1118.6178714285713" y="1386.2" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1118.6178714285713" dy="-20.8">📊 MONITORING</tspan><tspan x="1118.6178714285713" dy="16.900000000000002">(Prometheus + Grafana)</tspan><tspan x="1118.6178714285713" dy="16.900000000000002">- Metrics</tspan><tspan x="1118.6178714285713" dy="16.900000000000002">- Alerts</tspan></text>
+</g>
+<g class="node" data-id="Tracing" data-label="🔍 TRACING
+(Jaeger)
+- Distributed Traces
+- Performance Analysis" data-shape="rectangle">
+  <rect x="1416.8648714285714" y="1342.4" width="179.03499999999997" height="87.60000000000001" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1506.3823714285713" y="1386.2" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1506.3823714285713" dy="-20.8">🔍 TRACING</tspan><tspan x="1506.3823714285713" dy="16.900000000000002">(Jaeger)</tspan><tspan x="1506.3823714285713" dy="16.900000000000002">- Distributed Traces</tspan><tspan x="1506.3823714285713" dy="16.900000000000002">- Performance Analysis</tspan></text>
+</g>
+<g class="node" data-id="RiskDB" data-label="⚠️ Risk DB" data-shape="rectangle">
+  <rect x="1403.2036999999996" y="1015" width="113.086" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1459.7466999999995" y="1033.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">⚠️ Risk DB</text>
+</g>
+<g class="node" data-id="InterventionDB" data-label="🎯 Intervention DB" data-shape="rectangle">
+  <rect x="1544.2896999999996" y="1015" width="148.654" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1618.6166999999996" y="1033.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">🎯 Intervention DB</text>
+</g>
+<g class="node" data-id="AnalyticsDB" data-label="📈 Analytics DB" data-shape="rectangle">
+  <rect x="1720.9436999999996" y="1015" width="133.834" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1787.8606999999995" y="1033.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">📈 Analytics DB</text>
+</g>
+</g></svg>

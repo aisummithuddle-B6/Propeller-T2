@@ -1,0 +1,52 @@
+{
+    "module_group": "Learner & Employee Experience",
+    "core_features": [
+        {
+            "feature": "Talent Timeline",
+            "description": "Chronological history of certifications, badges, and internal milestones.",
+            "value_prop": "Provides a verified historical record of professional growth."
+        },
+        {
+            "feature": "Skill Confidence Meter",
+            "description": "Real-time proficiency percentage for mapped skills (0-100%).",
+            "value_prop": "Data-backed visibility into true technical expertise."
+        },
+        {
+            "feature": "Aspiration Tracker",
+            "description": "Inventory of desired skills and future career targets.",
+            "value_prop": "Aligns individual ambitions with organizational project needs."
+        },
+        {
+            "feature": "Relative Ranking Dashboard",
+            "description": "Competitiveness view at Project, DU, BU, and Global levels.",
+            "value_prop": "Motivates through transparent benchmarking against peers."
+        }
+    ],
+    "module_actions": {
+        "Course_and_Tracks": [
+            "Subscribe to Skill Tracks",
+            "Enroll in Elective Modules",
+            "Request 1-on-1 Faculty Mentorship",
+            "Download Offline Courseware",
+            "Switch between Active/Paused status"
+        ],
+        "AI_Assessment": [
+            "Initiate Proctored Assessment",
+            "Execute Sandbox Technical Lab",
+            "Review AI-Generated Feedback Rubric",
+            "Challenge AI Score (Submit for Human Review)"
+        ],
+        "Gamification_and_Leaderboards": [
+            "Join Monthly Showdowns",
+            "View Position on 'Hot Skill' Leaderboards",
+            "Compare Rank at BU/DU level",
+            "Share Achievement Badges to Internal Social Feed"
+        ],
+        "Resource_and_Resume": [
+            "Generate Verified PDF Resume",
+            "Select Primary Skills for Resume Display",
+            "Update Availability Status for RMT Deployment",
+            "Toggle Privacy for Aspiration Visibility"
+        ]
+    }
+}

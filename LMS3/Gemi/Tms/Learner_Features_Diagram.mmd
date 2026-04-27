@@ -1,0 +1,39 @@
+
+graph TD
+    User((Learner / Employee))
+    
+    subgraph Identity ["Identity & Recognition"]
+        Timeline[Talent Timeline]
+        Confidence[Skill Confidence Meter]
+    end
+    
+    subgraph Growth ["Growth & Planning"]
+        Aspiration[Aspiration Tracker]
+        Tracks[Skill Tracks]
+        Assess[AI Proctored Assessments]
+    end
+    
+    subgraph Engagement ["Engagement & Competition"]
+        Leaderboards[Multi-tier Leaderboards]
+        Showdowns[Monthly Showdowns]
+        Badges[Achievement Badges]
+    end
+    
+    subgraph Output ["Professional Output"]
+        Resume[Verified PDF Resume]
+        Availability[Availability Status]
+    end
+
+    %% Connections
+    User --> Identity
+    User --> Growth
+    User --> Engagement
+    User --> Output
+    
+    Tracks --> Assess
+    Assess --> Confidence
+    Confidence --> Timeline
+    Timeline --> Resume
+    Showdowns --> Leaderboards
+    Leaderboards --> Badges
+    Aspiration -.-> Tracks

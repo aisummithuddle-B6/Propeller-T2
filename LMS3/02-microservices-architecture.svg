@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 2021.3827499999998 731.2" width="1981.3827499999998" height="691.2" style="--bg:#FFFFFF;--fg:#27272A;background:var(--bg)"><rect x="-20" y="-20" width="2021.3827499999998" height="731.2" rx="10" ry="10" fill="#ffffff" stroke="#cccccc" stroke-width="1"/><g transform="translate(0,0)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="Microservices_Architecture" data-label="Microservices Architecture">
+  <rect x="40" y="40" width="1901.3827499999998" height="611.2" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="40" y="40" width="1901.3827499999998" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="52" y="54" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Microservices Architecture</text>
+<g class="subgraph" data-id="Services" data-label="Independent Microservices">
+  <rect x="860.6543333333332" y="92.45" width="96.78399999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="860.6543333333332" y="92.45" width="96.78399999999999" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="872.6543333333332" y="106.45" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Independent Microservices</text>
+</g>
+<g class="subgraph" data-id="Services" data-label="Independent Microservices">
+  <rect x="139.41249999999997" y="305.6" width="1360.62" height="137.8" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="139.41249999999997" y="305.6" width="1360.62" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="151.41249999999997" y="319.6" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Independent Microservices</text>
+</g>
+<g class="subgraph" data-id="Messaging" data-label="Message Queue">
+  <rect x="1015.3787499999999" y="503.40000000000003" width="168.798" height="113.80000000000001" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="1015.3787499999999" y="503.40000000000003" width="168.798" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1027.3787499999999" y="517.4000000000001" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Message Queue</text>
+</g>
+<g class="subgraph" data-id="Databases" data-label="Database per Service">
+  <rect x="186.41249999999994" y="503.40000000000003" width="707.2069999999999" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="186.41249999999994" y="503.40000000000003" width="707.2069999999999" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="198.41249999999994" y="517.4000000000001" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Database per Service</text>
+</g>
+<g class="subgraph" data-id="Infrastructure" data-label="Supporting Services">
+  <rect x="1212.1767499999999" y="503.40000000000003" width="703.206" height="113.80000000000001" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="1212.1767499999999" y="503.40000000000003" width="703.206" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="1224.1767499999999" y="517.4000000000001" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Supporting Services</text>
+</g>
+</g>
+<polyline class="edge" data-from="Gateway" data-to="Auth" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="757.9568333333332,239.60000000000002 757.9568333333332,294.6 415.28549999999996,294.6 415.28549999999996,349.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Gateway" data-to="Student" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="757.9568333333332,239.60000000000002 757.9568333333332,294.6 587.4934999999999,294.6 587.4934999999999,349.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Gateway" data-to="Learning" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="757.9568333333332,239.60000000000002 757.9568333333332,294.6 237.51999999999995,294.6 237.51999999999995,349.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Gateway" data-to="Assessment" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="757.9568333333332,239.60000000000002 757.9568333333332,294.6 782.6725,294.6 782.6725,349.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Gateway" data-to="Risk" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="757.9568333333332,239.60000000000002 757.9568333333332,294.6 1397.8494999999998,294.6 1397.8494999999998,349.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Gateway" data-to="Intervention" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="757.9568333333332,239.60000000000002 757.9568333333332,294.6 1194.5194999999997,294.6 1194.5194999999997,349.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Gateway" data-to="Analytics" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="757.9568333333332,239.60000000000002 757.9568333333332,294.6 989.3369999999998,294.6 989.3369999999998,349.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Risk" data-to="Queue" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1397.8494999999998,403.40000000000003 1397.8494999999998,475.4000000000001 1099.7777499999997,475.4000000000001 1099.7777499999997,547.4000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Intervention" data-to="Queue" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1194.5194999999997,403.40000000000003 1194.5194999999997,475.4000000000001 1099.7777499999997,475.4000000000001 1099.7777499999997,547.4000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Assessment" data-to="Queue" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="782.6725,403.40000000000003 782.6725,475.4000000000001 1099.7777499999997,475.4000000000001 1099.7777499999997,547.4000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Queue" data-to="Analytics" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1082.5774166666665,561.2 1082.5774166666665,595.2 1885.3827499999998,595.2 1885.3827499999998,247.60000000000002 919.9918333333331,247.60000000000002 919.9918333333331,309.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Queue" data-to="Learning" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1036.978083333333,561.2 1036.978083333333,595.2 16,595.2 16,247.60000000000002 170.15083333333314,247.60000000000002 170.15083333333325,309.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Auth" data-to="AuthDB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="375.2854999999999,363.40000000000003 375.2854999999999,421.40000000000003 351.52,421.40000000000003 351.5199999999999,507.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Student" data-to="StudentDB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="547.4934999999999,363.40000000000003 547.4934999999998,421.40000000000003 477.04499999999985,421.40000000000003 477.0449999999999,507.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Learning" data-to="LearningDB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="197.51999999999995,363.40000000000003 197.51999999999998,421.40000000000003 220.80799999999994,421.40000000000003 220.80799999999994,507.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Assessment" data-to="AssessmentDB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="782.6725,403.40000000000003 782.6725,475.4000000000001 665.5409999999999,475.4000000000001 665.5409999999999,547.4000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Analytics" data-to="AnalyticsDB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="949.3369999999998,363.40000000000003 949.3369999999998,421.40000000000003 779.2239999999997,421.40000000000003 779.2239999999999,507.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Services" data-to="Registry" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1377.8494999999998,403.40000000000003 1377.8494999999998,445.40000000000003 1448.42025,445.40000000000003 1448.42025,507.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Services" data-to="Cache" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1387.8494999999998,403.40000000000003 1387.8494999999998,433.40000000000003 1611.73625,433.40000000000003 1611.73625,507.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Services" data-to="Logging" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1367.8494999999998,403.40000000000003 1367.8494999999998,445.40000000000003 1268.8022499999997,445.40000000000003 1268.80225,507.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Services" data-to="Tracing" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1397.8494999999998,403.40000000000003 1397.8494999999998,421.40000000000003 1781.72125,421.40000000000003 1781.72125,507.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Client" data-to="Gateway" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="757.9568333333332,137.8 757.9568333333332,185.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="node" data-id="Client" data-label="Client Applications
+(Web/Mobile)" data-shape="rectangle">
+  <rect x="683.2593333333332" y="84" width="149.395" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="757.9568333333332" y="110.9" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="757.9568333333332" dy="-3.9000000000000012">Client Applications</tspan><tspan x="757.9568333333332" dy="16.900000000000002">(Web/Mobile)</tspan></text>
+</g>
+<g class="node" data-id="Gateway" data-label="API Gateway
+(Rate Limiting, Auth)" data-shape="rectangle">
+  <rect x="680.6658333333332" y="185.8" width="154.582" height="53.800000000000004" rx="0" ry="0" fill="#fff3e0" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="757.9568333333332" y="212.70000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="757.9568333333332" dy="-3.9000000000000012">API Gateway</tspan><tspan x="757.9568333333332" dy="16.900000000000002">(Rate Limiting, Auth)</tspan></text>
+</g>
+<g class="node" data-id="Auth" data-label="👤 Auth Service
+(JWT, OAuth2)" data-shape="rectangle">
+  <rect x="347.62749999999994" y="349.6" width="135.316" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="415.28549999999996" y="376.5" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="415.28549999999996" dy="-3.9000000000000012">👤 Auth Service</tspan><tspan x="415.28549999999996" dy="16.900000000000002">(JWT, OAuth2)</tspan></text>
+</g>
+<g class="node" data-id="Student" data-label="📚 Student Service
+(Profile, Data)" data-shape="rectangle">
+  <rect x="510.9434999999999" y="349.6" width="153.10000000000002" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="587.4934999999999" y="376.5" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="587.4934999999999" dy="-3.9000000000000012">📚 Student Service</tspan><tspan x="587.4934999999999" dy="16.900000000000002">(Profile, Data)</tspan></text>
+</g>
+<g class="node" data-id="Learning" data-label="📖 Learning Service
+(Courses, Progress)" data-shape="rectangle">
+  <rect x="155.41249999999997" y="349.6" width="164.21499999999997" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="237.51999999999995" y="376.5" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="237.51999999999995" dy="-3.9000000000000012">📖 Learning Service</tspan><tspan x="237.51999999999995" dy="16.900000000000002">(Courses, Progress)</tspan></text>
+</g>
+<g class="node" data-id="Assessment" data-label="📊 Assessment Service
+(Scores, Grades)" data-shape="rectangle">
+  <rect x="692.0435" y="349.6" width="181.25799999999995" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="782.6725" y="376.5" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="782.6725" dy="-3.9000000000000012">📊 Assessment Service</tspan><tspan x="782.6725" dy="16.900000000000002">(Scores, Grades)</tspan></text>
+</g>
+<g class="node" data-id="Risk" data-label="⚠️ Risk Service
+(Risk Rules, Detection)" data-shape="rectangle">
+  <rect x="1311.6664999999998" y="349.6" width="172.36599999999999" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1397.8494999999998" y="376.5" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1397.8494999999998" dy="-3.9000000000000012">⚠️ Risk Service</tspan><tspan x="1397.8494999999998" dy="16.900000000000002">(Risk Rules, Detection)</tspan></text>
+</g>
+<g class="node" data-id="Intervention" data-label="🎯 Intervention Service
+(Tracking, Programs)" data-shape="rectangle">
+  <rect x="1105.3724999999997" y="349.6" width="178.29399999999998" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1194.5194999999997" y="376.5" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1194.5194999999997" dy="-3.9000000000000012">🎯 Intervention Service</tspan><tspan x="1194.5194999999997" dy="16.900000000000002">(Tracking, Programs)</tspan></text>
+</g>
+<g class="node" data-id="Analytics" data-label="📈 Analytics Service
+(Reports, Dashboards)" data-shape="rectangle">
+  <rect x="901.3014999999998" y="349.6" width="176.07099999999997" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="989.3369999999998" y="376.5" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="989.3369999999998" dy="-3.9000000000000012">📈 Analytics Service</tspan><tspan x="989.3369999999998" dy="16.900000000000002">(Reports, Dashboards)</tspan></text>
+</g>
+<g class="node" data-id="Queue" data-label="RabbitMQ/Kafka
+(Event Bus)" data-shape="rectangle">
+  <rect x="1031.3787499999999" y="547.4000000000001" width="136.798" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1099.7777499999997" y="574.3000000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1099.7777499999997" dy="-3.9000000000000012">RabbitMQ/Kafka</tspan><tspan x="1099.7777499999997" dy="16.900000000000002">(Event Bus)</tspan></text>
+</g>
+<g class="node" data-id="AuthDB" data-label="Auth DB" data-shape="rectangle">
+  <rect x="347.20349999999996" y="547.4000000000001" width="88.633" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="391.52" y="565.8500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Auth DB</text>
+</g>
+<g class="node" data-id="StudentDB" data-label="Student DB" data-shape="rectangle">
+  <rect x="463.8364999999999" y="547.4000000000001" width="106.41699999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="517.0449999999998" y="565.8500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Student DB</text>
+</g>
+<g class="node" data-id="LearningDB" data-label="Learning DB" data-shape="rectangle">
+  <rect x="202.41249999999994" y="547.4000000000001" width="116.79099999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="260.80799999999994" y="565.8500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Learning DB</text>
+</g>
+<g class="node" data-id="AssessmentDB" data-label="Assessment DB" data-shape="rectangle">
+  <rect x="598.2534999999999" y="547.4000000000001" width="134.575" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="665.5409999999999" y="565.8500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Assessment DB</text>
+</g>
+<g class="node" data-id="AnalyticsDB" data-label="Analytics DB" data-shape="rectangle">
+  <rect x="760.8284999999998" y="547.4000000000001" width="116.79099999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="819.2239999999998" y="565.8500000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Analytics DB</text>
+</g>
+<g class="node" data-id="Registry" data-label="Service Registry
+(Consul/Eureka)" data-shape="rectangle">
+  <rect x="1417.4277499999998" y="547.4000000000001" width="141.985" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1488.42025" y="574.3000000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1488.42025" dy="-3.9000000000000012">Service Registry</tspan><tspan x="1488.42025" dy="16.900000000000002">(Consul/Eureka)</tspan></text>
+</g>
+<g class="node" data-id="Cache" data-label="Cache
+(Redis Cluster)" data-shape="rectangle">
+  <rect x="1587.41275" y="547.4000000000001" width="128.647" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1651.73625" y="574.3000000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1651.73625" dy="-3.9000000000000012">Cache</tspan><tspan x="1651.73625" dy="16.900000000000002">(Redis Cluster)</tspan></text>
+</g>
+<g class="node" data-id="Logging" data-label="Centralized Logging
+(ELK Stack)" data-shape="rectangle">
+  <rect x="1228.1767499999999" y="547.4000000000001" width="161.251" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1308.80225" y="574.3000000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1308.80225" dy="-3.9000000000000012">Centralized Logging</tspan><tspan x="1308.80225" dy="16.900000000000002">(ELK Stack)</tspan></text>
+</g>
+<g class="node" data-id="Tracing" data-label="Distributed Tracing
+(Jaeger)" data-shape="rectangle">
+  <rect x="1744.05975" y="547.4000000000001" width="155.323" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1821.7212499999998" y="574.3000000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1821.7212499999998" dy="-3.9000000000000012">Distributed Tracing</tspan><tspan x="1821.7212499999998" dy="16.900000000000002">(Jaeger)</tspan></text>
+</g>
+</g></svg>

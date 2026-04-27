@@ -1,0 +1,59 @@
+
+graph TD
+    %% Main Node
+    ACC[Admin Command Centre - TMS Core]
+
+    %% Feature Clusters
+    ACC --> DT[Data Foundation & Taxonomy]
+    ACC --> GS[Governance & Sync]
+    ACC --> LO[Learning Orchestration]
+    ACC --> AR[Analytics & Reporting]
+    ACC --> AI[AI & Prompt Engineering]
+
+    %% Data Foundation & Taxonomy Details
+    subgraph DT ["Data Foundation & Taxonomy"]
+        DT1[Role Mapping Engine]
+        DT2[Hierarchical Skill Definition L1-L4]
+        DT3[Competency Framework Builder]
+        DT4[Inheritance Logic Rules]
+        DT5[Hot Skill Tagging]
+        DT6[Skill Version Control]
+        DT7[Many-to-Many Trainer-Skill Mapping]
+    end
+
+    %% Governance & Sync Details
+    subgraph GS ["Governance & Sync"]
+        GS1[HRMS Bidirectional Sync]
+        GS2[Granular Org Mapping BU/DU/Cell]
+        GS3[RBAC & Persona Management]
+        GS4[Global Weightage Configuration]
+        GS5[Data Integrity Checker]
+        GS6[Audit Log Viewer]
+    end
+
+    %% Learning Orchestration Details
+    subgraph LO ["Learning Orchestration"]
+        LO1[Modular Skill Track Creation]
+        LO2[Course Lifecycle Management]
+        LO3[Enrollment Automation Rules]
+        LO4[Recertification Notification Triggers]
+        LO5[Logistics & Waitlist Management]
+    end
+
+    %% Analytics & Reporting Details
+    subgraph AR ["Analytics & Reporting"]
+        AR1[Enterprise Dashboard Builder]
+        AR2[RMT Talent Pipeline Analytics]
+        AR3[BU/DU/Project Stats]
+        AR4[Hot Skill Specialist Views]
+        AR5[Audit Report Generator]
+        AR6[System Performance Monitoring]
+        AR7[Leaderboard Rules Config]
+        AR8[Verified Resume Verification Queue]
+    end
+
+    %% AI Details
+    subgraph AI ["AI & Prompt Engineering"]
+        AI1[Prompt Engineering Sandbox]
+        AI2[AI Content Generation Rules]
+    end

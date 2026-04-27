@@ -1,0 +1,51 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: lms3-postgres
+    environment:
+      POSTGRES_DB: learning
+      POSTGRES_USER: learning_app
+      POSTGRES_PASSWORD: learning_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: lms3-sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Your_strong_password123"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+
+  redis:
+    image: redis:7
+    container_name: lms3-redis
+    ports:
+      - "6379:6379"
+
+  api:
+    build:
+      context: .
+      dockerfile: src/Learning.Api/Dockerfile
+    container_name: lms3-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      Database__Provider: SqlServer
+      ConnectionStrings__Postgres: Host=postgres;Port=5432;Database=learning;Username=learning_app;Password=learning_password
+      ConnectionStrings__SqlServer: Server=sqlserver,1433;Database=learning;User Id=sa;Password=Your_strong_password123;TrustServerCertificate=True
+      Redis__ConnectionString: redis:6379
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - sqlserver
+      - redis
+
+volumes:
+  postgres-data:
+  sqlserver-data:

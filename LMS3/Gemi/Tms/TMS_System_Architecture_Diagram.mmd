@@ -1,0 +1,60 @@
+
+graph TB
+    %% External Systems
+    subgraph External_Systems [External Systems]
+        HRMS[HRMS / ERP]
+        Legacy[Legacy Training System]
+    end
+
+    %% User Interface Layer
+    subgraph UI_Layer [User Interface Layer - Persona Based]
+        LearnerPortal[Learner Dashboard]
+        AdminPortal[Command Centre Dashboard]
+        RMTPortal[RMT Talent Search]
+    end
+
+    %% API Gateway
+    Gateway[API Gateway - Auth / RBAC / Rate Limiting]
+
+    %% Microservices Layer
+    subgraph Service_Layer [Core Microservices]
+        CC_Service[Taxonomy & Governance Service]
+        AI_Service[AI Research & Assessment Engine]
+        CTM_Service[Course & Track Management]
+        Gami_Service[Gamification & Leaderboard Service]
+        Resume_Service[Verified Resume Generator]
+        Migrate_Service[Migration & ETL Module]
+    end
+
+    %% Data Layer
+    subgraph Data_Layer [Persistent Storage]
+        Postgres[(PostgreSQL - Relational Data)]
+        Mongo[(MongoDB - Content & Labs)]
+        Redis[(Redis - Real-time Ranks)]
+        AuditLog[(Immutable Audit Log)]
+    end
+
+    %% Interactions
+    HRMS --> CC_Service
+    Legacy --> Migrate_Service
+    Migrate_Service --> CC_Service
+    
+    LearnerPortal --> Gateway
+    AdminPortal --> Gateway
+    RMTPortal --> Gateway
+    
+    Gateway --> CC_Service
+    Gateway --> AI_Service
+    Gateway --> CTM_Service
+    Gateway --> Gami_Service
+    Gateway --> Resume_Service
+
+    CC_Service --> Postgres
+    AI_Service --> Mongo
+    Gami_Service --> Redis
+    
+    %% Audit Connectivity
+    CC_Service -.-> AuditLog
+    AI_Service -.-> AuditLog
+    CTM_Service -.-> AuditLog
+    Gami_Service -.-> AuditLog

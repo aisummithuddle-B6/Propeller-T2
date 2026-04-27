@@ -1,0 +1,63 @@
+
+graph TB
+    %% External Entities
+    User((Users: Learner, Admin, Manager, RMT))
+    ExternalSystems[(HRMS / ERP / Active Directory)]
+
+    %% Frontend Layer
+    subgraph Frontend_Layer ["Frontend (Vue.js Polyrepo)"]
+        UI[Learner & Admin Dashboard]
+        Auth[Auth Provider Integration]
+    end
+
+    %% API Gateway Layer
+    subgraph Gateway_Layer ["API Gateway & Orchestration"]
+        NGINX[NGINX / Kong Gateway]
+        RateLimit[Rate Limiter & WAF]
+    end
+
+    %% Application Layer
+    subgraph App_Layer ["Application Services (Polyrepo)"]
+        subgraph Django_Core ["Django Core (System Brain)"]
+            DRF[REST API Framework]
+            Governance[Taxonomy & Governance Logic]
+            Migration[HRMS Sync / ETL Module]
+            AuditSvc[Audit & Compliance]
+        end
+
+        subgraph FastAPI_AI ["FastAPI AI Service (Intelligence)"]
+            Inference[LLM Inference Engine]
+            VectorSvc[Semantic Search / Vector DB Bridge]
+            GenSvc[Content & Resume Generator]
+        end
+    end
+
+    %% Messaging & Task Queue
+    Broker{Message Broker: Redis / RabbitMQ}
+
+    %% Data Persistence Layer
+    subgraph Persistence_Layer ["Data Persistence (Polyglot)"]
+        Postgres[(PostgreSQL: Relational Data)]
+        Mongo[(MongoDB: Unstructured Content)]
+        VectorDB[(ChromaDB: Embeddings)]
+    end
+
+    %% Connections
+    User --> UI
+    UI --> NGINX
+    NGINX --> DRF
+    NGINX --> Inference
+    
+    DRF <--> ExternalSystems
+    Migration <--> ExternalSystems
+
+    %% Internal Communication
+    Django_Core -- Async Tasks --> Broker
+    Broker -- Worker Processing --> FastAPI_AI
+    FastAPI_AI -- Result Callbacks --> Django_Core
+    
+    %% Data Access
+    Django_Core --> Postgres
+    Django_Core --> Mongo
+    FastAPI_AI --> VectorDB
+    FastAPI_AI --> Mongo

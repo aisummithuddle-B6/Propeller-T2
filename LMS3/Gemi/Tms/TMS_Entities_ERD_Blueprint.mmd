@@ -1,0 +1,66 @@
+
+erDiagram
+    %% Core Identity & Organization
+    USER ||--o| EMPLOYEE_PROFILE : "has"
+    USER ||--o{ USER_ROLE : "assigned"
+    ROLE ||--o{ USER_ROLE : "defines"
+    EMPLOYEE_PROFILE ||--|| ORGANIZATION_HIERARCHY : "belongs_to"
+    MANAGER ||--o{ EMPLOYEE_PROFILE : "manages"
+
+    %% Skill Taxonomy & Proficiency
+    SKILL ||--o| SKILL : "parent_of"
+    SKILL ||--o{ SKILL_TRACK_ITEM : "part_of"
+    SKILL ||--o{ USER_PROFICIENCY : "attained"
+    USER ||--o{ USER_PROFICIENCY : "demonstrates"
+    PROFICIENCY_LEVEL ||--o{ USER_PROFICIENCY : "defines_level"
+
+    %% Learning & Tracks
+    SKILL_TRACK ||--o{ SKILL_TRACK_ITEM : "contains"
+    COURSE ||--o{ SKILL_TRACK_ITEM : "associates_with"
+    SKILL_TRACK ||--o{ ENROLLMENT : "has"
+    USER ||--o{ ENROLLMENT : "undertakes"
+    
+    %% Evaluation & Timeline
+    ASSESSMENT ||--|| COURSE : "evaluates"
+    USER ||--o{ ASSESSMENT_RESULT : "achieves"
+    ASSESSMENT ||--o{ ASSESSMENT_RESULT : "records"
+    EVENT_TYPE ||--o{ TALENT_TIMELINE : "categorizes"
+    USER ||--o{ TALENT_TIMELINE : "builds"
+
+    %% Governance & Audit
+    AUDIT_LOG ||--|| USER : "performed_by"
+    MIGRATION_LOG ||--|| MIGRATION_BATCH : "belongs_to"
+    MIGRATION_BATCH ||--|| USER : "initiated_by"
+    
+    %% Entity Definitions (Attributes)
+    USER {
+        string user_id PK
+        string email UK
+        string password_hash
+        boolean is_active
+    }
+    EMPLOYEE_PROFILE {
+        string employee_id PK
+        string full_name
+        string designaton
+    }
+    SKILL {
+        string skill_id PK
+        string skill_name UK
+        string parent_skill_id FK
+        boolean is_hot_skill
+    }
+    USER_PROFICIENCY {
+        string user_id PK, FK
+        string skill_id PK, FK
+        string level_id FK
+        int confidence_score
+        boolean is_verified
+    }
+    TALENT_TIMELINE {
+        string event_id PK
+        string user_id FK
+        string event_name
+        date event_date
+        int weightage_applied
+    }

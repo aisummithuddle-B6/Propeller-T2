@@ -1,0 +1,64 @@
+
+graph TD
+    %% Base Node
+    Learner((Learner / Employee))
+    
+    %% Main Action Streams
+    Learner --> Discovery[1. Course Discovery]
+    Learner --> Life[2. Course Lifecycle]
+    Learner --> Analytics[3. Analytics & Progress]
+    Learner --> Engagement[4. Engagement & Competition]
+
+    %% Stream 1: Discovery Detailed Actions
+    subgraph Discovery ["Course Discovery"]
+        D_Keyword[Search by Keyword]
+        D_Track[Filter by Track]
+        D_Role[Filter by Target Role]
+        D_Skill[Filter by Skill L1-L4]
+    end
+    Discovery --> D_Keyword
+    Discovery --> D_Track
+    Discovery --> D_Role
+    Discovery --> D_Skill
+
+    %% Stream 2: Course Lifecycle Detailed Actions
+    subgraph Life ["Course Lifecycle"]
+        L_Enroll[Enroll to Course]
+        L_InClass[Enroll for In-Class Session]
+        L_Attend[Mark Attendance]
+        L_Learn[Learn Course Content]
+        L_Complete[Complete Course]
+        L_Feedback[Provide Feedback]
+    end
+    Life --> L_Enroll
+    Life --> L_InClass
+    Life --> L_Attend
+    Life --> L_Learn
+    Life --> L_Complete
+    Life --> L_Feedback
+
+    %% Stream 3: Analytics Detailed Actions
+    subgraph Analytics ["Analytics & Progress"]
+        A_Timeline[View Talent Timeline]
+        A_Dash[View Dashboards]
+    end
+    Analytics --> A_Timeline
+    Analytics --> A_Dash
+
+    %% Stream 4: Engagement Detailed Actions
+    subgraph Engagement ["Engagement & Competition"]
+        E_Participate[Participate in Showdown]
+        E_LB[View Leaderboards]
+    end
+    Engagement --> E_Participate
+    Engagement --> E_LB
+
+    %% Inter-stream Connections
+    D_Keyword -.-> L_Enroll
+    D_Track -.-> L_Enroll
+    D_Role -.-> L_Enroll
+    D_Skill -.-> L_Enroll
+    L_Complete -.-> A_Timeline
+    L_Complete -.-> A_Dash
+    E_Participate -.-> E_LB
+    A_Dash -.-> E_LB
