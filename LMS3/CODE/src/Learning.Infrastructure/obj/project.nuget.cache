@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GO62S0TlnGs=",
+  "dgSpecHash": "uJyOXqS2X9s=",
   "success": true,
-  "projectFilePath": "D:\\Inas_workspace\\Project1\\prompts\\LMS3\\CODE\\src\\Learning.Infrastructure\\Learning.Infrastructure.csproj",
+  "projectFilePath": "d:\\Inas_workspace\\Project1\\prompts\\LMS3\\CODE\\src\\Learning.Infrastructure\\Learning.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

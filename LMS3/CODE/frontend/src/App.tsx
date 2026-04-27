@@ -164,6 +164,39 @@ type IngestionDashboard = {
   issues: ReconciliationIssue[];
 };
 
+type ExcelUploadResult = {
+  fileName: string;
+  importType: string;
+  totalRecords: number;
+  successfulRecords: number;
+  failedRecords: number;
+  messages: string[];
+};
+
+type IngestionFormType = "employee" | "attendance" | "assessment" | "competency";
+
+type IngestionFormState = {
+  employeeNumber: string;
+  fullName: string;
+  email: string;
+  department: string;
+  jobRole: string;
+  managerEmail: string;
+  programCode: string;
+  sessionCode: string;
+  status: string;
+  attendancePercentage: string;
+  attendanceDate: string;
+  competencyCode: string;
+  score: string;
+  assessmentType: string;
+  scoreType: string;
+  attemptNumber: string;
+  assessmentDate: string;
+  dueDate: string;
+  completedOn: string;
+};
+
 const apiBaseUrl = "http://localhost:5080";
 
 const moduleLinks = [
@@ -186,6 +219,100 @@ function riskLabel(level: number) {
   return ["None", "Low", "Medium", "High", "Critical"][level] ?? "Unknown";
 }
 
+function defaultIngestionForm(): IngestionFormState {
+  const today = new Date().toISOString().slice(0, 10);
+  return {
+    employeeNumber: "EMP-0101",
+    fullName: "Nisha Varma",
+    email: "nisha.varma@example.com",
+    department: "Engineering",
+    jobRole: "Engineer",
+    managerEmail: "priya.manager@example.com",
+    programCode: "SEC-AWARE-2026",
+    sessionCode: "SEC-S1",
+    status: "Present",
+    attendancePercentage: "100",
+    attendanceDate: today,
+    competencyCode: "SEC-101",
+    score: "85",
+    assessmentType: "Quiz",
+    scoreType: "Percentage",
+    attemptNumber: "1",
+    assessmentDate: today,
+    dueDate: today,
+    completedOn: today
+  };
+}
+
+function formEndpoint(formType: IngestionFormType) {
+  return {
+    employee: "/api/data-ingestion/employees",
+    attendance: "/api/data-ingestion/attendance",
+    assessment: "/api/data-ingestion/assessments",
+    competency: "/api/data-ingestion/competency-milestones"
+  }[formType];
+}
+
+function formPayload(
+  formType: IngestionFormType,
+  dataSourceId: string,
+  sourceRecordId: string,
+  form: IngestionFormState
+) {
+  if (formType === "employee") {
+    return {
+      dataSourceId,
+      employeeNumber: form.employeeNumber,
+      fullName: form.fullName,
+      email: form.email,
+      department: form.department,
+      jobRole: form.jobRole,
+      managerEmail: form.managerEmail || null,
+      sourceRecordId
+    };
+  }
+
+  if (formType === "attendance") {
+    return {
+      dataSourceId,
+      employeeNumber: form.employeeNumber,
+      programCode: form.programCode,
+      sessionCode: form.sessionCode,
+      status: form.status,
+      attendancePercentage: Number(form.attendancePercentage),
+      attendanceDate: form.attendanceDate,
+      sourceRecordId
+    };
+  }
+
+  if (formType === "assessment") {
+    return {
+      dataSourceId,
+      employeeNumber: form.employeeNumber,
+      programCode: form.programCode,
+      competencyCode: form.competencyCode,
+      score: Number(form.score),
+      status: form.status,
+      assessmentType: form.assessmentType,
+      scoreType: form.scoreType,
+      attemptNumber: Number(form.attemptNumber),
+      assessmentDate: form.assessmentDate,
+      sourceRecordId
+    };
+  }
+
+  return {
+    dataSourceId,
+    employeeNumber: form.employeeNumber,
+    programCode: form.programCode,
+    competencyCode: form.competencyCode,
+    status: form.status,
+    dueDate: form.dueDate,
+    completedOn: form.completedOn || null,
+    sourceRecordId
+  };
+}
+
 function App() {
   const [activeModule, setActiveModule] = useState(moduleLinks[0].id);
   const [learners, setLearners] = useState<LearnerProfileSummary[]>([]);
@@ -194,6 +321,11 @@ function App() {
   const [ingestion, setIngestion] = useState<IngestionDashboard | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [ingestionMessage, setIngestionMessage] = useState<string | null>(null);
+  const [excelResult, setExcelResult] = useState<ExcelUploadResult | null>(null);
+  const [excelImportType, setExcelImportType] = useState("Attendance");
+  const [selectedExcelFile, setSelectedExcelFile] = useState<File | null>(null);
+  const [formType, setFormType] = useState<IngestionFormType>("attendance");
+  const [ingestionForm, setIngestionForm] = useState<IngestionFormState>(() => defaultIngestionForm());
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -248,6 +380,54 @@ function App() {
     }
 
     return response.json();
+  }
+
+  async function uploadExcelFile() {
+    if (!ingestion?.sources[0] || !selectedExcelFile) {
+      setIngestionMessage("Choose a data source and Excel file before uploading.");
+      return;
+    }
+
+    try {
+      const body = new FormData();
+      body.append("dataSourceId", ingestion.sources[0].id);
+      body.append("importType", excelImportType);
+      body.append("file", selectedExcelFile);
+
+      const response = await fetch(`${apiBaseUrl}/api/data-ingestion/excel-upload`, {
+        method: "POST",
+        body
+      });
+
+      if (!response.ok) {
+        throw new Error(`API returned ${response.status}`);
+      }
+
+      const result = (await response.json()) as ExcelUploadResult;
+      setExcelResult(result);
+      setIngestionMessage(`Excel upload complete: ${result.successfulRecords} succeeded, ${result.failedRecords} failed.`);
+      await Promise.all([loadIngestionDashboard(), selectedLearnerId ? reloadProfile(selectedLearnerId) : Promise.resolve()]);
+    } catch (err) {
+      setIngestionMessage(err instanceof Error ? err.message : "Unable to upload Excel file.");
+    }
+  }
+
+  async function submitIngestionForm() {
+    if (!ingestion?.sources[0]) return;
+
+    try {
+      const dataSourceId = ingestion.sources[0].id;
+      const sourceRecordId = `ui-form-${formType}-${Date.now()}`;
+      const response = await postJson(formEndpoint(formType), formPayload(formType, dataSourceId, sourceRecordId, ingestionForm));
+      setIngestionMessage(response.message);
+      await Promise.all([loadIngestionDashboard(), selectedLearnerId ? reloadProfile(selectedLearnerId) : Promise.resolve()]);
+    } catch (err) {
+      setIngestionMessage(err instanceof Error ? err.message : "Unable to submit ingestion form.");
+    }
+  }
+
+  function updateIngestionForm(field: keyof IngestionFormState, value: string) {
+    setIngestionForm((current) => ({ ...current, [field]: value }));
   }
 
   async function submitSampleAttendance() {
@@ -538,6 +718,108 @@ function App() {
                 <button className="secondary" onClick={submitInvalidAttendance}>Create validation error</button>
               </div>
               {ingestionMessage && <p className="notice">{ingestionMessage}</p>}
+
+              <div className="ingestion-panels">
+                <section className="card">
+                  <h3>Ingest via Excel File</h3>
+                  <p className="module-status">
+                    Upload an `.xlsx` file with a header row. Supported import types: Employee, Attendance, Assessment, and CompetencyMilestone.
+                  </p>
+                  <div className="form-grid">
+                    <label>
+                      Import type
+                      <select value={excelImportType} onChange={(event) => setExcelImportType(event.target.value)}>
+                        <option>Employee</option>
+                        <option>Attendance</option>
+                        <option>Assessment</option>
+                        <option>CompetencyMilestone</option>
+                      </select>
+                    </label>
+                    <label>
+                      Excel file
+                      <input
+                        accept=".xlsx,.xls"
+                        type="file"
+                        onChange={(event) => setSelectedExcelFile(event.target.files?.[0] ?? null)}
+                      />
+                    </label>
+                  </div>
+                  <div className="actions">
+                    <button onClick={uploadExcelFile}>Upload Excel</button>
+                  </div>
+                  {excelResult && (
+                    <div className="notice">
+                      <strong>{excelResult.fileName}</strong>: {excelResult.successfulRecords}/{excelResult.totalRecords} records ingested.
+                      {excelResult.messages.length > 0 && (
+                        <ul>
+                          {excelResult.messages.slice(0, 5).map((message) => <li key={message}>{message}</li>)}
+                        </ul>
+                      )}
+                    </div>
+                  )}
+                </section>
+
+                <section className="card">
+                  <h3>Ingest via UI Form</h3>
+                  <div className="form-grid">
+                    <label>
+                      Record type
+                      <select value={formType} onChange={(event) => setFormType(event.target.value as IngestionFormType)}>
+                        <option value="employee">Employee</option>
+                        <option value="attendance">Attendance</option>
+                        <option value="assessment">Assessment</option>
+                        <option value="competency">Competency Milestone</option>
+                      </select>
+                    </label>
+                    <label>
+                      Employee number
+                      <input value={ingestionForm.employeeNumber} onChange={(event) => updateIngestionForm("employeeNumber", event.target.value)} />
+                    </label>
+                    {formType === "employee" && (
+                      <>
+                        <label>Full name<input value={ingestionForm.fullName} onChange={(event) => updateIngestionForm("fullName", event.target.value)} /></label>
+                        <label>Email<input value={ingestionForm.email} onChange={(event) => updateIngestionForm("email", event.target.value)} /></label>
+                        <label>Department<input value={ingestionForm.department} onChange={(event) => updateIngestionForm("department", event.target.value)} /></label>
+                        <label>Job role<input value={ingestionForm.jobRole} onChange={(event) => updateIngestionForm("jobRole", event.target.value)} /></label>
+                        <label>Manager email<input value={ingestionForm.managerEmail} onChange={(event) => updateIngestionForm("managerEmail", event.target.value)} /></label>
+                      </>
+                    )}
+                    {formType !== "employee" && (
+                      <>
+                        <label>Program code<input value={ingestionForm.programCode} onChange={(event) => updateIngestionForm("programCode", event.target.value)} /></label>
+                        <label>Status<input value={ingestionForm.status} onChange={(event) => updateIngestionForm("status", event.target.value)} /></label>
+                      </>
+                    )}
+                    {formType === "attendance" && (
+                      <>
+                        <label>Session code<input value={ingestionForm.sessionCode} onChange={(event) => updateIngestionForm("sessionCode", event.target.value)} /></label>
+                        <label>Attendance %<input type="number" value={ingestionForm.attendancePercentage} onChange={(event) => updateIngestionForm("attendancePercentage", event.target.value)} /></label>
+                        <label>Attendance date<input type="date" value={ingestionForm.attendanceDate} onChange={(event) => updateIngestionForm("attendanceDate", event.target.value)} /></label>
+                      </>
+                    )}
+                    {formType === "assessment" && (
+                      <>
+                        <label>Competency code<input value={ingestionForm.competencyCode} onChange={(event) => updateIngestionForm("competencyCode", event.target.value)} /></label>
+                        <label>Score<input type="number" value={ingestionForm.score} onChange={(event) => updateIngestionForm("score", event.target.value)} /></label>
+                        <label>Assessment type<input value={ingestionForm.assessmentType} onChange={(event) => updateIngestionForm("assessmentType", event.target.value)} /></label>
+                        <label>Score type<input value={ingestionForm.scoreType} onChange={(event) => updateIngestionForm("scoreType", event.target.value)} /></label>
+                        <label>Attempt<input type="number" value={ingestionForm.attemptNumber} onChange={(event) => updateIngestionForm("attemptNumber", event.target.value)} /></label>
+                        <label>Assessment date<input type="date" value={ingestionForm.assessmentDate} onChange={(event) => updateIngestionForm("assessmentDate", event.target.value)} /></label>
+                      </>
+                    )}
+                    {formType === "competency" && (
+                      <>
+                        <label>Competency code<input value={ingestionForm.competencyCode} onChange={(event) => updateIngestionForm("competencyCode", event.target.value)} /></label>
+                        <label>Due date<input type="date" value={ingestionForm.dueDate} onChange={(event) => updateIngestionForm("dueDate", event.target.value)} /></label>
+                        <label>Completed on<input type="date" value={ingestionForm.completedOn} onChange={(event) => updateIngestionForm("completedOn", event.target.value)} /></label>
+                      </>
+                    )}
+                  </div>
+                  <div className="actions">
+                    <button onClick={submitIngestionForm}>Submit form record</button>
+                  </div>
+                </section>
+              </div>
 
               <h3>Data Sources</h3>
               <table>

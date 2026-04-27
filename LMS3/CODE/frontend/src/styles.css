@@ -83,6 +83,15 @@ select {
   padding: 10px 12px;
 }
 
+input {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  color: #172033;
+  font: inherit;
+  padding: 10px 12px;
+}
+
 .module-nav {
   background: #ffffff;
   border: 1px solid #d8e0ec;
@@ -258,6 +267,27 @@ th {
   flex-wrap: wrap;
   gap: 10px;
   margin: 18px 0;
+}
+
+.ingestion-panels {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  margin: 20px 0;
+}
+
+.form-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.form-grid label {
+  color: #475569;
+  display: grid;
+  font-size: 13px;
+  font-weight: 800;
+  gap: 6px;
 }
 
 button {

@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Inas_workspace\\Project1\\prompts\\LMS3\\CODE\\src\\Learning.Application\\Learning.Application.csproj",
+      "projectUniqueName": "d:\\Inas_workspace\\Project1\\prompts\\LMS3\\CODE\\src\\Learning.Application\\Learning.Application.csproj",
       "projectName": "Learning.Application",
-      "projectPath": "D:\\Inas_workspace\\Project1\\prompts\\LMS3\\CODE\\src\\Learning.Application\\Learning.Application.csproj",
+      "projectPath": "d:\\Inas_workspace\\Project1\\prompts\\LMS3\\CODE\\src\\Learning.Application\\Learning.Application.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "D:\\Inas_workspace\\Project1\\prompts\\LMS3\\CODE\\src\\Learning.Application\\obj\\",
+      "outputPath": "d:\\Inas_workspace\\Project1\\prompts\\LMS3\\CODE\\src\\Learning.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -59,8 +59,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Inas_workspace\\Project1\\prompts\\LMS3\\CODE\\src\\Learning.Domain\\Learning.Domain.csproj": {
-              "projectPath": "D:\\Inas_workspace\\Project1\\prompts\\LMS3\\CODE\\src\\Learning.Domain\\Learning.Domain.csproj"
+            "d:\\Inas_workspace\\Project1\\prompts\\LMS3\\CODE\\src\\Learning.Domain\\Learning.Domain.csproj": {
+              "projectPath": "d:\\Inas_workspace\\Project1\\prompts\\LMS3\\CODE\\src\\Learning.Domain\\Learning.Domain.csproj"
             }
           }
         }
