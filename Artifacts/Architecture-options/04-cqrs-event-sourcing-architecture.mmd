@@ -1,0 +1,60 @@
+graph TB
+    subgraph "CQRS + Event Sourcing Architecture"
+        subgraph CommandSide["Command Side (Write)"]
+            Client["💻 Client Commands<br/>(API)"]
+            CommandHandler["✍️ Command Handler<br/>(Validates & Executes)"]
+            AggregateRepo["🗂️ Aggregate Repository"]
+            EventBus["🔔 Event Bus"]
+        end
+        
+        subgraph EventStore["Event Store (Single Source of Truth)"]
+            ImmutableLog["📜 Immutable Event Log<br/>(Complete History)"]
+            Snapshots["📸 Snapshots<br/>(Performance Optimization)"]
+        end
+        
+        subgraph QuerySide["Query Side (Read)"]
+            ReadDB1["👤 Student Profile DB"]
+            ReadDB2["⚠️ At-Risk Report DB"]
+            ReadDB3["🎯 Intervention History DB"]
+            ReadDB4["✅ Compliance Report DB"]
+        end
+        
+        subgraph Projections["Read Model Projections"]
+            StudentProjector["👤 Student Projector"]
+            RiskProjector["⚠️ Risk Projector"]
+            InterventionProjector["🎯 Intervention Projector"]
+            ComplianceProjector["✅ Compliance Projector"]
+        end
+        
+        Query["📖 Query API<br/>(Fast Read)"]
+        Clients["📱 Client Applications"]
+        
+        Client --> CommandHandler
+        CommandHandler --> AggregateRepo
+        AggregateRepo --> EventBus
+        EventBus --> ImmutableLog
+        ImmutableLog --> Snapshots
+        
+        ImmutableLog --> StudentProjector
+        ImmutableLog --> RiskProjector
+        ImmutableLog --> InterventionProjector
+        ImmutableLog --> ComplianceProjector
+        
+        StudentProjector --> ReadDB1
+        RiskProjector --> ReadDB2
+        InterventionProjector --> ReadDB3
+        ComplianceProjector --> ReadDB4
+        
+        ReadDB1 --> Query
+        ReadDB2 --> Query
+        ReadDB3 --> Query
+        ReadDB4 --> Query
+        
+        Query --> Clients
+    end
+    
+    style CommandSide fill:#ffebee
+    style EventStore fill:#fff9c4
+    style QuerySide fill:#e8f5e9
+    style Projections fill:#f3e5f5
+    style Query fill:#c8e6c9

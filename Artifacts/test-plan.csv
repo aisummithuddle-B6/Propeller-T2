@@ -1,0 +1,84 @@
+Section,Item,Description,Owner,Priority
+Purpose,Detailed Test Plan Purpose,"Validate functional correctness, data integrity, user experience, traceability, operational readiness, and demo suitability.",QA Lead,High
+Product Area,Learner Profile,"Validate learner identity, profile switching, summaries, and drilldowns.",Frontend QA,High
+Product Area,Data Ingestion,"Validate API, UI form, Excel upload, import batches, validation errors, and reconciliation issues.",Backend QA,High
+Product Area,Competency Tracking,"Validate milestone display, milestone update behavior, and overdue visibility.",QA Team,High
+Product Area,Risk Rules and Risk Assessment,"Validate rule configuration, risk calculation, explainability, and risk history.",Backend QA,High
+Product Area,Intervention Management,"Validate creation, notes, outcomes, status, and profile visibility.",QA Team,High
+Product Area,Dashboard,Validate metric snapshots and planned dashboard views.,Frontend QA,Medium
+Product Area,Compliance Reporting,"Validate report templates, report requests, and planned evidence output.",QA Team,Medium
+Product Area,Notifications and Escalations,Validate seeded notification and escalation data and future event flows.,QA Team,Medium
+Product Area,Administration and Access Control,"Validate users, roles, configuration, and data source administration.",QA Team,Medium
+Product Area,Audit and Operations,"Validate audit logs, health checks, setup, and deployment verification.",Release Owner,High
+Test Strategy,Unit Testing,"Validate isolated business and mapping logic such as risk logic, validation helpers, and DTO mapping.",Developers,High
+Test Strategy,API Testing,"Validate endpoint contracts, status codes, request and response behavior.",Backend QA,High
+Test Strategy,Integration Testing,"Validate EF Core persistence, database provider behavior, ingestion flows, and seeded data.",Backend QA,High
+Test Strategy,UI Functional Testing,"Validate React module navigation, profile switching, forms, upload states, and data display.",Frontend QA,High
+Test Strategy,End-to-End Testing,Validate complete business workflows from ingestion to profile and reporting.,QA Lead,High
+Test Strategy,Regression Testing,Validate existing functionality after changes.,QA Team,High
+Test Strategy,Smoke Testing,"Validate API starts, frontend loads, and health endpoint returns success.",Release Owner,High
+Test Strategy,Exploratory Testing,"Identify usability issues, empty state gaps, invalid upload behavior, and network failure behavior.",QA/Product,Medium
+Environment,Frontend,React + TypeScript + Vite,Frontend Team,High
+Environment,Backend,ASP.NET Core Web API,Backend Team,High
+Environment,Application Projects,"Learning.Api, Learning.Application, Learning.Domain, Learning.Infrastructure, Learning.Workers",Development Team,High
+Environment,Database,SQL Server LocalDB for POC and PostgreSQL compatibility for future deployment,Backend Team,High
+Environment,Data Access,EF Core,Backend Team,High
+Environment,Seed Data,"13 learners plus programs, sessions, attendance, assessments, milestones, risks, interventions, reports, users, roles, and audit data.",QA Team,High
+Environment,Browser,Latest Microsoft Edge or Chrome,Frontend QA,Medium
+Environment,API Documentation,Swagger/OpenAPI in development,Backend Team,Medium
+Environment,Local URLs,"API http://localhost:5080; Frontend http://127.0.0.1:5173",Release Owner,Medium
+Entry Criteria,Source Code,Source code is available and dependencies are restored.,Dev Lead,High
+Entry Criteria,Database,SQL Server LocalDB or selected database provider is available.,Backend Team,High
+Entry Criteria,Seed Data,Database schema is created and seed data is loaded.,Backend Team,High
+Entry Criteria,Backend Build,Backend build succeeds.,Dev Lead,High
+Entry Criteria,Frontend Build,Frontend build succeeds.,Frontend Team,High
+Entry Criteria,Health Endpoint,API health endpoint is reachable.,Release Owner,High
+Entry Criteria,Traceability,Test cases and requirement traceability matrix are available.,QA Lead,High
+Exit Criteria,Must-Have Tests,All must-have implemented module test cases pass.,QA Lead,High
+Exit Criteria,Defect Threshold,No open critical or high defects block the POC demo.,QA Lead,High
+Exit Criteria,Known Limitations,All failed tests have documented defect IDs or known limitation notes.,QA Lead,High
+Exit Criteria,Traceability,Requirement coverage is traceable from DFR IDs to use cases and tests.,QA Lead,High
+Exit Criteria,Smoke Test,Smoke test passes from a clean start.,Release Owner,High
+Exit Criteria,Demo Script,Demo script can be executed using seeded and ingested data.,Product Owner,High
+Test Data,Learners,"Standard learner, compliant learner, at-risk learner, learner without manager.",QA Team,High
+Test Data,Attendance,"Present, absent, partially attended, invalid percentage, duplicate source record.",QA Team,High
+Test Data,Assessments,"Passed, failed, reassessment, invalid score, duplicate source record.",QA Team,High
+Test Data,Competencies,"Completed, not started, overdue, waived or exempted examples.",QA Team,High
+Test Data,Risk Rules,"Low attendance, failed assessment, overdue competency.",Backend QA,High
+Test Data,Interventions,"Planned, in progress, completed, outcome recorded.",QA Team,High
+Test Data,Reports,Mandatory compliance report template and report request.,QA Team,Medium
+Test Data,Audit,Seeded and generated audit events.,QA Team,Medium
+Module Coverage,Learner Profile,"Load profile, switch learner, view summaries, view drilldowns, handle empty learner data.",Frontend QA,High
+Module Coverage,Data Ingestion,"Submit valid API record, submit UI form, upload Excel, reject invalid record, detect duplicate, show reconciliation issue.",Backend QA,High
+Module Coverage,Competency Tracking,"Show milestones, update milestone, calculate incomplete/overdue readiness.",QA Team,High
+Module Coverage,Risk Rules and Risk Assessment,"Create rule, activate or deactivate rule, recalculate risk, view triggers and history.",Backend QA,High
+Module Coverage,Intervention Management,"Create intervention, add note, record outcome, validate status visibility.",QA Team,High
+Module Coverage,Dashboard,"Show metric snapshots, show planned risk/compliance dashboards, validate empty state.",Frontend QA,Medium
+Module Coverage,Compliance Reporting,"Show templates, create request, validate filters, trace audit event.",QA Team,Medium
+Module Coverage,Notifications and Escalations,"Validate seeded notification list, escalation rule setup, future trigger behavior.",QA Team,Medium
+Module Coverage,Administration and Access Control,"Show users, roles, scoped assignments, configurations, data sources.",QA Team,Medium
+Module Coverage,Audit and Operations,"Show audit logs, verify health endpoint, validate setup/build/run instructions.",Release Owner,High
+Defect Management,Critical,Blocks demo or corrupts business-critical learning/compliance data.,QA Lead,High
+Defect Management,High,Blocks must-have workflow.,QA Lead,High
+Defect Management,Medium,Impacts usability or secondary workflow without blocking demo.,QA Lead,Medium
+Defect Management,Low,Cosmetic or documentation issue.,QA Lead,Low
+Execution Schedule,Stage 1,"Environment setup, seed data, and smoke tests.",Release Owner,High
+Execution Schedule,Stage 2,"Learner profile, competency, and data ingestion functional testing.",QA Team,High
+Execution Schedule,Stage 3,"Risk, intervention, dashboard, reporting, audit, and admin testing.",QA Team,High
+Execution Schedule,Stage 4,"Regression, defect retest, and traceability review.",QA Lead,High
+Execution Schedule,Stage 5,Demo readiness validation and sign-off.,Product Owner,High
+Automation Strategy,Unit Tests,"Risk logic, status calculations, validation helpers.",Developers,High
+Automation Strategy,API Tests,"Learner APIs, ingestion APIs, risk/intervention APIs, reporting APIs, health endpoint.",Backend QA,High
+Automation Strategy,Integration Tests,EF Core database-backed services and seeded data scenarios.,Backend QA,High
+Automation Strategy,UI Smoke Tests,"Load app, switch learner, open each module, submit ingestion form.",Frontend QA,High
+Automation Strategy,CI Checks,"Backend build, frontend build, unit tests, lint checks, smoke test script.",Release Owner,High
+Risk,Excel Header Variation,"Excel files have inconsistent headers; provide template and strict header validation.",Backend QA,High
+Risk,Contract Drift,"UI and API contract drift; maintain DTO/API contract tests.",Architecture Team,High
+Risk,Stale Seed Data,"Seed data becomes stale; keep deterministic seed data and verify counts.",QA Team,Medium
+Risk,Provider Differences,"LocalDB and PostgreSQL behavior differ; run provider compatibility tests.",Backend Team,Medium
+Risk,Scope Confusion,"Partially implemented modules are mistaken as complete; mark status clearly in docs and UI.",Product Owner,Medium
+Approval,Product Owner,Approves functional scope and acceptance coverage.,Product Owner,High
+Approval,Solution Architect,"Approves architecture, integration, and traceability coverage.",Solution Architect,High
+Approval,QA Lead,"Approves test plan, test cases, execution, and defect closure.",QA Lead,High
+Approval,Dev Lead,"Approves build, code quality, and technical readiness.",Dev Lead,High
+Approval,Compliance Representative,"Approves reporting, audit, and compliance evidence coverage.",Compliance Representative,High

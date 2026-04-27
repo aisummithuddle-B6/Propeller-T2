@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 1161.5349999999999 848.3" width="1121.5349999999999" height="808.3" style="--bg:#FFFFFF;--fg:#27272A;background:var(--bg)"><rect x="-20" y="-20" width="1161.5349999999999" height="848.3" rx="10" ry="10" fill="#ffffff" stroke="#cccccc" stroke-width="1"/><g transform="translate(0,0)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="NTier_Layered_Architecture" data-label="N-Tier Layered Architecture">
+  <rect x="40" y="40" width="1041.5349999999999" height="728.3" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="40" y="40" width="1041.5349999999999" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="52" y="54" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">N-Tier Layered Architecture</text>
+<g class="subgraph" data-id="BLL" data-label="Business Logic Layer">
+  <rect x="56" y="276.70000000000005" width="1009.535" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="56" y="276.70000000000005" width="1009.535" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="68" y="290.70000000000005" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Business Logic Layer</text>
+</g>
+<g class="subgraph" data-id="DAL" data-label="Data Access Layer">
+  <rect x="313.1142499999999" y="433.6" width="749.148" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="313.1142499999999" y="433.6" width="749.148" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="325.1142499999999" y="447.6" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Data Access Layer</text>
+</g>
+<g class="subgraph" data-id="DB" data-label="Data Layer">
+  <rect x="353.42241666666666" y="614.5" width="614.286" height="137.8" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="353.42241666666666" y="614.5" width="614.286" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="365.42241666666666" y="628.5" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Data Layer</text>
+</g>
+</g>
+<polyline class="edge" data-from="API" data-to="Auth" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="539.2028333333334,222.70000000000002 539.2028333333334,271.70000000000005 525.9404999999999,271.70000000000005 525.9404999999999,320.70000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="API" data-to="Learning" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="539.2028333333334,222.70000000000002 539.2028333333334,271.70000000000005 734.828,271.70000000000005 734.828,320.70000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="API" data-to="Risk" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="539.2028333333334,222.70000000000002 539.2028333333334,271.70000000000005 952.9780000000001,271.70000000000005 952.9780000000001,320.70000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="API" data-to="Intervention" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="539.2028333333334,222.70000000000002 539.2028333333334,271.70000000000005 330.02049999999997,271.70000000000005 330.02049999999997,320.70000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="API" data-to="Reporting" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="539.2028333333334,222.70000000000002 539.2028333333334,271.70000000000005 146.6975,271.70000000000005 146.6975,320.70000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Auth" data-to="StudentRepo" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="525.9404999999999,357.6 525.9404999999999,417.6 587.8757499999999,417.6 587.8757499999999,477.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Learning" data-to="StudentRepo" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="734.828,357.6 734.828,417.6 587.8757499999999,417.6 587.8757499999999,477.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Learning" data-to="AssessmentRepo" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="734.828,357.6 734.828,417.6 783.79575,417.6 783.79575,477.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Risk" data-to="AssessmentRepo" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="952.9780000000001,357.6 952.9780000000001,417.6 783.79575,417.6 783.79575,477.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Risk" data-to="RulesRepo" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="952.9780000000001,357.6 952.9780000000001,417.6 974.52875,417.6 974.52875,477.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Intervention" data-to="StudentRepo" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="330.02049999999997,357.6 330.02049999999997,417.6 587.8757499999999,417.6 587.8757499999999,477.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Reporting" data-to="StudentDB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="106.69749999999999,317.6 106.69749999999999,351.6 179.0884166666666,351.6 179.0884166666666,508.5 370.57574999999997,508.5 370.57574999999997,642.5" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="StudentRepo" data-to="StudentDB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="587.8757499999999,514.5 587.8757499999999,598.5 431.1524166666667,598.5 431.1524166666667,682.5" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="StudentRepo" data-to="Cache" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="587.8757499999999,514.5 587.8757499999999,598.5 741.8529166666666,598.5 741.8529166666666,682.5" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="AssessmentRepo" data-to="AssessmentDB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="783.79575,514.5 783.79575,598.5 588.1699166666666,598.5 588.1699166666666,682.5" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="AssessmentRepo" data-to="Cache" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="783.79575,514.5 783.79575,598.5 741.8529166666666,598.5 741.8529166666666,682.5" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RulesRepo" data-to="RulesDB" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="974.52875,514.5 974.52875,598.5 889.9784166666666,598.5 889.9784166666666,682.5" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RulesRepo" data-to="Cache" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="974.52875,514.5 974.52875,598.5 741.8529166666666,598.5 741.8529166666666,682.5" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Client" data-to="API" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="539.2028333333334,137.8 539.2028333333334,185.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="node" data-id="Client" data-label="Client Layer
+(Web/Mobile UI)" data-shape="rectangle">
+  <rect x="473.0268333333334" y="84" width="132.352" height="53.800000000000004" rx="0" ry="0" fill="#e1f5ff" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="539.2028333333334" y="110.9" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="539.2028333333334" dy="-3.9000000000000012">Client Layer</tspan><tspan x="539.2028333333334" dy="16.900000000000002">(Web/Mobile UI)</tspan></text>
+</g>
+<g class="node" data-id="API" data-label="API Gateway" data-shape="rectangle">
+  <rect x="481.5483333333334" y="185.8" width="115.30900000000001" height="36.900000000000006" rx="0" ry="0" fill="#fff3e0" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="539.2028333333334" y="204.25" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">API Gateway</text>
+</g>
+<g class="node" data-id="Auth" data-label="Authentication Service" data-shape="rectangle">
+  <rect x="438.64599999999996" y="320.70000000000005" width="174.589" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="525.9404999999999" y="339.15000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Authentication Service</text>
+</g>
+<g class="node" data-id="Learning" data-label="Learning Profile Service" data-shape="rectangle">
+  <rect x="641.235" y="320.70000000000005" width="187.18599999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="734.828" y="339.15000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Learning Profile Service</text>
+</g>
+<g class="node" data-id="Risk" data-label="Risk Assessment Service" data-shape="rectangle">
+  <rect x="856.421" y="320.70000000000005" width="193.11399999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="952.9780000000001" y="339.15000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Risk Assessment Service</text>
+</g>
+<g class="node" data-id="Intervention" data-label="Intervention Service" data-shape="rectangle">
+  <rect x="249.39499999999998" y="320.70000000000005" width="161.251" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="330.02049999999997" y="339.15000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Intervention Service</text>
+</g>
+<g class="node" data-id="Reporting" data-label="Reporting Service" data-shape="rectangle">
+  <rect x="72" y="320.70000000000005" width="149.395" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="146.6975" y="339.15000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Reporting Service</text>
+</g>
+<g class="node" data-id="StudentRepo" data-label="Student Repository" data-shape="rectangle">
+  <rect x="510.95525" y="477.6" width="153.841" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="587.8757499999999" y="496.05" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Student Repository</text>
+</g>
+<g class="node" data-id="AssessmentRepo" data-label="Assessment Repository" data-shape="rectangle">
+  <rect x="692.79625" y="477.6" width="181.999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="783.79575" y="496.05" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Assessment Repository</text>
+</g>
+<g class="node" data-id="CourseRepo" data-label="Course Repository" data-shape="rectangle">
+  <rect x="329.11424999999997" y="477.6" width="153.841" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="406.03475" y="496.05" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Course Repository</text>
+</g>
+<g class="node" data-id="RulesRepo" data-label="Rules Repository" data-shape="rectangle">
+  <rect x="902.7952499999999" y="477.6" width="143.467" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="974.52875" y="496.05" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Rules Repository</text>
+</g>
+<g class="node" data-id="StudentDB" data-label="Student DB
+(PostgreSQL)" data-shape="rectangle">
+  <rect x="369.42241666666666" y="682.5" width="123.45999999999998" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="431.1524166666667" y="709.4" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="431.1524166666667" dy="-3.9000000000000012">Student DB</tspan><tspan x="431.1524166666667" dy="16.900000000000002">(PostgreSQL)</tspan></text>
+</g>
+<g class="node" data-id="AssessmentDB" data-label="Assessment DB
+(PostgreSQL)" data-shape="rectangle">
+  <rect x="520.8824166666666" y="682.5" width="134.575" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="588.1699166666666" y="709.4" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="588.1699166666666" dy="-3.9000000000000012">Assessment DB</tspan><tspan x="588.1699166666666" dy="16.900000000000002">(PostgreSQL)</tspan></text>
+</g>
+<g class="node" data-id="RulesDB" data-label="Rules DB
+(PostgreSQL)" data-shape="rectangle">
+  <rect x="828.2484166666666" y="682.5" width="123.45999999999998" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="889.9784166666666" y="709.4" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="889.9784166666666" dy="-3.9000000000000012">Rules DB</tspan><tspan x="889.9784166666666" dy="16.900000000000002">(PostgreSQL)</tspan></text>
+</g>
+<g class="node" data-id="Cache" data-label="Redis Cache" data-shape="rectangle">
+  <rect x="683.4574166666666" y="682.5" width="116.79099999999998" height="36.900000000000006" rx="0" ry="0" fill="#fff9c4" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="741.8529166666666" y="700.95" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Redis Cache</text>
+</g>
+</g></svg>

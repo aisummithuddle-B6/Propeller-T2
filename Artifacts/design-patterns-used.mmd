@@ -1,0 +1,80 @@
+flowchart TB
+    title["Design Patterns Used in the Corporate Learning Tracking System"]
+
+    subgraph backendPatterns [Backend Architecture and Structure]
+        cleanArchitecture["Clean Architecture"]
+        layeredArchitecture["Layered Architecture"]
+        modularMonolith["Modular Monolith"]
+        apiController["API Controller Pattern"]
+        dependencyInjection["Dependency Injection"]
+        interfaceAbstraction["Interface-Based Abstraction"]
+        serviceLayer["Service Layer Pattern"]
+    end
+
+    subgraph domainPatterns [Domain and Application Behavior]
+        encapsulation["Encapsulation"]
+        factoryCreation["Factory / Creation Method Style"]
+        validationPattern["Validation Pattern"]
+        configurationPattern["Configuration Pattern"]
+        featureToggleReadiness["Feature Toggle Readiness"]
+    end
+
+    subgraph dataPatterns [Data Access and Integration]
+        repositoryLike["Repository-Like Data Access via EF Core DbContext"]
+        unitOfWork["Unit of Work Pattern"]
+        dtoPattern["DTO Pattern"]
+        adapterPattern["Adapter Pattern"]
+        strategyProvider["Strategy-Like Provider Selection"]
+        idempotency["Idempotency / Duplicate Detection"]
+        errorQueue["Error Queue Pattern"]
+    end
+
+    subgraph reportingPatterns [Reporting, Audit, and Read Models]
+        auditTrail["Audit Trail Pattern"]
+        cqrsLite["CQRS-Lite"]
+        dashboardReadModel["Dashboard / Read Model Aggregation"]
+    end
+
+    subgraph frontendPatterns [Frontend Patterns]
+        frontendComponent["Frontend Component Pattern"]
+        frontendStateEffect["Frontend State and Effect Pattern"]
+    end
+
+    subgraph operationsPatterns [Operations Patterns]
+        healthCheck["Health Check Pattern"]
+    end
+
+    title --> cleanArchitecture
+    title --> dtoPattern
+    title --> auditTrail
+    title --> frontendComponent
+    title --> healthCheck
+
+    cleanArchitecture --> layeredArchitecture
+    layeredArchitecture --> apiController
+    apiController --> serviceLayer
+    serviceLayer --> interfaceAbstraction
+    interfaceAbstraction --> dependencyInjection
+    modularMonolith --> serviceLayer
+
+    serviceLayer --> encapsulation
+    encapsulation --> factoryCreation
+    serviceLayer --> validationPattern
+    configurationPattern --> strategyProvider
+    featureToggleReadiness --> configurationPattern
+
+    serviceLayer --> repositoryLike
+    repositoryLike --> unitOfWork
+    apiController --> dtoPattern
+    dtoPattern --> frontendComponent
+    adapterPattern --> strategyProvider
+    adapterPattern --> idempotency
+    idempotency --> errorQueue
+
+    serviceLayer --> auditTrail
+    serviceLayer --> cqrsLite
+    cqrsLite --> dashboardReadModel
+    dashboardReadModel --> frontendComponent
+
+    frontendComponent --> frontendStateEffect
+    apiController --> healthCheck

@@ -1,0 +1,63 @@
+flowchart LR
+    users[Users]
+    enterpriseIdp[Enterprise IdP]
+    cdn[CDN]
+    ingress[Ingress Controller]
+
+    subgraph cluster [Managed Kubernetes Cluster]
+        webPod[Frontend Web Pod]
+        apiPods[Backend API Pods]
+        ingestionPods[Ingestion Worker Pods]
+        riskPods[Risk Evaluation Worker Pods]
+        reportPods[Report Worker Pods]
+        notificationPods[Notification Worker Pods]
+        hpa[Horizontal Pod Autoscaler]
+        config[ConfigMaps and Secrets]
+    end
+
+    postgres[(Managed PostgreSQL)]
+    redis[(Managed Redis)]
+    objectStorage[(Object Storage)]
+    queue[(Message Queue)]
+    secretsVault[Cloud Secrets Vault]
+    observability[OpenTelemetry Prometheus Grafana Logs]
+    externalSystems[External LMS Assessment HR Systems]
+    emailProvider[Email or Messaging Provider]
+    cicd[CI/CD Pipeline]
+    registry[Container Registry]
+
+    users --> cdn
+    cdn --> ingress
+    ingress --> webPod
+    ingress --> apiPods
+    webPod --> enterpriseIdp
+
+    cicd --> registry
+    registry --> cluster
+
+    externalSystems --> queue
+    queue --> ingestionPods
+    apiPods --> queue
+    apiPods --> postgres
+    apiPods --> redis
+    apiPods --> objectStorage
+    apiPods --> secretsVault
+    apiPods --> config
+
+    ingestionPods --> postgres
+    riskPods --> postgres
+    riskPods --> redis
+    reportPods --> postgres
+    reportPods --> objectStorage
+    notificationPods --> emailProvider
+
+    hpa --> apiPods
+    hpa --> ingestionPods
+    hpa --> riskPods
+    hpa --> reportPods
+
+    apiPods --> observability
+    ingestionPods --> observability
+    riskPods --> observability
+    reportPods --> observability
+    notificationPods --> observability

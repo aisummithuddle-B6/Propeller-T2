@@ -1,0 +1,54 @@
+flowchart LR
+    users[Users]
+    identity[Cloud Identity or External IdP]
+    loadBalancer[Cloud Load Balancer and CDN]
+    webHosting[Firebase Hosting or Cloud Storage Static Site]
+
+    subgraph cloudRun [Google Cloud Run]
+        apiService[Backend API Service]
+        ingestionJob[Ingestion Job]
+        riskJob[Risk Evaluation Job]
+        reportJob[Report Generation Job]
+        notificationService[Notification Service]
+    end
+
+    cloudSql[(Cloud SQL PostgreSQL)]
+    memorystore[(Memorystore Redis)]
+    cloudStorage[(Cloud Storage Reports and Imports)]
+    secretManager[Secret Manager]
+    pubSub[Pub/Sub]
+    cloudTasks[Cloud Tasks]
+    scheduler[Cloud Scheduler]
+    monitoring[Cloud Logging and Monitoring]
+    externalSystems[External LMS Assessment HR Systems]
+    emailProvider[Email Provider]
+
+    users --> loadBalancer
+    loadBalancer --> webHosting
+    webHosting --> identity
+    webHosting --> apiService
+
+    externalSystems --> pubSub
+    pubSub --> ingestionJob
+    scheduler --> riskJob
+    scheduler --> reportJob
+    cloudTasks --> notificationService
+
+    apiService --> cloudSql
+    apiService --> memorystore
+    apiService --> cloudStorage
+    apiService --> secretManager
+
+    ingestionJob --> cloudSql
+    ingestionJob --> cloudStorage
+    riskJob --> cloudSql
+    riskJob --> memorystore
+    reportJob --> cloudSql
+    reportJob --> cloudStorage
+    notificationService --> emailProvider
+
+    apiService --> monitoring
+    ingestionJob --> monitoring
+    riskJob --> monitoring
+    reportJob --> monitoring
+    notificationService --> monitoring

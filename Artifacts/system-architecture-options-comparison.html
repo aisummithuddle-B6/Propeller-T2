@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>System Architecture Options Comparison</title>
+  <style>
+    body {
+      background: #f7f9fc;
+      color: #172033;
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 40px;
+    }
+
+    main {
+      background: #ffffff;
+      border: 1px solid #d8e0ec;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
+      margin: 0 auto;
+      max-width: 1240px;
+      padding: 36px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+    }
+
+    h2 {
+      border-bottom: 2px solid #d8e0ec;
+      margin-top: 36px;
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #64748b;
+      margin-top: 0;
+    }
+
+    .recommendation {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 14px;
+      margin: 24px 0;
+      padding: 20px;
+    }
+
+    .recommendation strong {
+      color: #047857;
+      font-size: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid #d8e0ec;
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #eef4ff;
+      color: #1d4ed8;
+      font-weight: 700;
+    }
+
+    tr.recommended-row {
+      background: #f0fdf4;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1px solid #d8e0ec;
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .badge {
+      background: #dbeafe;
+      border-radius: 999px;
+      color: #1d4ed8;
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 4px 4px 4px 0;
+      padding: 4px 10px;
+    }
+
+    ul {
+      margin-top: 8px;
+      padding-left: 22px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>System Architecture Options Comparison</h1>
+    <p class="subtitle">Corporate Learning Progress, Intervention &amp; Compliance Tracking System</p>
+
+    <section class="recommendation">
+      <h2>Recommended Architecture</h2>
+      <p><strong>Hybrid Architecture + Event-Driven Audit Trail</strong></p>
+      <p>
+        This option gives the best balance between scalability, cost, complexity, compliance needs, and team manageability.
+        It keeps stable core product workflows in a manageable monolithic core, separates independently scalable capabilities,
+        and uses event-driven processing where auditability and real-time response matter most.
+      </p>
+    </section>
+
+    <h2>Comparison Matrix</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Architecture Option</th>
+          <th>Best For</th>
+          <th>Complexity</th>
+          <th>Scalability</th>
+          <th>Estimated Cost</th>
+          <th>Team Size</th>
+          <th>When to Choose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Layered / N-Tier Architecture</td>
+          <td>Simple LMS, MVP, medium-complexity systems</td>
+          <td>Low</td>
+          <td>Medium</td>
+          <td>Medium</td>
+          <td>3-8</td>
+          <td>Choose when speed, simplicity, and clear separation of concerns matter more than independent scaling.</td>
+        </tr>
+        <tr>
+          <td>Microservices Architecture</td>
+          <td>Large enterprise systems, multi-team organizations</td>
+          <td>Very High</td>
+          <td>Excellent</td>
+          <td>High</td>
+          <td>20+</td>
+          <td>Choose when services need independent scaling, independent deployment, and ownership by separate teams.</td>
+        </tr>
+        <tr>
+          <td>Event-Driven Architecture</td>
+          <td>Real-time workflows, reactive processing, audit-heavy systems</td>
+          <td>High</td>
+          <td>Very Good</td>
+          <td>Medium</td>
+          <td>8-12</td>
+          <td>Choose when learning data changes must trigger risk detection, notifications, audit logging, and downstream updates.</td>
+        </tr>
+        <tr>
+          <td>CQRS + Event Sourcing Architecture</td>
+          <td>Complex systems with full historical audit and temporal queries</td>
+          <td>Very High</td>
+          <td>Very Good</td>
+          <td>Medium-High</td>
+          <td>12-15</td>
+          <td>Choose when immutable history and separate read/write models are mandatory for compliance or analytics.</td>
+        </tr>
+        <tr class="recommended-row">
+          <td><strong>Hybrid Architecture (Recommended)</strong></td>
+          <td>Most enterprise learning tracking systems</td>
+          <td>High</td>
+          <td>Very Good</td>
+          <td>Medium</td>
+          <td>10-15</td>
+          <td>Choose when the product needs practical delivery now, scalable specialist components later, and strong auditability.</td>
+        </tr>
+        <tr>
+          <td>Serverless Architecture</td>
+          <td>Bursty workloads, lightweight operations, quick deployment</td>
+          <td>Low</td>
+          <td>Very Good</td>
+          <td>Low variable</td>
+          <td>2-4</td>
+          <td>Choose when traffic is variable and the team wants minimal server operations, accepting cloud-provider lock-in.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Reasons to Choose Each Option</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Layered / N-Tier</h3>
+        <span class="badge">Simple</span>
+        <span class="badge">Low operational overhead</span>
+        <ul>
+          <li>Easy for mixed-skill teams to understand.</li>
+          <li>Good fit for early MVP delivery.</li>
+          <li>Clear presentation, business, and data access boundaries.</li>
+          <li>Lower DevOps burden than distributed architectures.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Microservices</h3>
+        <span class="badge">Independent scaling</span>
+        <span class="badge">Large teams</span>
+        <ul>
+          <li>Services can deploy and scale independently.</li>
+          <li>Good for separate ownership across departments or squads.</li>
+          <li>Failure isolation is stronger than a monolith.</li>
+          <li>Best when DevOps maturity is already high.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Event-Driven</h3>
+        <span class="badge">Real-time</span>
+        <span class="badge">Audit-friendly</span>
+        <ul>
+          <li>Attendance or assessment changes can trigger immediate risk updates.</li>
+          <li>Supports asynchronous notifications and downstream workflows.</li>
+          <li>Creates a natural event trail for compliance evidence.</li>
+          <li>Reduces tight coupling between ingestion, risk, intervention, and reporting.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>CQRS + Event Sourcing</h3>
+        <span class="badge">Historical state</span>
+        <span class="badge">Compliance</span>
+        <ul>
+          <li>Every meaningful change can be stored as an immutable event.</li>
+          <li>Read models can be optimized for dashboards and reports.</li>
+          <li>Useful when auditors need reconstruction of past states.</li>
+          <li>Appropriate only when the team can manage its complexity.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Hybrid (Recommended)</h3>
+        <span class="badge">Balanced</span>
+        <span class="badge">Enterprise-ready</span>
+        <ul>
+          <li>Stable workflows remain in a core application for simpler delivery.</li>
+          <li>Risk, intervention, analytics, and notifications can scale independently.</li>
+          <li>Event-driven audit supports compliance without overcomplicating every module.</li>
+          <li>Best cost-benefit ratio for the corporate learning tracking product.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Serverless</h3>
+        <span class="badge">Pay per use</span>
+        <span class="badge">Fast deployment</span>
+        <ul>
+          <li>Useful for scheduled imports, report generation, and bursty processing.</li>
+          <li>Reduces server management overhead.</li>
+          <li>Can scale automatically for event-driven workloads.</li>
+          <li>Less ideal for predictable high-traffic core application flows.</li>
+        </ul>
+      </article>
+    </div>
+
+    <h2>Recommended Hybrid Implementation Phases</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Name</th>
+          <th>Duration</th>
+          <th>Key Components</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Core Monolith</td>
+          <td>2-3 months</td>
+          <td>Student management, course management, assessment management, basic API.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Event Infrastructure</td>
+          <td>1 month</td>
+          <td>Message queue setup, event store, audit logging.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Risk Microservice</td>
+          <td>2 months</td>
+          <td>Risk detection engine, rule configuration, risk dashboards.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Intervention Microservice</td>
+          <td>2 months</td>
+          <td>Intervention tracking, program management, coaching assignments.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Analytics Microservice</td>
+          <td>1.5 months</td>
+          <td>Real-time analytics, compliance reports, dashboards.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Recommended Technical Stack</h2>
+    <table>
+      <tbody>
+        <tr><th>Backend</th><td>Java/Spring Boot, Python/FastAPI, or .NET depending on enterprise standards</td></tr>
+        <tr><th>Frontend</th><td>React or Angular</td></tr>
+        <tr><th>Database</th><td>PostgreSQL for core records, MongoDB or event store for logs/events where needed</td></tr>
+        <tr><th>Cache</th><td>Redis</td></tr>
+        <tr><th>Message Queue</th><td>Apache Kafka or RabbitMQ</td></tr>
+        <tr><th>Containerization</th><td>Docker</td></tr>
+        <tr><th>Orchestration</th><td>Kubernetes for independently scalable services</td></tr>
+        <tr><th>Monitoring</th><td>Prometheus + Grafana</td></tr>
+        <tr><th>Logging</th><td>ELK Stack or Splunk</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Final Decision Rationale</h2>
+    <ul>
+      <li><strong>Core stability:</strong> learner profiles, training records, assessments, and basic APIs are stable enough for a modular core.</li>
+      <li><strong>Selective scalability:</strong> risk detection, intervention workflows, analytics, and notifications can scale independently as adoption grows.</li>
+      <li><strong>Compliance readiness:</strong> event-driven audit gives traceability for learning records, interventions, reports, and administrative actions.</li>
+      <li><strong>Practical delivery:</strong> avoids premature full microservices or full event sourcing while preserving a path to scale.</li>
+      <li><strong>Team fit:</strong> manageable by a 10-15 person engineering team with moderate DevOps maturity.</li>
+    </ul>
+  </main>
+</body>
+</html>

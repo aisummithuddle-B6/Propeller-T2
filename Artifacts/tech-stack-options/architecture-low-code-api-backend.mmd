@@ -1,0 +1,70 @@
+flowchart LR
+    learner[Employee Learner]
+    trainer[Trainer]
+    manager[Manager]
+    admin[L&D Administrator]
+    compliance[Compliance Officer]
+
+    subgraph lowCode [Microsoft Power Platform]
+        powerApps[Power Apps User Workflows]
+        powerBi[Power BI Dashboards]
+        powerAutomate[Power Automate Workflows]
+        dataverse[(Dataverse Optional)]
+    end
+
+    subgraph customBackend [Custom API Backend]
+        api[Azure Functions or Lightweight API]
+        ingestionApi[Ingestion API]
+        rulesApi[Risk Rules API]
+        interventionApi[Intervention API]
+        reportingApi[Reporting API]
+        auditApi[Audit API]
+    end
+
+    lms[External LMS]
+    assessments[Assessment System]
+    hr[HR System]
+    notes[Trainer Notes]
+
+    postgres[(PostgreSQL)]
+    storage[(Blob Storage)]
+    queue[(Storage Queue or Service Bus)]
+    identity[Entra ID]
+    keyVault[Azure Key Vault]
+    monitor[Azure Monitor]
+
+    learner --> powerApps
+    trainer --> powerApps
+    manager --> powerApps
+    admin --> powerApps
+    compliance --> powerBi
+
+    powerApps --> identity
+    powerApps --> api
+    powerBi --> dataverse
+    powerBi --> postgres
+    powerAutomate --> queue
+
+    api --> ingestionApi
+    api --> rulesApi
+    api --> interventionApi
+    api --> reportingApi
+    api --> auditApi
+
+    lms --> ingestionApi
+    assessments --> ingestionApi
+    hr --> ingestionApi
+    notes --> ingestionApi
+
+    ingestionApi --> postgres
+    rulesApi --> postgres
+    interventionApi --> postgres
+    reportingApi --> postgres
+    auditApi --> postgres
+
+    reportingApi --> storage
+    ingestionApi --> queue
+    queue --> powerAutomate
+    customBackend --> keyVault
+    customBackend --> monitor
+    lowCode --> monitor

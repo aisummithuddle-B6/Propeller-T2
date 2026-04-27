@@ -1,0 +1,36 @@
+graph TB
+    subgraph "Architecture Comparison & Selection"
+        
+        subgraph Architectures["6 Architecture Patterns"]
+            Arch1["1️⃣ LAYERED<br/>⭐ Low Complexity<br/>⭐⭐ Medium Scalability<br/>Team: 3-8"]
+            Arch2["2️⃣ MICROSERVICES<br/>⭐⭐⭐⭐⭐ Very High Complexity<br/>⭐⭐⭐⭐⭐ Excellent Scalability<br/>Team: 20+"]
+            Arch3["3️⃣ EVENT-DRIVEN<br/>⭐⭐⭐ High Complexity<br/>⭐⭐⭐⭐ Very Good Scalability<br/>Team: 8-12"]
+            Arch4["4️⃣ CQRS+ES<br/>⭐⭐⭐⭐⭐ Very High Complexity<br/>⭐⭐⭐⭐ Very Good Scalability<br/>Team: 12-15"]
+            Arch5["5️⃣ HYBRID (RECOMMENDED) ✅<br/>⭐⭐⭐ High Complexity<br/>⭐⭐⭐⭐ Very Good Scalability<br/>Team: 10-15<br/>BEST FOR MOST SYSTEMS"]
+            Arch6["6️⃣ SERVERLESS<br/>⭐⭐ Low Complexity<br/>⭐⭐⭐⭐ Very Good Scalability<br/>Team: 2-4"]
+        end
+        
+        subgraph Selection["Selection Criteria"]
+            SmallMVP["📌 Small MVP:<br/>Use LAYERED"]
+            Enterprise["📌 Enterprise Scale:<br/>Use MICROSERVICES"]
+            RealTime["📌 Real-time System:<br/>Use EVENT-DRIVEN"]
+            Audit["📌 Compliance+Audit:<br/>Use CQRS+ES"]
+            BalancedLMS["📌 Balanced LMS:<br/>Use HYBRID<br/>(RECOMMENDED)"]
+            Bursty["📌 Bursty Workload:<br/>Use SERVERLESS"]
+        end
+        
+        subgraph Recommended["🏆 RECOMMENDED FOR YOUR SYSTEM"]
+            HybridArch["HYBRID ARCHITECTURE<br/><br/>Monolithic Core<br/>+ Microservices<br/>+ Event-Driven"]
+            Reasons["✅ Best cost-benefit ratio<br/>✅ Manageable complexity<br/>✅ Strong team alignment<br/>✅ Excellent scalability<br/>✅ Audit trail support<br/>✅ 10-15 engineers optimal"]
+        end
+    end
+    
+    style Arch1 fill:#e3f2fd
+    style Arch2 fill:#e3f2fd
+    style Arch3 fill:#e3f2fd
+    style Arch4 fill:#e3f2fd
+    style Arch5 fill:#c8e6c9
+    style Arch6 fill:#e3f2fd
+    style Recommended fill:#fff9c4
+    style HybridArch fill:#c8e6c9
+    style Reasons fill:#c8e6c9
